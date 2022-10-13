@@ -20,6 +20,5 @@
   border: .5px solid rgba(0, 0, 0, 0.102);
   box-shadow: none;
   transition: box-shadow .8s, transform .1s,left .1s, top .1s;
-
   border-radius: 5px;
 }
