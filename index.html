@@ -28,10 +28,11 @@
 
 <script>
   const box = document.querySelectorAll(".box") 
+  
   for (let i = 0; i < box.length; i++) {
-    box[i].style.top = localStorage.getItem(`top${[i]}`) 
-    box[i].style.left = localStorage.getItem(`left${[i]}`) 
-    console.log("bambang")
+    box[i].style.top = localStorage.getItem(`top${i}`) 
+    box[i].style.left = localStorage.getItem(`left${i}`)
+    box[i].style.zIndex = localStorage.getItem(`index${i}`)
   }
 </script>
 

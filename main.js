@@ -4,8 +4,7 @@
 
 // init
 const bix = document.querySelectorAll(".box");
-let a, b, rectLeft, rectTop, prevEvent, currentEvent;
-
+let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
 
 
 // * main
@@ -14,18 +13,20 @@ for (let i = 0; i < bix.length; i++ ) {
   let box = bix[i]
   box.addEventListener("mousedown", flyUp); // flying card
 
+
+
 // * FlyUp =================================================================
   function flyUp(e) {
     let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"))
     a = e.clientX;
     b = e.clientY;
     
-    let arr = []
+    arr = []
     
     for (let j = 0; j < bix.length; j++) {
       let bux = bix[j]
       index = parseInt(getComputedStyle(bux).getPropertyValue("z-index"))
-      arr.push(index)
+      arr.push(index)  
     }
 
     let max = Math.max( ...arr )
@@ -34,7 +35,18 @@ for (let i = 0; i < bix.length; i++ ) {
     rectLeft = Math.floor(box.getBoundingClientRect().left);
     rectTop = Math.floor(box.getBoundingClientRect().top);
   
-    box.style.zIndex = max + 1; 
+    if (max < 100) {
+      box.style.zIndex = max + 1;
+      localStorage.setItem(`index${i}`, max)
+    } else {
+      for (let k = 0; k < bix.length; k++) {
+        console.log(localStorage.getItem(`index${k}`))
+        localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 50)
+        bix[k].style.zIndex = localStorage.getItem(`index${k}`)
+      }
+      // box.style.zIndex = localStorage.getItem(`index${i}` + 1)
+    }
+
     document.getElementById("demo5").innerHTML = "Arr : " + arr;
 
     box.style.cursor = "grabbing";
@@ -56,8 +68,8 @@ for (let i = 0; i < bix.length; i++ ) {
     localStorage.setItem(`top${[i]}`, mouseVer + "px")
     localStorage.setItem(`left${[i]}`, mouseHor + "px")
 
-    console.log("Top: ", localStorage.top3)
-    console.log("Left", localStorage.left3)
+    // console.log("Top: ", localStorage.top3)
+    // console.log("Left", localStorage.left3)
 
     // * Wosh
     function wosh() {
@@ -81,6 +93,7 @@ for (let i = 0; i < bix.length; i++ ) {
   
 // * FlyDown =================================================================
   function flyDown() {
+    // console.log(arr)
     
     box.style.cursor = "grab";
     box.style.boxShadow = "none";
