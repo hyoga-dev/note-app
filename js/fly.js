@@ -3,7 +3,6 @@
 let a, b, rectLeft, rectTop, prevEvent, currentEvent;
 
 
-
 // * FlyUp
 export default function flyUp(e) {
   a = e.clientX;
@@ -117,3 +116,4 @@ function fly(e) {
   }
   wosh();
 }
+
