@@ -15,8 +15,8 @@ export default function flyUp(e) {
   box.style.cursor = "grabbing";
   box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
 
-  document.addEventListener("mousemove", fly);
-  document.addEventListener("mouseup", flyDown);
+  window.addEventListener("mousemove", fly);
+  window.addEventListener("mouseup", flyDown);
 } 
 
 
@@ -26,8 +26,8 @@ function flyDown() {
   box.style.cursor = "grab";
   box.style.boxShadow = "none";
 
-  document.removeEventListener("mousemove", fly);
-  document.removeEventListener("mouseup", flyDown);
+  window.removeEventListener("mousemove", fly);
+  window.removeEventListener("mouseup", flyDown);
 
   const top = parseInt(getComputedStyle(box).getPropertyValue('top')),
         left = parseInt(getComputedStyle(box).getPropertyValue('left')) ,
@@ -84,8 +84,8 @@ function fly(e) {
   const mouseHor = e.clientX,
         mouseVer = e.clientY;
 
-  box.style.left = `${mouseHor - (a - rectLeft + 10)}px`;
-  box.style.top = `${mouseVer - (b - rectTop + 10)}px`;
+  box.style.left = `${mouseHor - (a - rectLeft)}px`;
+  box.style.top = `${mouseVer - (b - rectTop)}px`;
 
   // * Wosh
   function wosh() {
@@ -97,20 +97,21 @@ function fly(e) {
 
       const mx = movementX * 1.5;
       const my = movementY * -1.5;
-      if (mx < 50 && mx > -50 && my < 50 && my > -50) {
-        box.style.transform = `rotateX(${my}deg) rotateY(${mx}deg)`;
-      } else {
-        box.style.transform = `rotateX(${my / 2}deg) rotateY(${mx / 2}deg)`;
-      }
+      if (mx < 40 && mx > -40 && my < 40 && my > -40) {
+        box.style.transform = `rotateX(${my / 1.2}deg) rotateY(${mx / 1.2}deg)`;
+      } 
     }
 
-    // document.getElementById("demo").innerText = "movement Y : " + movementX;
-    // document.getElementById("demo2").innerText = "movement X : " + movementY;
-    const top = getComputedStyle(box).getPropertyValue('top')
-    const left = getComputedStyle(box).getPropertyValue('left')
+    document.getElementById("demo").innerText = "movement Y : " + movementX;
+    document.getElementById("demo2").innerText = "movement X : " + movementY;
+    // const top = getComputedStyle(box).getPropertyValue('top')
+    // const left = getComputedStyle(box).getPropertyValue('left')
     
-    document.getElementById("demo").innerText = left;
-    document.getElementById("demo2").innerText = "Top is: " + top;
+    console.log("Y is : ", movementY)
+    console.log("X is : ", movementX)
+
+    // document.getElementById("demo").innerText = left;
+    // document.getElementById("demo2").innerText = "Top is: " + top;
 
     prevEvent = currentEvent;
   }
