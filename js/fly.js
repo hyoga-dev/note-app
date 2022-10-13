@@ -1,7 +1,6 @@
 
 // const fltd = 10;
-let a, b, rectLeft, rectTop;
-let prevEvent, currentEvent;
+let a, b, rectLeft, rectTop, prevEvent, currentEvent;
 
 
 
@@ -31,13 +30,13 @@ function flyDown() {
   document.removeEventListener("mousemove", fly);
   document.removeEventListener("mouseup", flyDown);
 
-  const top = parseInt(getComputedStyle(box).getPropertyValue('top'))
-  const left = parseInt(getComputedStyle(box).getPropertyValue('left')) 
-  const container = document.querySelector(".container")
-  const boxWidth = parseInt(getComputedStyle(box).getPropertyValue('width')) 
-  const boxHeight = parseInt(getComputedStyle(box).getPropertyValue('height')) 
-  const conHeight = parseInt(getComputedStyle(container).getPropertyValue("height"));
-  const conWidth = parseInt(getComputedStyle(container).getPropertyValue("width"));
+  const top = parseInt(getComputedStyle(box).getPropertyValue('top')),
+        left = parseInt(getComputedStyle(box).getPropertyValue('left')) ,
+        container = document.querySelector(".container"),
+        boxWidth = parseInt(getComputedStyle(box).getPropertyValue('width')), 
+        boxHeight = parseInt(getComputedStyle(box).getPropertyValue('height')), 
+        conHeight = parseInt(getComputedStyle(container).getPropertyValue("height")),
+        conWidth = parseInt(getComputedStyle(container).getPropertyValue("width"));
 
   if (top < 0 &&  left > conWidth - boxWidth) {
     box.style.top = `0`;
@@ -83,8 +82,8 @@ function flyDown() {
 
 // * Fly
 function fly(e) {
-  const mouseHor = e.clientX;
-  const mouseVer = e.clientY;
+  const mouseHor = e.clientX,
+        mouseVer = e.clientY;
 
   box.style.left = `${mouseHor - (a - rectLeft + 10)}px`;
   box.style.top = `${mouseVer - (b - rectTop + 10)}px`;
