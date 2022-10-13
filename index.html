@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="main.css">
   <title>Note app test</title>
+  
 </head>
 <body>
   
@@ -25,7 +26,14 @@
   <!-- <button id="btn" style="position: absolute;bottom: 20px;left: 20px;">Add card</button> -->
 </div>
 
-
+<script>
+  const box = document.querySelectorAll(".box") 
+  for (let i = 0; i < box.length; i++) {
+    box[i].style.top = localStorage.getItem(`top${[i]}`) 
+    box[i].style.left = localStorage.getItem(`left${[i]}`) 
+    console.log("bambang")
+  }
+</script>
 
 <script type="module" src="./main.js"></script>
 </body>

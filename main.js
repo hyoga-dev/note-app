@@ -3,18 +3,16 @@
 // import fly from "./js/fly.js";
 
 // init
-// const btn = document.getElementById("btn")
 const bix = document.querySelectorAll(".box");
 let a, b, rectLeft, rectTop, prevEvent, currentEvent;
 
 
 
-// main
+// * main
 for (let i = 0; i < bix.length; i++ ) {
   
   let box = bix[i]
   box.addEventListener("mousedown", flyUp); // flying card
-
 
 // * FlyUp =================================================================
   function flyUp(e) {
@@ -48,12 +46,19 @@ for (let i = 0; i < bix.length; i++ ) {
   
 // * Fly =================================================================
    function fly(e) {
-    const mouseHor = e.clientX,
-          mouseVer = e.clientY;
+    const mouseHor = e.clientX - (a - rectLeft),
+          mouseVer = e.clientY - (b - rectTop);
   
-    box.style.left = `${mouseHor - (a - rectLeft)}px`;
-    box.style.top = `${mouseVer - (b - rectTop)}px`;
-  
+    box.style.left = `${mouseHor}px`;
+    box.style.top = `${mouseVer}px`;
+    
+
+    localStorage.setItem(`top${[i]}`, mouseVer + "px")
+    localStorage.setItem(`left${[i]}`, mouseHor + "px")
+
+    console.log("Top: ", localStorage.top3)
+    console.log("Left", localStorage.left3)
+
     // * Wosh
     function wosh() {
   
