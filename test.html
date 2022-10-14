@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <p class="test"></p>
+      <p class="test"></p>
+      <p class="test"></p>
+    </div>
+    <button onclick="add()">Add new node</button>
+
+    <script>
+      // let test;
+      const container = document.getElementById("container");
+      
+      
+
+      function add() {
+        let test = document.querySelectorAll(".test")
+        const para = document.createElement("p");
+        const node = document.createTextNode("Hallo bambang");
+        para.appendChild(node);
+        para.classList.add("test")
+
+        container.appendChild(para);
+
+        test.forEach((x) => {
+          console.log(x);
+        });
+        console.log("\n");
+      }
+
+
+    </script>
+  </body>
+</html>

@@ -1,41 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="main.css">
-  <title>Note app test</title>
-  
-</head>
-<body>
-  
-<div class="container">
-  <div class="box"> 0  </div>
-  <div class="box"> 1 </div>
-  <div class="box"> 2 </div>
-  <div class="box"> 3 </div>
-  <div style="user-select: none;">
-    <p id="demo" style="position: fixed;top: 40px;right: 40px;"></p>
-    <p id="demo2" style="position: fixed;top: 60px;right: 40px;"></p>
-    <p id="demo3" style="position: fixed;top: 80px;right: 40px;"></p>
-    <p id="demo4" style="position: fixed;top: 100px;right: 40px;"></p>
-    <p id="demo5" style="position: fixed;top: 140px;right: 40px;"></p>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Note app test</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="box">0</div>
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div style="user-select: none">
+        <p id="demo" style="position: fixed; top: 40px; right: 40px"></p>
+        <p id="demo2" style="position: fixed; top: 60px; right: 40px"></p>
+        <p id="demo3" style="position: fixed; top: 80px; right: 40px"></p>
+        <p id="demo4" style="position: fixed; top: 100px; right: 40px"></p>
+        <p id="demo5" style="position: fixed; top: 140px; right: 40px"></p>
+      </div>
 
-  <!-- <button id="btn" style="position: absolute;bottom: 20px;left: 20px;">Add card</button> -->
-</div>
+      <button id="btn" onclick="add()" style="position: absolute;bottom: 20px;left: 20px;">Add card</button>
+    </div>
 
-<script>
-  const box = document.querySelectorAll(".box") 
-  
-  for (let i = 0; i < box.length; i++) {
-    box[i].style.top = localStorage.getItem(`top${i}`) 
-    box[i].style.left = localStorage.getItem(`left${i}`)
-    box[i].style.zIndex = localStorage.getItem(`index${i}`)
-  }
-</script>
+    <script>
+      const box = document.querySelectorAll(".box");
+      const container = document.getElementById("container");
 
-<script type="module" src="./main.js"></script>
-</body>
-</html> 
+      for (let i = 0; i < box.length; i++) {
+        box[i].style.top = localStorage.getItem(`top${i}`);
+        box[i].style.left = localStorage.getItem(`left${i}`);
+        box[i].style.zIndex = localStorage.getItem(`index${i}`);
+      }
+
+
+      function add() {
+        // let test = document.querySelectorAll(".box");
+        const para = document.createElement("div");
+        const node = document.createTextNode("Hallo bambang");
+        para.appendChild(node);
+        para.classList.add("box");
+
+        container.appendChild(para);
+
+        // const box = document.querySelectorAll(".box");
+        box.forEach((x) => {
+          
+          console.log(x);
+        });
+        console.log("\n");
+      }
+    </script>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
