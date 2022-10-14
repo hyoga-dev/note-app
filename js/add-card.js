@@ -14,13 +14,7 @@ export default function add() {
   for (let j = 0; j < document.querySelectorAll(".box").length; j++ ){
     let box = document.querySelectorAll(".box")[j];
     box.addEventListener("mousedown", flyUp); // flying card
-    box.addEventListener("touchstart", flyUp); // flying card
-
-
-
-    // * =========================================================================
-    // * ========================= FlyUp =========================================
-    // * =========================================================================
+    
     function flyUp(e) {
       box = document.querySelectorAll(".box")[j];
       let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
@@ -69,9 +63,7 @@ export default function add() {
       document.getElementById("demo5").innerHTML = "Arr : " + arr;
     }
   
-    // * =========================================================================
-    // * ========================= Fly ===========================================
-    // * =========================================================================
+    // ============================ Fly ===================================
     function fly(e) {
       box = document.querySelectorAll(".box")[j];
 
@@ -116,7 +108,7 @@ export default function add() {
     }
   
     // * =========================================================================
-    // * ============================ FlyDown ====================================
+    // * FlyDown =================================================================
     // * =========================================================================
     function flyDown() {
       
@@ -129,7 +121,6 @@ export default function add() {
       box = document.querySelectorAll(".box")[j];
       box.style.cursor = "grab";
       box.style.boxShadow = "none";
-      box.style.transform = `rotateX(0) rotateY(0)`;
   
       document.getElementById("demo").innerHTML =
         "Box number : " + 0 + ", have index of: " + index1;
