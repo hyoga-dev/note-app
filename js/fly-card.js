@@ -22,8 +22,13 @@ export default function fly() {
       a = e.clientX;
       b = e.clientY;
       if (window.innerWidth < 450){
-        at = e.touches[0].clientX;
-        bt = e.touches[0].clientY;
+        for (let s = 0; s < e.touches.length; s++) {
+
+          at = e.touches[s].clientX;
+          bt = e.touches[s].clientY;
+          console.log(at)
+        }
+
       }
 
       
