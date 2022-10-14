@@ -18,3 +18,7 @@ body {
 #btn:hover, #btn:focus {
   background-color: rgb(219, 224, 230);
 }
+
+p {
+  z-index: -9999;
+}

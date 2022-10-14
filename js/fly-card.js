@@ -74,6 +74,7 @@ export default function fly() {
   
       // * Wosh
       function wosh() {
+
         currentEvent = e;
         if (prevEvent && currentEvent) {
           var movementX = Math.floor(currentEvent.screenX - prevEvent.screenX);

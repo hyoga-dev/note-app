@@ -90,8 +90,10 @@ function newFlyUp(e) {
 
 
 function newFlyDown() {
+
   newBox.style.cursor = "grab";
   newBox.style.boxShadow = "none";
+  console.log("Bambang")
   newBox.style.transform = `rotateX(0) rotateY(0)`;
   const btn = document.querySelector("#btn")
   btn.style.backgroundColor = "#f0f0f0";
@@ -102,9 +104,59 @@ function newFlyDown() {
     btn.style.backgroundColor = "#f0f0f0";
   })
   
-
   window.removeEventListener("mousemove", newFlyUp);
   window.removeEventListener("mouseup", newFlyDown);
+
+  const top = parseInt(getComputedStyle(newBox).getPropertyValue("top"));
+  const left = parseInt(getComputedStyle(newBox).getPropertyValue("left"));
+  const container = document.querySelector(".container");
+  const boxWidth = parseInt(getComputedStyle(newBox).getPropertyValue("width"));
+  const boxHeight = parseInt(getComputedStyle(newBox).getPropertyValue("height"));
+  const conHeight = parseInt(getComputedStyle(container).getPropertyValue("height"));
+  const conWidth = parseInt(getComputedStyle(container).getPropertyValue("width"));
+  
+  if (top < 0 && left > conWidth - boxWidth) {
+    newBox.style.top = `0`;
+    newBox.style.left = `${conWidth - boxWidth}px`;
+    // localStorage.setItem(`top${[j]}`, `0`);
+    // localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
+    return;
+  } else if (top > conHeight - boxHeight && left < 0) {
+    newBox.style.top = `${conHeight - boxHeight}px`;
+    newBox.style.left = `0`;
+    // localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
+    // localStorage.setItem(`left${[j]}`, `0`);
+    return;
+  } else if (top > conHeight - boxHeight && left > conWidth - boxWidth) {
+    newBox.style.top = `${conHeight - boxHeight}px`;
+    newBox.style.left = `${conWidth - boxWidth}px`;
+    // localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
+    // localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
+    return;
+  } else if (top < 0 && left < 0) {
+    newBox.style.top = "0";
+    newBox.style.left = "0";
+    // localStorage.setItem(`top${[j]}`, `0`);
+    // localStorage.setItem(`left${[j]}`, `0`);
+    return;
+  } else if (top < 0) {
+    newBox.style.top = "0";
+    // localStorage.setItem(`top${[j]}`, `0`);
+    return;
+  } else if (left < 0) {
+    newBox.style.left = "0";
+    // localStorage.setItem(`left${[j]}`, `0`);
+    return;
+  } else if (top > conHeight - boxHeight) {
+    newBox.style.top = `${conHeight - boxHeight}px`;
+    // localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
+    return;
+  } else if (left > conWidth - boxWidth) {
+    newBox.style.left = `${conWidth - boxWidth}px`;
+    // localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
+    return;
+  }
+
 }
 
 
@@ -239,17 +291,13 @@ for (let j = 0; j < document.querySelectorAll(".box").length; j++ ){
       window.removeEventListener("mousemove", fly);
       window.removeEventListener("mouseup", flyDown);
   
-      const top = parseInt(getComputedStyle(box).getPropertyValue("top")),
-        left = parseInt(getComputedStyle(box).getPropertyValue("left")),
-        container = document.querySelector(".container"),
-        boxWidth = parseInt(getComputedStyle(box).getPropertyValue("width")),
-        boxHeight = parseInt(getComputedStyle(box).getPropertyValue("height")),
-        conHeight = parseInt(
-          getComputedStyle(container).getPropertyValue("height")
-        ),
-        conWidth = parseInt(
-          getComputedStyle(container).getPropertyValue("width")
-        );
+      const top = parseInt(getComputedStyle(box).getPropertyValue("top"));
+      const left = parseInt(getComputedStyle(box).getPropertyValue("left"));
+      const container = document.querySelector(".container");
+      const boxWidth = parseInt(getComputedStyle(box).getPropertyValue("width"));
+      const boxHeight = parseInt(getComputedStyle(box).getPropertyValue("height"));
+      const conHeight = parseInt(getComputedStyle(container).getPropertyValue("height"));
+      const conWidth = parseInt(getComputedStyle(container).getPropertyValue("width"));
   
         if (top < 0 && left > conWidth - boxWidth) {
           box.style.top = `0`;
