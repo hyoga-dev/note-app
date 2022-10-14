@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
     <title>Note app test</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body>
     <div class="container" id="container">
@@ -33,24 +34,6 @@
         box[i].style.left = localStorage.getItem(`left${i}`);
         box[i].style.zIndex = localStorage.getItem(`index${i}`);
       }
-
-
-      // function add() {
-      //   // let test = document.querySelectorAll(".box");
-      //   const para = document.createElement("div");
-      //   const node = document.createTextNode("Hallo bambang");
-      //   para.appendChild(node);
-      //   para.classList.add("box");
-
-      //   container.appendChild(para);
-
-      //   // const box = document.querySelectorAll(".box");
-      //   box.forEach((x) => {
-          
-      //     console.log(x);
-      //   });
-      //   console.log("\n");
-      // }
     </script>
 
     <script type="module" src="./main.js"></script>

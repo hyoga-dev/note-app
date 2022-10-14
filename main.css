@@ -3,3 +3,10 @@
 body {
   margin: 0;
 }
+
+#btn {
+  width: 70px;
+  height: 50px;
+  border: .2px solid rgba(75, 75, 75, 0.152);
+  border-radius: 5px;
+}
