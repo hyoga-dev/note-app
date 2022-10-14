@@ -1,16 +1,20 @@
 const rotateSpeed = 1.3;
-
+let boxNum = 3;
 
 export default function add() {
   let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
+  boxNum++
   const para = document.createElement("div");
-  const node = document.createTextNode("Hallo bambang");
+  const node = document.createTextNode(boxNum);
 
   para.appendChild(node);
   para.classList.add("box");
 
   container.appendChild(para);
   
+  let box = document.querySelectorAll(".box")
+  let newBox = box[box.length - 1]
+  console.log(newBox)
   for (let j = 0; j < document.querySelectorAll(".box").length; j++ ){
     
     let box = document.querySelectorAll(".box")[j];
@@ -137,42 +141,42 @@ export default function add() {
         if (top < 0 && left > conWidth - boxWidth) {
           box.style.top = `0`;
           box.style.left = `${conWidth - boxWidth}px`;
-          localStorage.setItem(`top${[i]}`, `0`);
-          localStorage.setItem(`left${[i]}`, `${conWidth - boxWidth}px`);
+          localStorage.setItem(`top${[j]}`, `0`);
+          localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
           return;
         } else if (top > conHeight - boxHeight && left < 0) {
           box.style.top = `${conHeight - boxHeight}px`;
           box.style.left = `0`;
-          localStorage.setItem(`top${[i]}`, `${conHeight - boxHeight}px`);
-          localStorage.setItem(`left${[i]}`, `0`);
+          localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
+          localStorage.setItem(`left${[j]}`, `0`);
           return;
         } else if (top > conHeight - boxHeight && left > conWidth - boxWidth) {
           box.style.top = `${conHeight - boxHeight}px`;
           box.style.left = `${conWidth - boxWidth}px`;
-          localStorage.setItem(`top${[i]}`, `${conHeight - boxHeight}px`);
-          localStorage.setItem(`left${[i]}`, `${conWidth - boxWidth}px`);
+          localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
+          localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
           return;
         } else if (top < 0 && left < 0) {
           box.style.top = "0";
           box.style.left = "0";
-          localStorage.setItem(`top${[i]}`, `0`);
-          localStorage.setItem(`left${[i]}`, `0`);
+          localStorage.setItem(`top${[j]}`, `0`);
+          localStorage.setItem(`left${[j]}`, `0`);
           return;
         } else if (top < 0) {
           box.style.top = "0";
-          localStorage.setItem(`top${[i]}`, `0`);
+          localStorage.setItem(`top${[j]}`, `0`);
           return;
         } else if (left < 0) {
           box.style.left = "0";
-          localStorage.setItem(`left${[i]}`, `0`);
+          localStorage.setItem(`left${[j]}`, `0`);
           return;
         } else if (top > conHeight - boxHeight) {
           box.style.top = `${conHeight - boxHeight}px`;
-          localStorage.setItem(`top${[i]}`, `${conHeight - boxHeight}px`);
+          localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
           return;
         } else if (left > conWidth - boxWidth) {
           box.style.left = `${conWidth - boxWidth}px`;
-          localStorage.setItem(`left${[i]}`, `${conWidth - boxWidth}px`);
+          localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
           return;
         }
     }
