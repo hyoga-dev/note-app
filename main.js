@@ -4,29 +4,26 @@
 
 
 
-let bix = document.querySelectorAll(".box");
+let box = document.querySelectorAll(".box");
 
-for (let i = 0; i < bix.length; i++) {
-  let bux = document.querySelectorAll(".box");
+for (let i = 0; i < box.length; i++) {
+  let box = document.querySelectorAll(".box")[i];
   let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
-  let box = bux[i];
   box.addEventListener("mousedown", flyUp); // flying card
 
   // =========================================================================
   // ============================== FlyUp ====================================
   // =========================================================================
   function flyUp(e) {
-    bux = document.querySelectorAll(".box");
-    box;
+    box = document.querySelectorAll(".box")[i];
     let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
     a = e.clientX;
     b = e.clientY;
 
     arr = [];
 
-    for (let j = 0; j < bix.length; j++) {
-      let bux = bix[j];
-      index = parseInt(getComputedStyle(bux).getPropertyValue("z-index"));
+    for (let j = 0; j < document.querySelectorAll(".box").length; j++) {
+      index = parseInt(getComputedStyle(document.querySelectorAll(".box")[j]).getPropertyValue("z-index"));
       arr.push(index);
     }
 
@@ -40,15 +37,11 @@ for (let i = 0; i < bix.length; i++) {
       box.style.zIndex = max + 1;
       localStorage.setItem(`index${i}`, max);
     } else {
-      for (let k = 0; k < bix.length; k++) {
+      for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
         console.log(localStorage.getItem(`index${k}`));
-        localStorage.setItem(
-          `index${k}`,
-          localStorage.getItem(`index${k}`) - 50
-        );
-        bix[k].style.zIndex = localStorage.getItem(`index${k}`);
+        localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 50);
+        document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
       }
-      // box.style.zIndex = localStorage.getItem(`index${i}` + 1)
     }
 
     document.getElementById("demo5").innerHTML = "Arr : " + arr;
@@ -58,13 +51,15 @@ for (let i = 0; i < bix.length; i++) {
 
     window.addEventListener("mousemove", fly);
     window.addEventListener("mouseup", flyDown);
-    
+
   }
 
   // * =========================================================================
   // * Fly =================================================================
   // * =========================================================================
   function fly(e) {
+    box = document.querySelectorAll(".box")[i];
+
     const mouseHor = e.clientX - (a - rectLeft),
       mouseVer = e.clientY - (b - rectTop);
 
@@ -103,13 +98,17 @@ for (let i = 0; i < bix.length; i++) {
   // * =========================================================================
   function flyDown() {
     // console.log(arr)
-
+    
+    box = document.querySelectorAll(".box");
+    let index1 = getComputedStyle(box[0]).getPropertyValue("z-index");
+    let index2 = getComputedStyle(box[1]).getPropertyValue("z-index");
+    let index3 = getComputedStyle(box[2]).getPropertyValue("z-index");
+    let index4 = getComputedStyle(box[3]).getPropertyValue("z-index");
+    
+    box = document.querySelectorAll(".box")[i];
     box.style.cursor = "grab";
     box.style.boxShadow = "none";
-    let index1 = getComputedStyle(bix[0]).getPropertyValue("z-index");
-    let index2 = getComputedStyle(bix[1]).getPropertyValue("z-index");
-    let index3 = getComputedStyle(bix[2]).getPropertyValue("z-index");
-    let index4 = getComputedStyle(bix[3]).getPropertyValue("z-index");
+    // box = document.querySelectorAll(".box")[i];
 
     document.getElementById("demo").innerHTML =
       "Box number : " + 0 + ", have index of: " + index1;
