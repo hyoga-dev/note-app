@@ -7,28 +7,19 @@ export default function fly() {
   for (let i = 0; i < box.length; i++) {
     
     let box = document.querySelectorAll(".box")[i];
-    let a, b, at, bt, rectLeft, rectTop, prevEvent, currentEvent, arr;
+    let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
   
   
     box.addEventListener("mousedown", flyUp); // flying card
-    box.addEventListener("touchstart", flyUp); // flying card
   
-    // ============================== FlyUp ====================================
+    // * =========================================================================
+    // * ========================= FlyUp =========================================
+    // * =========================================================================
     function flyUp(e) {
       box = document.querySelectorAll(".box")[i];
       let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
       a = e.clientX;
       b = e.clientY;
-      if (window.innerWidth < 450){
-        for (let s = 0; s < e.touches.length; s++) {
-
-          at = e.touches[s].clientX;
-          bt = e.touches[s].clientY;
-          console.log(at)
-        }
-
-      }
-
       
       // <-- indexing
       arr = [];
@@ -42,6 +33,7 @@ export default function fly() {
       rectTop = Math.floor(box.getBoundingClientRect().top);
       // indexing -->
   
+      
       // <-- normalise index
       if (max < 100) {
         box.style.zIndex = max + 1;
@@ -59,61 +51,48 @@ export default function fly() {
       box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
   
       // add event handler
-      window.addEventListener("touchmove", fly);
       window.addEventListener("mousemove", fly);
       window.addEventListener("mouseup", flyDown);
-      window.addEventListener("touchend", flyDown);
       // ========================================================
       document.getElementById("demo5").innerHTML = "Arr : " + arr;
     }
   
-    // ============================ Fly ===================================
+    // * =========================================================================
+    // * ========================= Fly ===========================================
+    // * =========================================================================
     function fly(e) {
-      console.log("moving")
       box = document.querySelectorAll(".box")[i];
-
-      if (window.innerWidth < 450) {
-        const x = e.touches[0].clientX - (at - rectLeft);
-        const y = e.touches[0].clientY - (bt - rectTop);
   
-        box.style.left = `${x}px`;
-        box.style.top = `${y}px`;
-
-        localStorage.setItem(`left${[i]}`, x + "px");
-        localStorage.setItem(`top${[i]}`, y + "px");
-      } else {
-      
-        const mouseHor = e.clientX - (a - rectLeft),
-              mouseVer = e.clientY - (b - rectTop);
-    
-        box.style.left = `${mouseHor}px`;
-        box.style.top = `${mouseVer}px`;
-        
-        localStorage.setItem(`top${[i]}`, mouseVer + "px");
-        localStorage.setItem(`left${[i]}`, mouseHor + "px");
-    
-        // * Wosh
-        function wosh() {
-          currentEvent = e;
-          if (prevEvent && currentEvent) {
-            var movementX = Math.floor(currentEvent.screenX - prevEvent.screenX);
-            var movementY = Math.floor(currentEvent.screenY - prevEvent.screenY);
-    
-            const mx = movementX * 1.5;
-            const my = movementY * -1.5;
-            if (mx < 25 && mx > -25 && my < 25 && my > -25) {
-              box.style.transform = `rotateX(${my / rotateSpeed}deg) rotateY(${mx / rotateSpeed}deg)`;
-            }
+      const mouseHor = e.clientX - (a - rectLeft),
+        mouseVer = e.clientY - (b - rectTop);
+  
+      box.style.left = `${mouseHor}px`;
+      box.style.top = `${mouseVer}px`;
+  
+      localStorage.setItem(`top${[i]}`, mouseVer + "px");
+      localStorage.setItem(`left${[i]}`, mouseHor + "px");
+  
+      // * Wosh
+      function wosh() {
+        currentEvent = e;
+        if (prevEvent && currentEvent) {
+          var movementX = Math.floor(currentEvent.screenX - prevEvent.screenX);
+          var movementY = Math.floor(currentEvent.screenY - prevEvent.screenY);
+  
+          const mx = movementX * 1.5;
+          const my = movementY * -1.5;
+          if (mx < 25 && mx > -25 && my < 25 && my > -25) {
+            box.style.transform = `rotateX(${my / rotateSpeed}deg) rotateY(${mx / rotateSpeed}deg)`;
           }
-    
-          prevEvent = currentEvent;
         }
-        wosh();
+  
+        prevEvent = currentEvent;
       }
+      wosh();
     }
   
     // * =========================================================================
-    // * FlyDown =================================================================
+    // * ========================= FlyDown =======================================
     // * =========================================================================
     function flyDown() {
       
@@ -126,6 +105,8 @@ export default function fly() {
       box = document.querySelectorAll(".box")[i];
       box.style.cursor = "grab";
       box.style.boxShadow = "none";
+      box.style.transform = `rotateX(0) rotateY(0)`;
+
   
       document.getElementById("demo").innerHTML =
         "Box number : " + 0 + ", have index of: " + index1;
@@ -137,9 +118,7 @@ export default function fly() {
         "Box number : " + 3 + ", have index of: " + index4;
   
       window.removeEventListener("mousemove", fly);
-      window.removeEventListener("touchmove", fly);
       window.removeEventListener("mouseup", flyDown);
-      window.removeEventListener("touchend", flyDown);
   
       const top = parseInt(getComputedStyle(box).getPropertyValue("top")),
         left = parseInt(getComputedStyle(box).getPropertyValue("left")),
