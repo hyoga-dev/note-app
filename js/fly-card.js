@@ -6,7 +6,6 @@ export default function fly() {
   
   for (let i = 0; i < box.length; i++) {
     
-  
     let box = document.querySelectorAll(".box")[i];
     let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
   
@@ -129,32 +128,42 @@ export default function fly() {
       if (top < 0 && left > conWidth - boxWidth) {
         box.style.top = `0`;
         box.style.left = `${conWidth - boxWidth}px`;
+        localStorage.setItem(`top${[i]}`, `0`);
+        localStorage.setItem(`left${[i]}`, `${conWidth - boxWidth}px`);
         return;
       } else if (top > conHeight - boxHeight && left < 0) {
         box.style.top = `${conHeight - boxHeight}px`;
         box.style.left = `0`;
-        console.log(2);
+        localStorage.setItem(`top${[i]}`, `${conHeight - boxHeight}px`);
+        localStorage.setItem(`left${[i]}`, `0`);
         return;
       } else if (top > conHeight - boxHeight && left > conWidth - boxWidth) {
         box.style.top = `${conHeight - boxHeight}px`;
         box.style.left = `${conWidth - boxWidth}px`;
-        console.log(2);
+        localStorage.setItem(`top${[i]}`, `${conHeight - boxHeight}px`);
+        localStorage.setItem(`left${[i]}`, `${conWidth - boxWidth}px`);
         return;
       } else if (top < 0 && left < 0) {
         box.style.top = "0";
         box.style.left = "0";
+        localStorage.setItem(`top${[i]}`, `0`);
+        localStorage.setItem(`left${[i]}`, `0`);
         return;
       } else if (top < 0) {
         box.style.top = "0";
+        localStorage.setItem(`top${[i]}`, `0`);
         return;
       } else if (left < 0) {
         box.style.left = "0";
+        localStorage.setItem(`left${[i]}`, `0`);
         return;
       } else if (top > conHeight - boxHeight) {
         box.style.top = `${conHeight - boxHeight}px`;
+        localStorage.setItem(`top${[i]}`, `${conHeight - boxHeight}px`);
         return;
       } else if (left > conWidth - boxWidth) {
         box.style.left = `${conWidth - boxWidth}px`;
+        localStorage.setItem(`left${[i]}`, `${conWidth - boxWidth}px`);
         return;
       }
     }
