@@ -8,8 +8,7 @@ body {
   padding: 20px;
   border: .2px solid rgba(75, 75, 75, 0.152);
   border-radius: 5px;
-  z-index: 999;
-  cursor: pointer;
+  cursor: default ;
 }
 
 #btn:focus {

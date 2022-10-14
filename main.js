@@ -4,7 +4,7 @@ import fly from "./js/fly-card.js"
 
 
 let btn = document.getElementById("btn")
-btn.addEventListener("click", addCard)
+btn.addEventListener("mousedown", addCard)
 fly()
 
 

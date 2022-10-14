@@ -11,8 +11,6 @@
 }
 
 .box {
-    /* left: 200px;
-    top: 200px; */
   user-select: none;
   padding: 8px;
   z-index: 1;
