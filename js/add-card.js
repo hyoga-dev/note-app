@@ -87,6 +87,8 @@ function newFlyUp(e) {
 
 }
 
+
+
 function newFlyDown() {
   newBox.style.cursor = "grab";
   newBox.style.boxShadow = "none";
@@ -105,161 +107,192 @@ function newFlyDown() {
   window.removeEventListener("mouseup", newFlyDown);
 }
 
-fly()
 
 
-// for (let j = 0; j < document.querySelectorAll(".box").length; j++ ){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for (let j = 0; j < document.querySelectorAll(".box").length; j++ ){
   
-//   let box = document.querySelectorAll(".box")[j];
-//   box.addEventListener("mousedown", flyUp); // flying card
+  let box = document.querySelectorAll(".box")[j];
+  box.addEventListener("mousedown", flyUp); // flying card
     
-//     // * =========================================================================
-//     // * ========================= FlyUp =========================================
-//     // * =========================================================================
-//     function flyUp(e) {
-//       box = document.querySelectorAll(".box")[j];
-//       let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
-//       a = e.clientX;
-//       b = e.clientY;
+    // * =========================================================================
+    // * ========================= FlyUp =========================================
+    // * =========================================================================
+    function flyUp(e) {
+      box = document.querySelectorAll(".box")[j];
+      let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
+      a = e.clientX;
+      b = e.clientY;
       
-//       // <-- indexing
-//       arr = [];
-//       // add index order
-//       for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-//         index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
-//         arr.push(index);
-//       }
-//       let max = Math.max(...arr);
-//       rectLeft = Math.floor(box.getBoundingClientRect().left);
-//       rectTop = Math.floor(box.getBoundingClientRect().top);
-//       // indexing -->
+      // <-- indexing
+      arr = [];
+      // add index order
+      for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
+        index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
+        arr.push(index);
+      }
+      let max = Math.max(...arr);
+      rectLeft = Math.floor(box.getBoundingClientRect().left);
+      rectTop = Math.floor(box.getBoundingClientRect().top);
+      // indexing -->
   
-//       // <-- normalise index
-//       if (max < 100) {
-//         box.style.zIndex = max + 1;
-//         localStorage.setItem(`index${j}`, max);
-//       } else {
-//         for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-//           console.log(localStorage.getItem(`index${k}`));
-//           localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 50);
-//           document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
-//         }}
-//       // normalise index -->
+      // <-- normalise index
+      if (max < 100) {
+        box.style.zIndex = max + 1;
+        localStorage.setItem(`index${j}`, max);
+      } else {
+        for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
+          console.log(localStorage.getItem(`index${k}`));
+          localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 50);
+          document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
+        }}
+      // normalise index -->
       
-//       // add fly effect --
-//       box.style.cursor = "grabbing";
-//       box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
+      // add fly effect --
+      box.style.cursor = "grabbing";
+      box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
   
-//       // add event handler
-//       window.addEventListener("mousemove", fly);
-//       window.addEventListener("mouseup", flyDown);
-//       // ========================================================
-//       document.getElementById("demo5").innerHTML = "Arr : " + arr;
-//     }
+      // add event handler
+      window.addEventListener("mousemove", fly);
+      window.addEventListener("mouseup", flyDown);
+      // ========================================================
+      document.getElementById("demo5").innerHTML = "Arr : " + arr;
+    }
   
-//     // * =========================================================================
-//     // * ========================= Fly ===========================================
-//     // * =========================================================================
-//     function fly(e) {
-//       box = document.querySelectorAll(".box")[j];
+    // * =========================================================================
+    // * ========================= Fly ===========================================
+    // * =========================================================================
+    function fly(e) {
+      box = document.querySelectorAll(".box")[j];
   
-//       let mouseHor = e.clientX - (a - rectLeft),
-//           mouseVer = e.clientY - (b - rectTop);
+      let mouseHor = e.clientX - (a - rectLeft),
+          mouseVer = e.clientY - (b - rectTop);
   
-//       box.style.left = `${mouseHor}px`;
-//       box.style.top = `${mouseVer}px`;
+      box.style.left = `${mouseHor}px`;
+      box.style.top = `${mouseVer}px`;
   
-//       localStorage.setItem(`top${[j]}`, mouseVer + "px");
-//       localStorage.setItem(`left${[j]}`, mouseHor + "px");
+      localStorage.setItem(`top${[j]}`, mouseVer + "px");
+      localStorage.setItem(`left${[j]}`, mouseHor + "px");
   
-//       // * Wosh
-//       function wosh() {
-//         currentEvent = e;
-//         if (prevEvent && currentEvent) {
-//           var movementX = Math.floor(currentEvent.screenX - prevEvent.screenX);
-//           var movementY = Math.floor(currentEvent.screenY - prevEvent.screenY);
+      // * Wosh
+      function wosh() {
+        currentEvent = e;
+        if (prevEvent && currentEvent) {
+          var movementX = Math.floor(currentEvent.screenX - prevEvent.screenX);
+          var movementY = Math.floor(currentEvent.screenY - prevEvent.screenY);
   
-//           const mx = movementX * 1.5;
-//           const my = movementY * -1.5;
-//           if (mx < 25 && mx > -25 && my < 25 && my > -25) {
-//             box.style.transform = `rotateX(${my / rotateSpeed}deg) rotateY(${mx / rotateSpeed}deg)`;
-//           }
-//         }
+          const mx = movementX * 1.5;
+          const my = movementY * -1.5;
+          if (mx < 25 && mx > -25 && my < 25 && my > -25) {
+            box.style.transform = `rotateX(${my / rotateSpeed}deg) rotateY(${mx / rotateSpeed}deg)`;
+          }
+        }
   
-//         prevEvent = currentEvent;
-//       }
-//       wosh();
-//     }
+        prevEvent = currentEvent;
+      }
+      wosh();
+    }
   
-//     // * =========================================================================
-//     // * ============================ FlyDown ====================================
-//     // * =========================================================================
-//     function flyDown() {
+    // * =========================================================================
+    // * ============================ FlyDown ====================================
+    // * =========================================================================
+    function flyDown() {
       
-//       box = document.querySelectorAll(".box");
-//       box = document.querySelectorAll(".box")[j];
-//       box.style.cursor = "grab";
-//       box.style.boxShadow = "none";
-//       box.style.transform = `rotateX(0) rotateY(0)`;
+      box = document.querySelectorAll(".box");
+      box = document.querySelectorAll(".box")[j];
+      box.style.cursor = "grab";
+      box.style.boxShadow = "none";
+      box.style.transform = `rotateX(0) rotateY(0)`;
   
   
-//       window.removeEventListener("mousemove", fly);
-//       window.removeEventListener("mouseup", flyDown);
+      window.removeEventListener("mousemove", fly);
+      window.removeEventListener("mouseup", flyDown);
   
-//       const top = parseInt(getComputedStyle(box).getPropertyValue("top")),
-//         left = parseInt(getComputedStyle(box).getPropertyValue("left")),
-//         container = document.querySelector(".container"),
-//         boxWidth = parseInt(getComputedStyle(box).getPropertyValue("width")),
-//         boxHeight = parseInt(getComputedStyle(box).getPropertyValue("height")),
-//         conHeight = parseInt(
-//           getComputedStyle(container).getPropertyValue("height")
-//         ),
-//         conWidth = parseInt(
-//           getComputedStyle(container).getPropertyValue("width")
-//         );
+      const top = parseInt(getComputedStyle(box).getPropertyValue("top")),
+        left = parseInt(getComputedStyle(box).getPropertyValue("left")),
+        container = document.querySelector(".container"),
+        boxWidth = parseInt(getComputedStyle(box).getPropertyValue("width")),
+        boxHeight = parseInt(getComputedStyle(box).getPropertyValue("height")),
+        conHeight = parseInt(
+          getComputedStyle(container).getPropertyValue("height")
+        ),
+        conWidth = parseInt(
+          getComputedStyle(container).getPropertyValue("width")
+        );
   
-//         if (top < 0 && left > conWidth - boxWidth) {
-//           box.style.top = `0`;
-//           box.style.left = `${conWidth - boxWidth}px`;
-//           localStorage.setItem(`top${[j]}`, `0`);
-//           localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
-//           return;
-//         } else if (top > conHeight - boxHeight && left < 0) {
-//           box.style.top = `${conHeight - boxHeight}px`;
-//           box.style.left = `0`;
-//           localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
-//           localStorage.setItem(`left${[j]}`, `0`);
-//           return;
-//         } else if (top > conHeight - boxHeight && left > conWidth - boxWidth) {
-//           box.style.top = `${conHeight - boxHeight}px`;
-//           box.style.left = `${conWidth - boxWidth}px`;
-//           localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
-//           localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
-//           return;
-//         } else if (top < 0 && left < 0) {
-//           box.style.top = "0";
-//           box.style.left = "0";
-//           localStorage.setItem(`top${[j]}`, `0`);
-//           localStorage.setItem(`left${[j]}`, `0`);
-//           return;
-//         } else if (top < 0) {
-//           box.style.top = "0";
-//           localStorage.setItem(`top${[j]}`, `0`);
-//           return;
-//         } else if (left < 0) {
-//           box.style.left = "0";
-//           localStorage.setItem(`left${[j]}`, `0`);
-//           return;
-//         } else if (top > conHeight - boxHeight) {
-//           box.style.top = `${conHeight - boxHeight}px`;
-//           localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
-//           return;
-//         } else if (left > conWidth - boxWidth) {
-//           box.style.left = `${conWidth - boxWidth}px`;
-//           localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
-//           return;
-//         }
-//     }
+        if (top < 0 && left > conWidth - boxWidth) {
+          box.style.top = `0`;
+          box.style.left = `${conWidth - boxWidth}px`;
+          localStorage.setItem(`top${[j]}`, `0`);
+          localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
+          return;
+        } else if (top > conHeight - boxHeight && left < 0) {
+          box.style.top = `${conHeight - boxHeight}px`;
+          box.style.left = `0`;
+          localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
+          localStorage.setItem(`left${[j]}`, `0`);
+          return;
+        } else if (top > conHeight - boxHeight && left > conWidth - boxWidth) {
+          box.style.top = `${conHeight - boxHeight}px`;
+          box.style.left = `${conWidth - boxWidth}px`;
+          localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
+          localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
+          return;
+        } else if (top < 0 && left < 0) {
+          box.style.top = "0";
+          box.style.left = "0";
+          localStorage.setItem(`top${[j]}`, `0`);
+          localStorage.setItem(`left${[j]}`, `0`);
+          return;
+        } else if (top < 0) {
+          box.style.top = "0";
+          localStorage.setItem(`top${[j]}`, `0`);
+          return;
+        } else if (left < 0) {
+          box.style.left = "0";
+          localStorage.setItem(`left${[j]}`, `0`);
+          return;
+        } else if (top > conHeight - boxHeight) {
+          box.style.top = `${conHeight - boxHeight}px`;
+          localStorage.setItem(`top${[j]}`, `${conHeight - boxHeight}px`);
+          return;
+        } else if (left > conWidth - boxWidth) {
+          box.style.left = `${conWidth - boxWidth}px`;
+          localStorage.setItem(`left${[j]}`, `${conWidth - boxWidth}px`);
+          return;
+        }
+    }
 
-//   }
+  }
 }
