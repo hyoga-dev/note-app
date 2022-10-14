@@ -11,6 +11,7 @@ export default function fly() {
   
   
     box.addEventListener("mousedown", flyUp); // flying card
+    box.addEventListener("touchstart", flyUp); // flying card
   
     // * =========================================================================
     // * ========================= FlyUp =========================================
@@ -51,7 +52,9 @@ export default function fly() {
   
       // add event handler
       window.addEventListener("mousemove", fly);
+      window.addEventListener("touchmove", fly);
       window.addEventListener("mouseup", flyDown);
+      window.addEventListener("touchend", flyDown);
       // ========================================================
       document.getElementById("demo5").innerHTML = "Arr : " + arr;
     }
@@ -60,6 +63,7 @@ export default function fly() {
     // * ========================= Fly ===========================================
     // * =========================================================================
     function fly(e) {
+      console.log("moving")
       box = document.querySelectorAll(".box")[i];
   
       const mouseHor = e.clientX - (a - rectLeft),
