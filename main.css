@@ -9,6 +9,7 @@ body {
   border: .2px solid rgba(75, 75, 75, 0.152);
   border-radius: 5px;
   cursor: default ;
+  z-index: 99;
 }
 
 #btn:focus {
@@ -17,6 +18,42 @@ body {
 
 #btn:hover, #btn:focus {
   background-color: rgb(219, 224, 230);
+}
+
+.grab-container {
+  opacity: 0;
+  transform: translate(20px, 0);
+  position: absolute;
+  left: 60px;
+  top: 33px;
+  z-index: 99;
+  transition: .1s ease-in .1s;
+}
+
+.slide-left {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.grab-me {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin: 0;
+  padding: 5px;
+  border-radius: 5px;
+  color: aliceblue;
+  display: inline-block;
+  background-color: black;
+}
+
+.triangle {
+  display: inline-block;
+  /* margin-left: 20px; */
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+	border-right: 7px solid black;
+	border-bottom: 5px solid transparent;
 }
 
 p {

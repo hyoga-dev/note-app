@@ -27,6 +27,7 @@ export default function addCard(e) {
   newBox.style.left = `${btnLeft - 100}px`;
   newBox.style.top = `${btnTop - 50}px`;
 
+
   rectLeft = Math.floor(newBox.getBoundingClientRect().left);
   rectTop = Math.floor(newBox.getBoundingClientRect().top);
 
@@ -203,6 +204,7 @@ for (let j = 0; j < document.querySelectorAll(".box").length; j++ ){
     // * =========================================================================
     function flyUp(e) {
       box = document.querySelectorAll(".box")[j];
+
       let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
       a = e.clientX;
       b = e.clientY;
@@ -226,7 +228,7 @@ for (let j = 0; j < document.querySelectorAll(".box").length; j++ ){
       } else {
         for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
           console.log(localStorage.getItem(`index${k}`));
-          localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 50);
+          localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
           document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
         }}
       // normalise index -->

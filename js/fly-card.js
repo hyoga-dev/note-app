@@ -1,5 +1,6 @@
 let box = document.querySelectorAll(".box");
 const rotateSpeed = 1.3;
+let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
 
 
 export default function fly() {
@@ -7,7 +8,6 @@ export default function fly() {
   for (let i = 0; i < box.length; i++) {
     
     let box = document.querySelectorAll(".box")[i];
-    let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
   
   
     box.addEventListener("mousedown", flyUp); // flying card
@@ -17,6 +17,7 @@ export default function fly() {
     // * =========================================================================
     function flyUp(e) {
       box = document.querySelectorAll(".box")[i];
+
       let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
       a = e.clientX;
       b = e.clientY;
@@ -41,7 +42,7 @@ export default function fly() {
       } else {
         for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
           console.log(localStorage.getItem(`index${k}`));
-          localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 50);
+          localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
           document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
         }}
       // normalise index -->
