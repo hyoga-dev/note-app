@@ -4,6 +4,9 @@ let btn = document.getElementById("btn");
 let counter = 0;
 let grabCon = document.querySelector(".grab-container");
 
+
+
+// ----------------------------------------------------
 export default function dragMe() {
   let more = () => {
     counter++;
@@ -20,17 +23,20 @@ export default function dragMe() {
     setTimeout(()=> {
       grabCon.classList.remove("slide-left")
     }, 5000)
-    
+
     setTimeout(() => {
       window.addEventListener("click", gone)
     }, 0)
 
     function gone() {
-      document.querySelector(".grab-container").classList.remove("slide-left")
+      grabCon.classList.remove("slide-left")
       window.removeEventListener("click", gone);
     }
   }
 
+  
+  
+  // -----------------------------------------------------
   function onlyClicked() {
     console.log("Drag me"); 
     clearInterval(some);
@@ -39,6 +45,9 @@ export default function dragMe() {
     window.removeEventListener("mouseup", onlyClicked);
   }
 
+  
+  
+  // ------------------------------------------------------
   function dragOut() {
     if (counter > 2) {
       clearInterval(some);
