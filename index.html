@@ -39,6 +39,9 @@
         box[i].style.left = localStorage.getItem(`left${i}`);
         box[i].style.zIndex = localStorage.getItem(`index${i}`);
       }
+      if (localStorage.getItem("container") != null) {
+        container.innerHTML = localStorage.getItem("container");
+      }
     </script>
 
     <script type="module" src="./main.js"></script>

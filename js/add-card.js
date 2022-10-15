@@ -4,7 +4,14 @@ let boxNum = 3;
 
 export default function addCard(e) {
   let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
+  // console.log(boxNum)
+  if (localStorage.getItem("boxNum") > 3) {
+    boxNum = localStorage.getItem("boxNum")
+  }
+  console.log(boxNum)
+
   boxNum++
+  localStorage.setItem("boxNum", boxNum)
   const para = document.createElement("div");
   const node = document.createTextNode(boxNum);
   
@@ -38,7 +45,7 @@ export default function addCard(e) {
   
   newBox.style.left = `${mouseHor - 100}px`;
   newBox.style.top = `${mouseVer - 50}px`;
-  console.log(rectLeft) 
+  // console.log(rectLeft) 
   // newBox.addEventListener("mousedown", flyUp); // flying card
   
   }
@@ -65,7 +72,7 @@ function newFly(e) {
   newBox.style.left = `${mouseHor}px`;
   newBox.style.top = `${mouseVer}px`;
 
-  console.log(rectLeft)
+  // console.log(rectLeft)
   // localStorage.setItem(`top${[j]}`, mouseVer + "px");
   // localStorage.setItem(`left${[j]}`, mouseHor + "px");
   
@@ -158,6 +165,10 @@ function newFlyDown() {
     return;
   }
 
+
+
+  localStorage.setItem("container", container.innerHTML)
+  // console.log(container.innerHTML)
 }
 
 
@@ -227,7 +238,7 @@ for (let j = 0; j < document.querySelectorAll(".box").length; j++ ){
         localStorage.setItem(`index${j}`, max);
       } else {
         for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-          console.log(localStorage.getItem(`index${k}`));
+          // console.log(localStorage.getItem(`index${k}`));
           localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
           document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
         }}

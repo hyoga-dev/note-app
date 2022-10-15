@@ -41,7 +41,7 @@ export default function fly() {
         localStorage.setItem(`index${i}`, max);
       } else {
         for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-          console.log(localStorage.getItem(`index${k}`));
+          // console.log(localStorage.getItem(`index${k}`));
           localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
           document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
         }}

@@ -10,8 +10,10 @@ let grabCon = document.querySelector(".grab-container");
 export default function dragMe() {
   let more = () => {
     counter++;
-    console.log(counter);
+    // console.log(counter);
   };
+
+
 
   let some = setInterval(more, 10);
   btn.addEventListener("mousemove", dragOut);
@@ -38,7 +40,7 @@ export default function dragMe() {
   
   // -----------------------------------------------------
   function onlyClicked() {
-    console.log("Drag me"); 
+    // console.log("Drag me"); 
     clearInterval(some);
     
     counter = 0;
