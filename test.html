@@ -12,30 +12,10 @@
       <p class="test"></p>
       <p class="test"></p>
     </div>
-    <button onclick="add()">Add new node</button>
+    <button >Add new node</button>
 
     <script>
-      // let test;
-      const container = document.getElementById("container");
       
-      
-
-      function add() {
-        let test = document.querySelectorAll(".test")
-        const para = document.createElement("p");
-        const node = document.createTextNode("Hallo bambang");
-        para.appendChild(node);
-        para.classList.add("test")
-
-        container.appendChild(para);
-
-        test.forEach((x) => {
-          console.log(x);
-        });
-        console.log("\n");
-      }
-
-
     </script>
   </body>
 </html>

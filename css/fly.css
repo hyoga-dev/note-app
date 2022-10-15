@@ -11,6 +11,7 @@
 }
 
 .box {
+  
   user-select: none;
   padding: 8px;
   z-index: 1;
@@ -23,6 +24,6 @@
   border: .5px solid rgba(0, 0, 0, 0.102);
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.102);
   box-shadow: none;
-  transition: box-shadow .8s, transform .1s,left .05s, top .05s;
+  transition: box-shadow .4s, transform .1s,left .05s, top .05s, opacity .4s;
   border-radius: 5px;
 }

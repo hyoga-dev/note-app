@@ -1,8 +1,8 @@
-import fly from "./add-card.js"
+// import fly from "./fly-card.js"
 const rotateSpeed = 1.3;
 let boxNum = 3;
 
-export default function add(e) {
+export default function addCard(e) {
   let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
   boxNum++
   const para = document.createElement("div");
@@ -47,15 +47,16 @@ export default function add(e) {
 
 
 
-window.addEventListener("mousemove", newFlyUp)
+window.addEventListener("mousemove", newFly)
 
-function newFlyUp(e) {
+
+
+function newFly(e) {
+
   newBox.style.cursor = "grabbing";
   newBox.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
   newBox.style.opacity = "1";
   window.addEventListener("mouseup", newFlyDown);
-
-
   
   let mouseHor = e.clientX - (a - rectLeft),
       mouseVer = e.clientY - (b - rectTop);
@@ -93,7 +94,6 @@ function newFlyDown() {
 
   newBox.style.cursor = "grab";
   newBox.style.boxShadow = "none";
-  console.log("Bambang")
   newBox.style.transform = `rotateX(0) rotateY(0)`;
   const btn = document.querySelector("#btn")
   btn.style.backgroundColor = "#f0f0f0";
@@ -104,7 +104,7 @@ function newFlyDown() {
     btn.style.backgroundColor = "#f0f0f0";
   })
   
-  window.removeEventListener("mousemove", newFlyUp);
+  window.removeEventListener("mousemove", newFly);
   window.removeEventListener("mouseup", newFlyDown);
 
   const top = parseInt(getComputedStyle(newBox).getPropertyValue("top"));
@@ -191,7 +191,7 @@ function newFlyDown() {
 
 
 
-
+// fly()
 
 for (let j = 0; j < document.querySelectorAll(".box").length; j++ ){
   
