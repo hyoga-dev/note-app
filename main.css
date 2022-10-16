@@ -1,5 +1,5 @@
-@import "/css/fly.css";
-@import "/css/grab.css";
+@import "/src/css/fly.css";
+@import "/src/css/grab.css";
 
 body {
   margin: 0;
