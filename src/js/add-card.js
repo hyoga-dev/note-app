@@ -1,3 +1,6 @@
+import flyingEffect from "./flyingEffect.js";
+import saveCorner from "./saveCorner.js";
+
 // import fly from "./fly-card.js"
 const rotateSpeed = 1.3;
 let boxNum = 3;
@@ -22,8 +25,6 @@ export default function addCard(e) {
   
   container.appendChild(para);
 
-  
-
   let box = document.querySelectorAll(".box")
   let boxLength = box.length - 1;
   let newBox = box[boxLength]
@@ -39,18 +40,15 @@ export default function addCard(e) {
   rectLeft = Math.floor(newBox.getBoundingClientRect().left);
   rectTop = Math.floor(newBox.getBoundingClientRect().top);
 
-  function fix() {
+  // function fix() {
   
-  const mouseHor = e.clientX ;
-  const mouseVer = e.clientY ;
+  // const mouseHor = e.clientX ;
+  // const mouseVer = e.clientY ;
   
-  newBox.style.left = `${mouseHor - 100}px`;
-  newBox.style.top = `${mouseVer - 50}px`;
-  // console.log(rectLeft) 
-  // newBox.addEventListener("mousedown", flyUp); // flying card
-  
-  }
-  fix()
+  // newBox.style.left = `${mouseHor - 100}px`;
+  // newBox.style.top = `${mouseVer - 50}px`;
+  // }
+  // fix()
 
 
 
@@ -78,22 +76,23 @@ function newFly(e) {
   // localStorage.setItem(`left${[j]}`, mouseHor + "px");
   
   // * Wosh
-  function wosh() {
-    currentEvent = e;
-    if (prevEvent && currentEvent) {
-      var movementX = Math.floor(currentEvent.screenX - prevEvent.screenX);
-      var movementY = Math.floor(currentEvent.screenY - prevEvent.screenY);
+  // function wosh() {
+  //   currentEvent = e;
+  //   if (prevEvent && currentEvent) {
+  //     var movementX = Math.floor(currentEvent.screenX - prevEvent.screenX);
+  //     var movementY = Math.floor(currentEvent.screenY - prevEvent.screenY);
 
-      const mx = movementX * 1.5;
-      const my = movementY * -1.5;
-      if (mx < 25 && mx > -25 && my < 25 && my > -25) {
-        newBox.style.transform = `rotateX(${my / rotateSpeed}deg) rotateY(${mx / rotateSpeed}deg)`;
-      }
-    }
+  //     const mx = movementX * 1.5;
+  //     const my = movementY * -1.5;
+  //     if (mx < 25 && mx > -25 && my < 25 && my > -25) {
+  //       newBox.style.transform = `rotateX(${my / rotateSpeed}deg) rotateY(${mx / rotateSpeed}deg)`;
+  //     }
+  //   }
 
-    prevEvent = currentEvent;
-  }
-  wosh();
+  //   prevEvent = currentEvent;
+  // }
+  // wosh();
+  flyingEffect(e, newBox, rotateSpeed)
 
 }
 
@@ -116,65 +115,7 @@ function newFlyDown() {
   window.removeEventListener("mousemove", newFly);
   window.removeEventListener("mouseup", newFlyDown);
 
-  const top = parseInt(getComputedStyle(newBox).getPropertyValue("top"));
-  const left = parseInt(getComputedStyle(newBox).getPropertyValue("left"));
-  const container = document.querySelector(".container");
-  const boxWidth = parseInt(getComputedStyle(newBox).getPropertyValue("width"));
-  const boxHeight = parseInt(getComputedStyle(newBox).getPropertyValue("height"));
-  const conHeight = parseInt(getComputedStyle(container).getPropertyValue("height"));
-  const conWidth = parseInt(getComputedStyle(container).getPropertyValue("width"));
-  
-  if (top < 0 && left > conWidth - boxWidth) {
-    newBox.style.top = `0`;
-    newBox.style.left = `${conWidth - boxWidth}px`;
-    localStorage.setItem("container", container.innerHTML)
-    localStorage.setItem(`top${boxLength}`, `0`);
-    localStorage.setItem(`left${boxLength}`, `${conWidth - boxWidth}px`);
-    return;
-  } else if (top > conHeight - boxHeight && left < 0) {
-    newBox.style.top = `${conHeight - boxHeight}px`;
-    newBox.style.left = `0`;
-    localStorage.setItem("container", container.innerHTML)
-    localStorage.setItem(`top${boxLength}`, `${conHeight - boxHeight}px`);
-    localStorage.setItem(`left${boxLength}`, `0`);
-    return;
-  } else if (top > conHeight - boxHeight && left > conWidth - boxWidth) {
-    newBox.style.top = `${conHeight - boxHeight}px`;
-    newBox.style.left = `${conWidth - boxWidth}px`;
-    localStorage.setItem("container", container.innerHTML)
-    localStorage.setItem(`top${boxLength}`, `${conHeight - boxHeight}px`);
-    localStorage.setItem(`left${boxLength}`, `${conWidth - boxWidth}px`);
-    return;
-  } else if (top < 0 && left < 0) {
-    newBox.style.top = "0";
-    newBox.style.left = "0";
-    localStorage.setItem("container", container.innerHTML)
-    localStorage.setItem(`top${boxLength}`, `0`);
-    localStorage.setItem(`left${boxLength}`, `0`);
-    return;
-  } else if (top < 0) {
-    newBox.style.top = "0";
-    localStorage.setItem("container", container.innerHTML)
-    localStorage.setItem(`top${boxLength}`, `0`);
-    return;
-  } else if (left < 0) {
-    newBox.style.left = "0";
-    localStorage.setItem("container", container.innerHTML)
-    localStorage.setItem(`left${boxLength}`, `0`);
-    return;
-  } else if (top > conHeight - boxHeight) {
-    newBox.style.top = `${conHeight - boxHeight}px`;
-    localStorage.setItem("container", container.innerHTML)
-    localStorage.setItem(`top${boxLength}`, `${conHeight - boxHeight}px`);
-    return;
-  } else if (left > conWidth - boxWidth) {
-    newBox.style.left = `${conWidth - boxWidth}px`;
-    localStorage.setItem("container", container.innerHTML)
-    localStorage.setItem(`left${boxLength}`, `${conWidth - boxWidth}px`);
-    return;
-  }
-  localStorage.setItem("container", container.innerHTML)
-
+  saveCorner(newBox)
 }
 
 
@@ -310,66 +251,66 @@ for (let j = 0; j < document.querySelectorAll(".box").length; j++ ){
       window.removeEventListener("mousemove", fly);
       window.removeEventListener("mouseup", flyDown);
   
-      const top = parseInt(getComputedStyle(box).getPropertyValue("top"));
-      const left = parseInt(getComputedStyle(box).getPropertyValue("left"));
-      const container = document.querySelector(".container");
-      const boxWidth = parseInt(getComputedStyle(box).getPropertyValue("width"));
-      const boxHeight = parseInt(getComputedStyle(box).getPropertyValue("height"));
-      const conHeight = parseInt(getComputedStyle(container).getPropertyValue("height"));
-      const conWidth = parseInt(getComputedStyle(container).getPropertyValue("width"));
-  
-        if (top < 0 && left > conWidth - boxWidth) {
-          box.style.top = `0`;
-          box.style.left = `${conWidth - boxWidth}px`;
-          localStorage.setItem(`top${j}`, `0`);
-          localStorage.setItem(`left${j}`, `${conWidth - boxWidth}px`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (top > conHeight - boxHeight && left < 0) {
-          box.style.top = `${conHeight - boxHeight}px`;
-          box.style.left = `0`;
-          localStorage.setItem(`top${j}`, `${conHeight - boxHeight}px`);
-          localStorage.setItem(`left${j}`, `0`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (top > conHeight - boxHeight && left > conWidth - boxWidth) {
-          box.style.top = `${conHeight - boxHeight}px`;
-          box.style.left = `${conWidth - boxWidth}px`;
-          localStorage.setItem(`top${j}`, `${conHeight - boxHeight}px`);
-          localStorage.setItem(`left${j}`, `${conWidth - boxWidth}px`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (top < 0 && left < 0) {
-          box.style.top = "0";
-          box.style.left = "0";
-          localStorage.setItem(`top${j}`, `0`);
-          localStorage.setItem(`left${j}`, `0`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (top < 0) {
-          box.style.top = "0";
-          localStorage.setItem(`top${j}`, `0`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (left < 0) {
-          box.style.left = "0";
-          localStorage.setItem(`left${j}`, `0`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (top > conHeight - boxHeight) {
-          box.style.top = `${conHeight - boxHeight}px`;
-          localStorage.setItem(`top${j}`, `${conHeight - boxHeight}px`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (left > conWidth - boxWidth) {
-          box.style.left = `${conWidth - boxWidth}px`;
-          localStorage.setItem(`left${j}`, `${conWidth - boxWidth}px`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        }
-      localStorage.setItem("container", container.innerHTML)
+        // const top = parseInt(getComputedStyle(box).getPropertyValue("top"));
+        // const left = parseInt(getComputedStyle(box).getPropertyValue("left"));
+        // const container = document.querySelector(".container");
+        // const boxWidth = parseInt(getComputedStyle(box).getPropertyValue("width"));
+        // const boxHeight = parseInt(getComputedStyle(box).getPropertyValue("height"));
+        // const conHeight = parseInt(getComputedStyle(container).getPropertyValue("height"));
+        // const conWidth = parseInt(getComputedStyle(container).getPropertyValue("width"));
+    
+        //   if (top < 0 && left > conWidth - boxWidth) {
+        //     box.style.top = `0`;
+        //     box.style.left = `${conWidth - boxWidth}px`;
+        //     localStorage.setItem(`top${j}`, `0`);
+        //     localStorage.setItem(`left${j}`, `${conWidth - boxWidth}px`);
+        //     localStorage.setItem("container", container.innerHTML)
+        //     return;
+        //   } else if (top > conHeight - boxHeight && left < 0) {
+        //     box.style.top = `${conHeight - boxHeight}px`;
+        //     box.style.left = `0`;
+        //     localStorage.setItem(`top${j}`, `${conHeight - boxHeight}px`);
+        //     localStorage.setItem(`left${j}`, `0`);
+        //     localStorage.setItem("container", container.innerHTML)
+        //     return;
+        //   } else if (top > conHeight - boxHeight && left > conWidth - boxWidth) {
+        //     box.style.top = `${conHeight - boxHeight}px`;
+        //     box.style.left = `${conWidth - boxWidth}px`;
+        //     localStorage.setItem(`top${j}`, `${conHeight - boxHeight}px`);
+        //     localStorage.setItem(`left${j}`, `${conWidth - boxWidth}px`);
+        //     localStorage.setItem("container", container.innerHTML)
+        //     return;
+        //   } else if (top < 0 && left < 0) {
+        //     box.style.top = "0";
+        //     box.style.left = "0";
+        //     localStorage.setItem(`top${j}`, `0`);
+        //     localStorage.setItem(`left${j}`, `0`);
+        //     localStorage.setItem("container", container.innerHTML)
+        //     return;
+        //   } else if (top < 0) {
+        //     box.style.top = "0";
+        //     localStorage.setItem(`top${j}`, `0`);
+        //     localStorage.setItem("container", container.innerHTML)
+        //     return;
+        //   } else if (left < 0) {
+        //     box.style.left = "0";
+        //     localStorage.setItem(`left${j}`, `0`);
+        //     localStorage.setItem("container", container.innerHTML)
+        //     return;
+        //   } else if (top > conHeight - boxHeight) {
+        //     box.style.top = `${conHeight - boxHeight}px`;
+        //     localStorage.setItem(`top${j}`, `${conHeight - boxHeight}px`);
+        //     localStorage.setItem("container", container.innerHTML)
+        //     return;
+        //   } else if (left > conWidth - boxWidth) {
+        //     box.style.left = `${conWidth - boxWidth}px`;
+        //     localStorage.setItem(`left${j}`, `${conWidth - boxWidth}px`);
+        //     localStorage.setItem("container", container.innerHTML)
+        //     return;
+        //   }
+        // localStorage.setItem("container", container.innerHTML)
 
-
+        saveCorner(box)
     }
 
   }

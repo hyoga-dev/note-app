@@ -1,6 +1,9 @@
+import flyingEffect from "./flyingEffect.js";
+import saveCorner from "./saveCorner.js";
+
 let box = document.querySelectorAll(".box");
 const rotateSpeed = 1.3;
-let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
+let a, b, rectLeft, rectTop,  arr;
 
 
 export default function fly() {
@@ -73,24 +76,7 @@ export default function fly() {
       localStorage.setItem(`top${[i]}`, mouseVer + "px");
       localStorage.setItem(`left${[i]}`, mouseHor + "px");
   
-      // * Wosh
-      function wosh() {
-
-        currentEvent = e;
-        if (prevEvent && currentEvent) {
-          var movementX = Math.floor(currentEvent.screenX - prevEvent.screenX);
-          var movementY = Math.floor(currentEvent.screenY - prevEvent.screenY);
-  
-          const mx = movementX * 1.5;
-          const my = movementY * -1.5;
-          if (mx < 25 && mx > -25 && my < 25 && my > -25) {
-            box.style.transform = `rotateX(${my / rotateSpeed}deg) rotateY(${mx / rotateSpeed}deg)`;
-          }
-        }
-  
-        prevEvent = currentEvent;
-      }
-      wosh();
+      flyingEffect(e, box, rotateSpeed)
     }
   
     // * =========================================================================
@@ -109,7 +95,6 @@ export default function fly() {
       box.style.boxShadow = "none";
       box.style.transform = `rotateX(0) rotateY(0)`;
 
-  
       document.getElementById("demo").innerHTML =
         "Box number : " + 0 + ", have index of: " + index1;
       document.getElementById("demo2").innerHTML =
@@ -121,70 +106,8 @@ export default function fly() {
   
       window.removeEventListener("mousemove", fly);
       window.removeEventListener("mouseup", flyDown);
-  
-      const top = parseInt(getComputedStyle(box).getPropertyValue("top")),
-        left = parseInt(getComputedStyle(box).getPropertyValue("left")),
-        container = document.querySelector(".container"),
-        boxWidth = parseInt(getComputedStyle(box).getPropertyValue("width")),
-        boxHeight = parseInt(getComputedStyle(box).getPropertyValue("height")),
-        conHeight = parseInt(
-          getComputedStyle(container).getPropertyValue("height")
-        ),
-        conWidth = parseInt(
-          getComputedStyle(container).getPropertyValue("width")
-        );
-  
-        if (top < 0 && left > conWidth - boxWidth) {
-          box.style.top = `0`;
-          box.style.left = `${conWidth - boxWidth}px`;
-          localStorage.setItem(`top${i}`, `0`);
-          localStorage.setItem(`left${i}`, `${conWidth - boxWidth}px`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (top > conHeight - boxHeight && left < 0) {
-          box.style.top = `${conHeight - boxHeight}px`;
-          box.style.left = `0`;
-          localStorage.setItem(`top${i}`, `${conHeight - boxHeight}px`);
-          localStorage.setItem(`left${i}`, `0`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (top > conHeight - boxHeight && left > conWidth - boxWidth) {
-          box.style.top = `${conHeight - boxHeight}px`;
-          box.style.left = `${conWidth - boxWidth}px`;
-          localStorage.setItem(`top${i}`, `${conHeight - boxHeight}px`);
-          localStorage.setItem(`left${i}`, `${conWidth - boxWidth}px`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (top < 0 && left < 0) {
-          box.style.top = "0";
-          box.style.left = "0";
-          localStorage.setItem(`top${i}`, `0`);
-          localStorage.setItem(`left${i}`, `0`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (top < 0) {
-          box.style.top = "0";
-          localStorage.setItem(`top${i}`, `0`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (left < 0) {
-          box.style.left = "0";
-          localStorage.setItem(`left${i}`, `0`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (top > conHeight - boxHeight) {
-          box.style.top = `${conHeight - boxHeight}px`;
-          localStorage.setItem(`top${i}`, `${conHeight - boxHeight}px`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        } else if (left > conWidth - boxWidth) {
-          box.style.left = `${conWidth - boxWidth}px`;
-          localStorage.setItem(`left${i}`, `${conWidth - boxWidth}px`);
-          localStorage.setItem("container", container.innerHTML)
-          return;
-        }
-      localStorage.setItem("container", container.innerHTML)
 
+      saveCorner(box)
     }
   }
   
