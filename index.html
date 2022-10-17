@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/src/asset/favicon.ico">
     <link rel="stylesheet" href="./main.css" />
     <title>Note app test</title>
     <script src="https://kit.fontawesome.com/ba324e01bb.js" crossorigin="anonymous"></script>
@@ -12,24 +12,24 @@
   <body>
     
     <div class="container" id="container">
-      <div class="box">0</div>
+
+      <!-- default box -->
+      <textarea name="area" id="" cols="20" rows="5" class="box"></textarea>
       <div class="box">1</div>
       <div class="box">2</div>
       <div class="box">3</div>
-      <div style="user-select: none">
-        <p id="demo" style="position: fixed; top: 40px; right: 40px"></p>
-        <p id="demo2" style="position: fixed; top: 60px; right: 40px"></p>
-        <p id="demo3" style="position: fixed; top: 80px; right: 40px"></p>
-        <p id="demo4" style="position: fixed; top: 100px; right: 40px"></p>
-        <p id="demo5" style="position: fixed; top: 140px; right: 40px"></p>
-      </div>
 
+      <!-- add button -->
       <button id="btn"><i class="fa-solid fa-plus"></i></button>
       <div class="grab-container">  
         <div class="triangle"></div><p class="grab-me">Drag me</p> 
       </div>
+
     </div>
 
+
+
+    <!-- ########### script ########## -->
     <script>
       const box = document.querySelectorAll(".box");
       const container = document.getElementById("container");
