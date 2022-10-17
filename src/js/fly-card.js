@@ -6,6 +6,10 @@ const rotateSpeed = 1.3;
 let a, b, rectLeft, rectTop,  arr;
 
 
+// let content = localStorage.getItem("arr").split(",")
+
+
+
 
 
 
@@ -99,12 +103,26 @@ export default function() {
     //  ========================= FlyDown =================================
     //  ===================================================================
     function flyDown() {
+      let container = document.getElementById("container")
+
       box.style.cursor = "grab";
       box.style.boxShadow = "none";
       box.style.transform = `rotateX(0) rotateY(0)`;
       
       window.removeEventListener("mousemove", fly);
       window.removeEventListener("mouseup", flyDown);
+
+      // undo redo
+      let content = localStorage.getItem("arr").split(",")
+      const left = getComputedStyle(box).getPropertyValue("left")
+      const top = getComputedStyle(box).getPropertyValue("top")
+      const pos = [left, top]
+      content.push(pos)
+      // if (content.length > 10) {content.shift()}
+      localStorage.setItem("arr", content)
+      localStorage.setItem("prev", 0)
+
+      // console.log(content)
       
       saveCorner(box)
     }

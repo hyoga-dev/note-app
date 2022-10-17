@@ -1,0 +1,40 @@
+
+#btn {
+  padding: 20px;
+  border: .2px solid rgba(75, 75, 75, 0.152);
+  border-radius: 5px;
+  cursor: default ;
+  z-index: 99;
+  position: absolute;
+  top: 150px;
+  left: 40px;
+}
+
+#btn:focus {
+  outline: none;
+}
+
+#btn:hover, #btn:focus, .btn:hover, .btn:focus {
+  background-color: rgb(219, 224, 230);
+}
+
+.btn {
+  padding: 8px;
+
+  position: fixed;
+  bottom: 30px;
+  border: .2px solid rgba(75, 75, 75, 0.152);
+  border-radius: 5px;
+}
+
+#undo {
+  left: 30px;
+}
+
+#redo {
+  left: 90px;
+}
+
+#ref {
+  left: 140px;
+}

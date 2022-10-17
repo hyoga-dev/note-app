@@ -1,31 +1,13 @@
 @import "/src/css/fly.css";
 @import "/src/css/grab.css";
+@import "/src/css/btn.css";
 
 body {
   margin: 0;
 }
 
-#btn {
-  padding: 20px;
-  border: .2px solid rgba(75, 75, 75, 0.152);
-  border-radius: 5px;
-  cursor: default ;
-  z-index: 99;
-  position: absolute;
-  top: 150px;
-  left: 40px;
-}
-
-#btn:focus {
-  outline: none;
-}
-
-#btn:hover, #btn:focus {
-  background-color: rgb(219, 224, 230);
-}
-
-
-
 p {
   z-index: -9999;
 }
+
+

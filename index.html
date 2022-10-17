@@ -19,13 +19,19 @@
       <div class="box">2</div>
       <div class="box">3</div>
 
+
+
       <!-- add button -->
       <button id="btn"><i class="fa-solid fa-plus"></i></button>
       <div class="grab-container">  
         <div class="triangle"></div><p class="grab-me">Drag me</p> 
       </div>
-
+      
     </div>
+
+    <button class="btn" id="undo">Undo</button>
+    <button class="btn" id="redo">Redo</button>
+    <button class="btn" id="ref">ref</button>
 
 
 
@@ -39,12 +45,12 @@
         box[i].style.left = localStorage.getItem(`left${i}`);
         box[i].style.zIndex = localStorage.getItem(`index${i}`);
       }
-      if (localStorage.getItem("container") != null) {
-        container.innerHTML = localStorage.getItem("container");
-      }
+      // if (localStorage.getItem("container") != null) {
+      //   container.innerHTML = localStorage.getItem("container");
+      // }
     </script>
 
-    <!-- <script type="module" src="./src/index.js"></script> -->
-    <script src="./dist/main.js"></script>
+    <script type="module" src="./src/index.js"></script>
+    <!-- <script src="./dist/main.js"></script> -->
   </body>
 </html>
