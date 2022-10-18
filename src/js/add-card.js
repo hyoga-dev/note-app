@@ -3,7 +3,7 @@ import saveCorner from "./saveCorner.js";
 
 // import fly from "./fly-card.js"
 const rotateSpeed = 1.3;
-let boxNum = 3;
+// let boxNum = 3;
 
 
 
@@ -12,22 +12,22 @@ let boxNum = 3;
 export default function addCard(e) {
 
 
-
+ 
 
   let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr, moved;
 
 
 
 
-  if (localStorage.getItem("boxNum") > 3) { boxNum = localStorage.getItem("boxNum")}
-  console.log(boxNum);
-  boxNum++;
+  // if (localStorage.getItem("boxNum") > 3) { boxNum = localStorage.getItem("boxNum")}
+  // console.log(boxNum);
+  // boxNum++;
 
-  localStorage.setItem("boxNum", boxNum);
+  // localStorage.setItem("boxNum", boxNum);
   const para = document.createElement("div");
-  const node = document.createTextNode(boxNum);
+  // const node = document.createTextNode(boxNum);
 
-  para.appendChild(node);
+  // para.appendChild(node);
 
   para.classList.add("box");
   para.style.opacity = "0";
@@ -42,6 +42,8 @@ export default function addCard(e) {
   let newBox = box[boxLength];
   newBox.setAttribute('data-min-rows', 2)
   newBox.setAttribute("autofocus", "")
+  // newBox.setAttribute("place")
+
 
 
   a = e.clientX;
@@ -60,6 +62,40 @@ export default function addCard(e) {
   rectTop = Math.floor(newBox.getBoundingClientRect().top);
 
   window.addEventListener("mousemove", newFly);
+
+
+
+
+
+  tinymce.init({
+    selector: "div.box",
+    inline: true,
+    plugins: [
+      "advlist",
+      "autolink",
+      "link",
+      "image",
+      "lists",
+      "charmap",
+      "preview",
+      "anchor",
+      "pagebreak",
+      "searchreplace",
+      "wordcount",
+      "visualblocks",
+      "visualchars",
+      "code",
+      "fullscreen",
+      "insertdatetime",
+      "media",
+      "table",
+      "emoticons",
+      "template",
+      "help",
+    ],
+    toolbar:
+      "undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons",
+  });
 
 
 

@@ -18,8 +18,9 @@ export default function() {
   for (let i = 0; i < box.length; i++) {
     
     let box = document.querySelectorAll(".box")[i];
-
-
+    let fokus = document.querySelectorAll(".mce-edit-focus")[i];
+    
+    
 
     box.addEventListener("mousedown", flyUp); // flying card
     box.addEventListener("keydown", () => {

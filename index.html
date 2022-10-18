@@ -8,16 +8,52 @@
     <link rel="stylesheet" href="./main.css" />
     <title>Note app test</title>
     <script src="https://kit.fontawesome.com/ba324e01bb.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.tiny.cloud/1/1ujay45c2oifojuusuem3ikzoftxb2akco81cgjel6yct981/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+    <script>
+      tinymce.init({
+        selector: "div.box",
+        inline: true,
+        plugins: [
+          "advlist",
+          "autolink",
+          "link",
+          "image",
+          "lists",
+          "charmap",
+          "preview",
+          "anchor",
+          "pagebreak",
+          "searchreplace",
+          "wordcount",
+          "visualblocks",
+          "visualchars",
+          "code",
+          "fullscreen",
+          "insertdatetime",
+          "media",
+          "table",
+          "emoticons",
+          "template",
+          "help",
+        ],
+        toolbar:
+          "undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons",
+      });
+    </script>
+
   </head>
   <body>
     
     <div class="container" id="container">
 
       <!-- default box -->
-      <div class="box" data-min-rows='2' autofocus></div>
-      <div class="box" data-min-rows='2' autofocus>1</div>
+      <div class="box" data-min-rows='2'>Drag and drop tombol + untuk menambahkan kartu</div>
+      <!-- <div class="box" data-min-rows='2' autofocus>1</div>
       <div class="box" data-min-rows='2' autofocus>2</div>
-      <div class="box" data-min-rows='2' autofocus>3</div>
+      <div class="box" data-min-rows='2' autofocus>3</div> -->
 
 
 

@@ -12,9 +12,40 @@ let btn = document.getElementById("btn")
 // let refBtn = document.getElementById("ref")
 
 btn.addEventListener("mousedown", dragMe)
+// btn.addEventListener("focus", fokus)
+// btn.addEventListener("blur", belur)
 // undoBtn.addEventListener("mousedown", undo)
 // redoBtn.addEventListener("mousedown", redo)
 // refBtn.addEventListener("mousedown", ref)
+
+
+
+
+
+
+// function fokus() {
+//   btn.removeEventListener("mousedown", dragMe)
+
+
+// }
+
+
+// function belur() {
+//   btn.addEventListener("mousedown", dragMe)
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
