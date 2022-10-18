@@ -2,7 +2,7 @@ import flyingEffect from "./flyingEffect.js";
 import saveCorner from "./saveCorner.js";
 
 let box = document.querySelectorAll(".box");
-const rotateSpeed = 1.3;
+const rotateSpeed = 1.5;
 let a, b, rectLeft, rectTop,  arr, moved;
 
 

@@ -2,7 +2,7 @@ import flyingEffect from "./flyingEffect.js";
 import saveCorner from "./saveCorner.js";
 
 // import fly from "./fly-card.js"
-const rotateSpeed = 1.3;
+const rotateSpeed = 1.5;
 // let boxNum = 3;
 
 
@@ -42,6 +42,7 @@ export default function addCard(e) {
   let newBox = box[boxLength];
   newBox.setAttribute('data-min-rows', 2)
   newBox.setAttribute("autofocus", "")
+  newBox.style.resize = "both";
   // newBox.setAttribute("place")
 
 

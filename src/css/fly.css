@@ -3,7 +3,7 @@
   /* border: 1px solid black; */
   height: 100vh;
   background-color: rgb(225, 231, 238);
-  perspective: 500px;
+  perspective: 1000px;
   overflow: hidden;
   background-image: url("../asset/dot-bg.svg");
   background-position: right top;
