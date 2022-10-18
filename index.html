@@ -14,10 +14,10 @@
     <div class="container" id="container">
 
       <!-- default box -->
-      <textarea name="area" id="" cols="20" rows="5" class="box"></textarea>
-      <div class="box">1</div>
-      <div class="box">2</div>
-      <div class="box">3</div>
+      <div class="box" data-min-rows='2' autofocus></div>
+      <div class="box" data-min-rows='2' autofocus>1</div>
+      <div class="box" data-min-rows='2' autofocus>2</div>
+      <div class="box" data-min-rows='2' autofocus>3</div>
 
 
 
@@ -40,14 +40,14 @@
       const box = document.querySelectorAll(".box");
       const container = document.getElementById("container");
 
-      for (let i = 0; i < box.length; i++) {
-        box[i].style.top = localStorage.getItem(`top${i}`);
-        box[i].style.left = localStorage.getItem(`left${i}`);
-        box[i].style.zIndex = localStorage.getItem(`index${i}`);
+      box.forEach((box, index) => {
+        box.style.top = localStorage.getItem(`top${index}`);
+        box.style.left = localStorage.getItem(`left${index}`);
+        box.style.zIndex = localStorage.getItem(`index${index}`);
+      })  
+      if (localStorage.getItem("container") != null) {
+        container.innerHTML = localStorage.getItem("container");
       }
-      // if (localStorage.getItem("container") != null) {
-      //   container.innerHTML = localStorage.getItem("container");
-      // }
     </script>
 
     <script type="module" src="./src/index.js"></script>

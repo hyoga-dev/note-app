@@ -3,7 +3,7 @@ import saveCorner from "./saveCorner.js";
 
 let box = document.querySelectorAll(".box");
 const rotateSpeed = 1.3;
-let a, b, rectLeft, rectTop,  arr;
+let a, b, rectLeft, rectTop,  arr, moved;
 
 
 // let content = localStorage.getItem("arr").split(",")
@@ -18,54 +18,70 @@ export default function() {
   for (let i = 0; i < box.length; i++) {
     
     let box = document.querySelectorAll(".box")[i];
+
+
+
     box.addEventListener("mousedown", flyUp); // flying card
+    box.addEventListener("keydown", () => {
+      box.style.height = "auto";
+    }); // flying card
+
   
 
 
-
+    
 
     
     // =========================================================================
     // ========================= FlyUp =========================================
     // =========================================================================
     function flyUp(e) {
-
+      box.style.resize = "both";
       let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
-      a = e.clientX;
-      b = e.clientY;
-      
-      // <-- indexing
-      arr = [];
-      for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-        index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
-        arr.push(index);
-      } 
-
-      let max = Math.max(...arr);
+      let width = parseInt(getComputedStyle(box).getPropertyValue("width"));
+      let height = parseInt(getComputedStyle(box).getPropertyValue("height"));
       rectLeft = Math.floor(box.getBoundingClientRect().left);
       rectTop = Math.floor(box.getBoundingClientRect().top);
-      // indexing -->
-  
-      
-      // <-- normalise index
-      if (max < 100) {
-        box.style.zIndex = max + 1;
-        localStorage.setItem(`index${i}`, max);
-      } else {
+      a = e.clientX;
+      b = e.clientY;
+      if (a - rectLeft < width - 2 || b - rectTop < height - 2 ) {
+        e.preventDefault()
+
+        // <-- indexing
+        arr = [];
         for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-          // console.log(localStorage.getItem(`index${k}`));
-          localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
-          document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
-        }}
-      // normalise index -->
-      
-      // add fly effect --
-      // box.style.cursor = "grabbing";
-      // box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
-  
-      // add event handler
-      window.addEventListener("mousemove", fly);
-      window.addEventListener("mouseup", flyDown);
+          index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
+          arr.push(index);
+        } 
+        console.log("X axis: ", a - rectLeft)
+        console.log("Y axis: ", b - rectLeft)
+        console.log("the width: ", width - 10)
+        let max = Math.max(...arr);
+    
+        
+        // <-- normalise index
+        if (max < 100) {
+          box.style.zIndex = max + 1;
+          localStorage.setItem(`index${i}`, max);
+        } else {
+          for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
+            // console.log(localStorage.getItem(`index${k}`));
+            localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
+            document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
+          }}
+        // normalise index -->
+        
+        // add fly effect --
+        // box.style.cursor = "grabbing";
+        // box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
+    
+        // add event handler
+        window.addEventListener("mousemove", fly);
+        window.addEventListener("mouseup", flyDown);
+
+
+
+      }
     }
 
 
@@ -79,7 +95,7 @@ export default function() {
     //  ================================================================
     function fly(e) {
   
-
+      moved = true;
       box.style.cursor = "grabbing";
       box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
 
@@ -103,8 +119,12 @@ export default function() {
     //  ========================= FlyDown =================================
     //  ===================================================================
     function flyDown() {
-      let container = document.getElementById("container")
+      // let container = document.getElementById("container")
 
+      if (moved != true) {
+        box.focus()
+      }
+      moved = false
       box.style.cursor = "grab";
       box.style.boxShadow = "none";
       box.style.transform = `rotateX(0) rotateY(0)`;
@@ -113,14 +133,14 @@ export default function() {
       window.removeEventListener("mouseup", flyDown);
 
       // undo redo
-      let content = localStorage.getItem("arr").split(",")
-      const left = getComputedStyle(box).getPropertyValue("left")
-      const top = getComputedStyle(box).getPropertyValue("top")
-      const pos = [left, top]
-      content.push(pos)
-      // if (content.length > 10) {content.shift()}
-      localStorage.setItem("arr", content)
-      localStorage.setItem("prev", 0)
+      // let content = localStorage.getItem("arr").split(",")
+      // const left = getComputedStyle(box).getPropertyValue("left")
+      // const top = getComputedStyle(box).getPropertyValue("top")
+      // const pos = [left, top]
+      // content.push(pos)
+      // // if (content.length > 10) {content.shift()}
+      // localStorage.setItem("arr", content)
+      // localStorage.setItem("prev", 0)
 
       // console.log(content)
       

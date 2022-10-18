@@ -14,7 +14,10 @@ export default function addCard(e) {
 
 
 
-  let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr;
+  let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr, moved;
+
+
+
 
   if (localStorage.getItem("boxNum") > 3) { boxNum = localStorage.getItem("boxNum")}
   console.log(boxNum);
@@ -25,15 +28,22 @@ export default function addCard(e) {
   const node = document.createTextNode(boxNum);
 
   para.appendChild(node);
+
   para.classList.add("box");
   para.style.opacity = "0";
   para.style.zIndex = "100";
 
   container.appendChild(para);
 
+
+
   let box = document.querySelectorAll(".box");
   let boxLength = box.length - 1;
   let newBox = box[boxLength];
+  newBox.setAttribute('data-min-rows', 2)
+  newBox.setAttribute("autofocus", "")
+
+
   a = e.clientX;
   b = e.clientY;
   const btnTop = parseInt(
@@ -43,8 +53,8 @@ export default function addCard(e) {
     getComputedStyle(document.getElementById("btn")).getPropertyValue("left")
   );
 
-  newBox.style.left = `${btnLeft - 100}px`;
-  newBox.style.top = `${btnTop - 50}px`;
+  newBox.style.left = `${btnLeft - 86}px`;
+  newBox.style.top = `${btnTop }px`;
 
   rectLeft = Math.floor(newBox.getBoundingClientRect().left);
   rectTop = Math.floor(newBox.getBoundingClientRect().top);
@@ -56,7 +66,7 @@ export default function addCard(e) {
 
 
 
-
+  // ---------------------------------------------------------------
   function newFly(e) {
     newBox.style.cursor = "grabbing";
     newBox.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
@@ -65,18 +75,19 @@ export default function addCard(e) {
 
     let mouseHor = e.clientX - (a - rectLeft),
       mouseVer = e.clientY - (b - rectTop);
-
-    newBox.style.left = `${mouseHor}px`;
-    newBox.style.top = `${mouseVer}px`;
-
-    flyingEffect(e, newBox, rotateSpeed);
+      
+      newBox.style.left = `${mouseHor}px`;
+      newBox.style.top = `${mouseVer}px`;
+      
+      flyingEffect(e, newBox, rotateSpeed);
   }
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  // ---------------------------------------------------------------
   function newFlyDown() {
     newBox.style.cursor = "grab";
     newBox.style.boxShadow = "none";
@@ -89,7 +100,7 @@ export default function addCard(e) {
     btn.addEventListener("mouseleave", () => {
       btn.style.backgroundColor = "#f0f0f0";
     });
-
+    
     window.removeEventListener("mousemove", newFly);
     window.removeEventListener("mouseup", newFlyDown);
 
@@ -97,17 +108,18 @@ export default function addCard(e) {
   }
 
 
+  
 
+  
+  
+  
 
-
-
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  // ---------------------------------------------------------------
   for (let j = 0; j < document.querySelectorAll(".box").length; j++) {
     let box = document.querySelectorAll(".box")[j];
     box.addEventListener("mousedown", flyUp); // flying card
@@ -121,10 +133,17 @@ export default function addCard(e) {
     // =========================================================================
     function flyUp(e) {
       box = document.querySelectorAll(".box")[j];
-
+      
+      
       let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
+      let width = parseInt(getComputedStyle(box).getPropertyValue("width"));
+      let height = parseInt(getComputedStyle(box).getPropertyValue("height"));
+      rectLeft = Math.floor(box.getBoundingClientRect().left);
+      rectTop = Math.floor(box.getBoundingClientRect().top);
       a = e.clientX;
       b = e.clientY;
+      if (a - rectLeft < width - 2 || b - rectTop < height - 2 ) {
+        e.preventDefault()
 
       // <-- indexing
       arr = [];
@@ -138,8 +157,6 @@ export default function addCard(e) {
         arr.push(index);
       }
       let max = Math.max(...arr);
-      rectLeft = Math.floor(box.getBoundingClientRect().left);
-      rectTop = Math.floor(box.getBoundingClientRect().top);
       // indexing -->
 
       // <-- normalise index
@@ -167,6 +184,7 @@ export default function addCard(e) {
       window.addEventListener("mousemove", fly);
       window.addEventListener("mouseup", flyDown);
     }
+    }
 
 
 
@@ -177,6 +195,8 @@ export default function addCard(e) {
     // =========================================================================
     function fly(e) {
       box = document.querySelectorAll(".box")[j];
+      moved = true;
+
 
       box.style.cursor = "grabbing";
       box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
@@ -221,6 +241,11 @@ export default function addCard(e) {
     // ============================ FlyDown ====================================
     // =========================================================================
     function flyDown() {
+      if (moved != true) {
+        box.focus()
+      }
+      moved = false
+
       box = document.querySelectorAll(".box");
       box = document.querySelectorAll(".box")[j];
       box.style.cursor = "grab";
