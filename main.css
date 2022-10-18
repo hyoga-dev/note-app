@@ -10,7 +10,7 @@ p {
   z-index: -9999;
 }
 
-.box p {
+.box p, .box ul {
   margin: 0;
   font-size: 12px;
   color: rgb(83, 83, 83);
