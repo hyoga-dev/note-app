@@ -2,7 +2,7 @@ import flyingEffect from "./flyingEffect.js";
 import saveCorner from "./saveCorner.js";
 
 // import fly from "./fly-card.js"
-const rotateSpeed = 1.5;
+const rotateSpeed = 1.3;
 // let boxNum = 3;
 
 
@@ -18,16 +18,8 @@ export default function addCard(e) {
 
 
 
-
-  // if (localStorage.getItem("boxNum") > 3) { boxNum = localStorage.getItem("boxNum")}
-  // console.log(boxNum);
-  // boxNum++;
-
-  // localStorage.setItem("boxNum", boxNum);
   const para = document.createElement("div");
-  // const node = document.createTextNode(boxNum);
 
-  // para.appendChild(node);
 
   para.classList.add("box");
   para.style.opacity = "0";
@@ -43,8 +35,8 @@ export default function addCard(e) {
   newBox.setAttribute('data-min-rows', 2)
   newBox.setAttribute("autofocus", "")
   newBox.style.resize = "both";
+  newBox.style.width = "400px";
   // newBox.setAttribute("place")
-
 
 
   a = e.clientX;
@@ -68,9 +60,17 @@ export default function addCard(e) {
 
 
 
+
+
   tinymce.init({
     selector: "div.box",
     inline: true,
+    menubar: false,
+    width: "900px",
+    resize: false,
+    draggable_modal: true,
+    fixed_toolbar_container: "#mytoolbar",
+    placeholder: 'Type here...',
     plugins: [
       "advlist",
       "autolink",
@@ -95,9 +95,9 @@ export default function addCard(e) {
       "help",
     ],
     toolbar:
-      "undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons",
-  });
+      "undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor backcolor emoticons",
 
+  });
 
 
 
@@ -105,7 +105,7 @@ export default function addCard(e) {
 
   // ---------------------------------------------------------------
   function newFly(e) {
-    newBox.style.cursor = "grabbing";
+    // newBox.style.cursor = "grabbing";
     newBox.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
     newBox.style.opacity = "1";
     window.addEventListener("mouseup", newFlyDown);
@@ -126,7 +126,7 @@ export default function addCard(e) {
   
   // ---------------------------------------------------------------
   function newFlyDown() {
-    newBox.style.cursor = "grab";
+    // newBox.style.cursor = "grab";
     newBox.style.boxShadow = "none";
     newBox.style.transform = `rotateX(0) rotateY(0)`;
     const btn = document.querySelector("#btn");
@@ -235,7 +235,7 @@ export default function addCard(e) {
       moved = true;
 
 
-      box.style.cursor = "grabbing";
+      // box.style.cursor = "grabbing";
       box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
 
       let mouseHor = e.clientX - (a - rectLeft),
@@ -283,9 +283,9 @@ export default function addCard(e) {
       }
       moved = false
 
-      box = document.querySelectorAll(".box");
+      // box = document.querySelectorAll(".box");
       box = document.querySelectorAll(".box")[j];
-      box.style.cursor = "grab";
+      // box.style.cursor = "grab";
       box.style.boxShadow = "none";
       box.style.transform = `rotateX(0) rotateY(0)`;
 

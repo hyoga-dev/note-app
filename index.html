@@ -13,9 +13,22 @@
       referrerpolicy="origin"
     ></script>
     <script>
+      // var el = document.createElement('div');
+      // document.body.appendChild(el);
+
+
       tinymce.init({
         selector: "div.box",
         inline: true,
+        menubar: false,
+        width: "900px",
+        resize: false,
+        draggable_modal: true,
+        fixed_toolbar_container: "#mytoolbar",
+        placeholder: 'Type here...',
+        toolbar_mode: "wrap",
+        style_formats_autohide: true,
+        toolbar_persist: true,
         plugins: [
           "advlist",
           "autolink",
@@ -23,7 +36,6 @@
           "image",
           "lists",
           "charmap",
-          "preview",
           "anchor",
           "pagebreak",
           "searchreplace",
@@ -39,41 +51,51 @@
           "template",
           "help",
         ],
-        toolbar:
-          "undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons",
+        toolbar:"undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor backcolor emoticons"
+        
+
       });
+
+
+
     </script>
+
+  
 
   </head>
   <body>
     
+    <div id="mytoolbar" ></div>
     <div class="container" id="container">
-
       <!-- default box -->
-      <div class="box" data-min-rows='2'>
-        <h1>Welcome</h1>
+      <div id="editable" style="position: fix;height: 100%;">
+
+        <div class="box" data-min-rows='2'>
+        <h1 style="text-align: center;">Welcome</h1>
         <hr>
         Drag and drop tombol + untuk menambahkan kartu
-        <br>
-        <br>
-        <strong> Fitur terbaru: </strong> <br><br>
-        <ul>
-          <li>Auto save</li>
-          <li>Undo & redo ( lagi ngebug :') )</li>
-          <li>Animasi kartu</li>
-        </ul>
-        <br>
-        <strong> Next update: </strong> 
-        <br>
-        <br>
-        <ul>
-          <li>Save ke pdf</li>
-          <li>Auto expand</li>
-          <li>Save ke database</li>
-          <li>Realtime update menggunakan websocket</li>
-          <li>Print</li>
-          
-        </ul>
+          <br>
+          <br>
+          <strong> Fitur terbaru: </strong> <br><br>
+          <ul>
+            <li>Auto save</li>
+            <li>Undo & redo ( lagi ngebug :') )</li>
+            <li>Animasi kartu</li>
+            <li>Fix toolbar</li>
+          </ul>
+          <br>
+          <strong> Next update: </strong> 
+          <br>
+          <br>
+          <ul>
+            <li>Save ke pdf</li>
+            <li>Auto expand</li>
+            <li>Save ke database</li>
+            <li>Realtime update menggunakan websocket</li>
+            <li>Print</li>
+            
+          </ul>
+      </div>
       </div>
       <!-- <div class="box" data-min-rows='2' autofocus>1</div>
       <div class="box" data-min-rows='2' autofocus>2</div>
@@ -98,7 +120,7 @@
     <!-- ########### script ########## -->
     <script>
       const box = document.querySelectorAll(".box");
-      const container = document.getElementById("container");
+      const editable = document.getElementById("editable");
 
       box.forEach((box, index) => {
         box.style.top = localStorage.getItem(`top${index}`);
@@ -110,7 +132,7 @@
       }
     </script>
 
-    <!-- <script type="module" src="./src/index.js"></script> -->
-    <script src="./dist/main.js"></script>
+    <script type="module" src="./src/index.js"></script>
+    <!-- <script src="./dist/main.js"></script> -->
   </body>
 </html>

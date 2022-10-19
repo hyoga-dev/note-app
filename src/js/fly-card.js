@@ -2,7 +2,7 @@ import flyingEffect from "./flyingEffect.js";
 import saveCorner from "./saveCorner.js";
 
 let box = document.querySelectorAll(".box");
-const rotateSpeed = 1.5;
+const rotateSpeed = 1.3;
 let a, b, rectLeft, rectTop,  arr, moved;
 
 
@@ -20,17 +20,16 @@ export default function() {
     let box = document.querySelectorAll(".box")[i];
     let fokus = document.querySelectorAll(".mce-edit-focus")[i];
     
-    
+    // fokus.addEventListener("click", () => {
+    //   box.removeEventListener("mousedown", flyUp)
+    // })
 
     box.addEventListener("mousedown", flyUp); // flying card
     box.addEventListener("keydown", () => {
       box.style.height = "auto";
     }); // flying card
 
-  
 
-
-    
 
     
     // =========================================================================
@@ -54,9 +53,9 @@ export default function() {
           index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
           arr.push(index);
         } 
-        console.log("X axis: ", a - rectLeft)
-        console.log("Y axis: ", b - rectLeft)
-        console.log("the width: ", width - 10)
+        // console.log("X axis: ", a - rectLeft)
+        // console.log("Y axis: ", b - rectLeft)
+        // console.log("the width: ", width - 10)
         let max = Math.max(...arr);
     
         
@@ -120,13 +119,12 @@ export default function() {
     //  ========================= FlyDown =================================
     //  ===================================================================
     function flyDown() {
-      // let container = document.getElementById("container")
+      let container = document.getElementById("container")
 
       if (moved != true) {
         box.focus()
       }
       moved = false
-      box.style.cursor = "grab";
       box.style.boxShadow = "none";
       box.style.transform = `rotateX(0) rotateY(0)`;
       
