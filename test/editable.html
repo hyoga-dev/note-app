@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .container {
+      display: grid;
+      justify-content: center;
+      position: relative;
+    }
+
+    #edited {
+      border: 1px solid black;
+      min-width: 400px;
+      min-height: 200px;
+      resize: both;
+      position: absolute;
+    }
+  </style>
+
+</head>
+<body>
+  
+  <div class="container">
+
+    <div id="edited" contenteditable="true"  >
+      bambang
+    </div>
+
+  </div>
+
+  <script>
+
+    const edit = document.getElementById("edited")
+
+    edit.style.resize = "both";
+
+
+    edit.onblur = () => {
+      console.log("blured")
+    }
+    edit.onfocus = () => {
+      console.log("focused")
+    }
+
+  </script>
+
+</body>
+</html>
