@@ -7,21 +7,24 @@
   overflow: hidden;
   background-image: url("../asset/dot-bg.svg");
   background-position: right top;
-  background-size: 7px auto;
+  background-size: 6px auto;
 }
 
 .box:first-child {
-  left: 400px;
-  top: 300px;
+  left: 40%;
+  top: 40%;
+  /* transform: translate(-50%, -50%); */
 }
 
 .box {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
   user-select: none;
   padding: 10px;
   z-index: 1;
   transform-style: preserve-3d;
   background-color: rgb(248, 248, 248);
+  color: #8199aa;
   position: absolute;
   cursor: default;
   min-width: 200px;
@@ -37,3 +40,16 @@
   transition: box-shadow .4s, transform .1s,left .05s, top .05s, opacity .4s;
   border-radius: 5px;
 }
+
+.box b, .box h1 {
+  color: #4e6d89;
+}
+
+
+.box h3 {
+  color: #6c889e;
+  margin-bottom: 8px;
+
+}
+
+

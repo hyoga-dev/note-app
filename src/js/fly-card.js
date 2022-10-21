@@ -18,18 +18,27 @@ export default function() {
   for (let i = 0; i < box.length; i++) {
     
     let box = document.querySelectorAll(".box")[i];
-    let fokus = document.querySelectorAll(".mce-edit-focus")[i];
     
-    // fokus.addEventListener("click", () => {
-    //   box.removeEventListener("mousedown", flyUp)
-    // })
+    
 
     box.addEventListener("mousedown", flyUp); // flying card
     box.addEventListener("keydown", () => {
       box.style.height = "auto";
     }); // flying card
+    box.addEventListener("focus", ()=>{
+      box.removeEventListener('mousedown', flyUp)
+      box.style.cursor = "text";
+    })
+    
+    box.addEventListener("blur", ()=>{
+      box.addEventListener  ('mousedown', flyUp)
+      box.style.cursor = "default";
+    })
+
+  
 
 
+    
 
     
     // =========================================================================
@@ -53,11 +62,13 @@ export default function() {
           index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
           arr.push(index);
         } 
-        // console.log("X axis: ", a - rectLeft)
-        // console.log("Y axis: ", b - rectLeft)
-        // console.log("the width: ", width - 10)
+        console.groupCollapsed
+        console.log("X axis: ", a - rectLeft)
+        console.log("Y axis: ", b - rectLeft)
+        console.log("the width: ", width - 10)
+        console.groupEnd
         let max = Math.max(...arr);
-    
+        
         
         // <-- normalise index
         if (max < 100) {
@@ -96,7 +107,7 @@ export default function() {
     function fly(e) {
   
       moved = true;
-      box.style.cursor = "grabbing";
+      // box.style.cursor = "move";
       box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
 
       const mouseHor = e.clientX - (a - rectLeft),
@@ -119,12 +130,13 @@ export default function() {
     //  ========================= FlyDown =================================
     //  ===================================================================
     function flyDown() {
-      let container = document.getElementById("container")
+      // let container = document.getElementById("container")
 
       if (moved != true) {
         box.focus()
       }
       moved = false
+      // box.style.cursor = "pointer";
       box.style.boxShadow = "none";
       box.style.transform = `rotateX(0) rotateY(0)`;
       

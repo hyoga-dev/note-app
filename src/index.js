@@ -1,40 +1,74 @@
 
 import dragMe from "./js/dragMe.js";
 import fly from "./js/fly-card.js";
+import bolding from "./js/text-editor/bold.js"
+import italicing from "./js/text-editor/italic.js"
+import { header } from "./js/text-editor/header.js";
+import addEditor from "./js/addEditor.js";
 
 
 
 
 
-let btn = document.getElementById("btn")
-// let undoBtn = document.getElementById("undo")
-// let redoBtn = document.getElementById("redo")
-// let refBtn = document.getElementById("ref")
-
+const btn = document.getElementById("btn")
 btn.addEventListener("mousedown", dragMe)
-// btn.addEventListener("focus", fokus)
-// btn.addEventListener("blur", belur)
-// undoBtn.addEventListener("mousedown", undo)
-// redoBtn.addEventListener("mousedown", redo)
-// refBtn.addEventListener("mousedown", ref)
-
-
-// const tox  = document.getElementsByClassName("tox")
 
 
 
+const bold = document.getElementById("bold")
+bold.addEventListener("mousedown", () => addEditor(event, "bold") )
+
+const h1 = document.getElementById("h1")
+h1.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h1") )
+
+const h3 = document.getElementById("h3")
+h3.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h3") )
+
+const paragraph = document.getElementById("paragraph")
+paragraph.addEventListener("mousedown", () => addEditor(event, "insertParagraph") )
+
+const italic = document.getElementById("italic")
+italic.addEventListener("mousedown", () => addEditor(event, "italic") )
+
+const justifyRight = document.getElementById("align-right")
+justifyRight.addEventListener("mousedown", () => addEditor(event, "justifyRight") )
+
+const justifyCenter = document.getElementById("align-center")
+justifyCenter.addEventListener("mousedown", () => addEditor(event, "justifyCenter") )
+
+const justifyLeft = document.getElementById("align-left")
+justifyLeft.addEventListener("mousedown", () => addEditor(event, "justifyLeft") )
+
+const justifyFull = document.getElementById("align-full")
+justifyFull.addEventListener("mousedown", () => addEditor(event, "justifyFull") )
+
+// const redo = document.getElementById("redo")
+// redo.addEventListener("mousedown", () => addEditor(event, "redo") )
+
+// const undo = document.getElementById("undo")
+// undo.addEventListener("mousedown", () => addEditor(event, "undo") )
+
+const insertUnorderedList = document.getElementById("ul")
+insertUnorderedList.addEventListener("mousedown", () => addEditor(event, "insertUnorderedList") )
+
+const insertOrderedList = document.getElementById("ol")
+insertOrderedList.addEventListener("mousedown", () => addEditor(event, "insertOrderedList") )
+
+// const insertHorizontalRule = document.getElementById("hr")
+// insertHorizontalRule.addEventListener("mousedown", () => addEditor(event, "insertHorizontalRule") )
 
 
-// function fokus() {
-//   btn.removeEventListener("mousedown", dragMe)
 
+
+fly()
+
+
+
+// function bolding() {
 
 // }
 
 
-// function belur() {
-//   btn.addEventListener("mousedown", dragMe)
-// }
 
 
 
@@ -74,88 +108,3 @@ function onExpandableTextareaInput({ target:elm }){
 // global delegated event listener
 document.addEventListener('input', onExpandableTextareaInput)
 
-
-
-// let container = document.getElementById("container");
-// const content = []
-// let newArr;
-// let prev; 
-
-
-
-
-// if (localStorage.getItem("prev") == null) {
-//   prev = 0;
-// } else {
-//   prev = localStorage.getItem("prev")
-// }
-
-fly()
-
-
-// // ----------------------------------------------------------------------
-// if (localStorage.getItem("arr") == null) {
-//   localStorage.setItem("arr", content) 
-// }
-
-// let arr = localStorage.getItem("arr").split(",")
-  
-  
-  
-
-// // ----------------------------------------------------------------------
-//   function undo() {
-//     if (localStorage.getItem("prev") == 0){
-//       prev = localStorage.getItem("prev")
-//     }
-
-//     localStorage.setItem("prev", 1)
-//     let arr = localStorage.getItem("arr").split(",")
-//     container = document.getElementById("container")
-    
-    
-//     if (prev < arr.length) {
-//       prev++
-//       console.log("Prev is: ",  prev)
-  
-//       // const newArr = arr.slice(0, arr.length - prev + 1) 
-//       newArr = arr[arr.length - (prev + 1)]
-//       // let arru = arr.slice(0, arr.length - prev)
-
-//       console.log(newArr)
-
-//     } else {
-//       alert("Can't undo")
-//     }
-  
-// }
-  
-  
-  
-  
-// // ----------------------------------------------------------------------
-//   function redo() {
-//       if ( prev >= 2 ) {
-//         prev--
-//         // demo.innerHTML =  "Current number: " + arr[arr.length - prev];
-  
-//         newArr = arr[arr.length - prev] 
-//         localStorage.setItem("arr", newArr)
-//         // localStorage.setItem("container", container.innerHTML)
-//         console.log(newArr)
-//         // console.log("index: ",prev)
-//         // console.log("the arr is:", arr[arr.length - prev])  
-  
-//       } else {
-//         alert("Can't redo")
-//       }
-//   }
-
-  
-//   // ----------------------------------------------------------------------
-//   function ref() {
-//     const btn = document.getElementById("btn")
-//     btn.removeEventListener("mousedown",  dragMe)
-//     btn.addEventListener("mousedown",  dragMe)
-//     console.log(btn)
-//   }

@@ -6,133 +6,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/src/asset/favicon.ico">
     <link rel="stylesheet" href="./main.css" />
-    <title>Note app test</title>
     <script src="https://kit.fontawesome.com/ba324e01bb.js" crossorigin="anonymous"></script>
-    <script
-      src="https://cdn.tiny.cloud/1/1ujay45c2oifojuusuem3ikzoftxb2akco81cgjel6yct981/tinymce/6/tinymce.min.js"
-      referrerpolicy="origin"
-    ></script>
-    <script>
-      // var el = document.createElement('div');
-      // document.body.appendChild(el);
+    <title>Note app test</title>
 
+    <style>
 
-      tinymce.init({
-        selector: "div.box",
-        inline: true,
-        menubar: false,
-        width: "900px",
-        resize: false,
-        draggable_modal: true,
-        fixed_toolbar_container: "#mytoolbar",
-        placeholder: 'Type here...',
-        toolbar_mode: "wrap",
-        style_formats_autohide: true,
-        toolbar_persist: true,
-        plugins: [
-          "advlist",
-          "autolink",
-          "link",
-          "image",
-          "lists",
-          "charmap",
-          "anchor",
-          "pagebreak",
-          "searchreplace",
-          "wordcount",
-          "visualblocks",
-          "visualchars",
-          "code",
-          "fullscreen",
-          "insertdatetime",
-          "media",
-          "table",
-          "emoticons",
-          "template",
-          "help",
-        ],
-        toolbar:"undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor backcolor emoticons"
-        
+      .toolbar {
+        display: flex;
+        flex-direction: row;
+        column-gap: 18px;
+        justify-content: start;
+        align-items: center;
+        top: 20px;
+        left: 50%;
 
-      });
+        /* border: 1px solid black; */
+        transform: translate(-50%, 0);
+        max-width: 100%;
+        /* min-width: 600px; */
+        height: 50px;
+      }
 
+      .toolbar section {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+        margin: 0 0 0 5px;
 
+        /* justify-content: center; */
+      }
 
-    </script>
+      .toolbar section:first-child {
+        margin-left: 20px;
+      }
 
-  
+      .toolbar section:last-child {
+        margin-right: 20px;
+      }
+      
+      /* .sel-box {
+        border-radius: 3px;
+        height: 25px;
+        background-color: #e4e8ed;
+      }
+
+      .sel-box-right {
+        width: 80px;
+      }
+
+      .sel-box-left {
+        width: 120px;
+      } */
+
+      .item-box {
+        display: grid;
+        place-content: center;
+        border-radius: 3px;
+
+        width: 30px;
+        height: 30px;
+        border: .2px solid rgba(0, 0, 0, 0.102);
+      }
+
+      .item-box:hover {
+        background-color: #e4e8ed;
+      }
+
+      .item-box i {
+        color: #4e6d89;
+
+      }
+
+      .tool {
+        z-index: 1;
+        position: fixed;
+        background-color: #f8f8f8;
+        border-radius: 4px;
+      }
+
+      .side-tool {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 25px;
+        left: 40px;
+        /* border: 1px solid black; */
+        top: 150px;
+        width: 50px;
+        max-height: 100%;
+      }
+
+      .side-tool section:first-child {
+        margin-top: 15px;
+      }
+
+      .side-tool section:last-child {
+        margin-bottom: 15px;
+      }
+
+      .side-tool section {
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+      }
+    </style>
 
   </head>
-  <body>
+  <body ondragstart="return false;">
     
-    <div id="mytoolbar" ></div>
-    <div class="container" id="container">
-      <!-- default box -->
-      <div id="editable" style="position: fix;height: 100%;">
-
-        <div class="box" data-min-rows='2'>
-        <h1 style="text-align: center;">Welcome</h1>
-        <hr>
-        Drag and drop tombol + untuk menambahkan kartu
-          <br>
-          <br>
-          <strong> Fitur terbaru: </strong> <br><br>
-          <ul>
-            <li>Auto save</li>
-            <li>Undo & redo ( lagi ngebug :') )</li>
-            <li>Animasi kartu</li>
-            <li>Fix toolbar</li>
-          </ul>
-          <br>
-          <strong> Next update: </strong> 
-          <br>
-          <br>
-          <ul>
-            <li>Save ke pdf</li>
-            <li>Auto expand</li>
-            <li>Save ke database</li>
-            <li>Realtime update menggunakan websocket</li>
-            <li>Print</li>
-            
-          </ul>
-      </div>
-      </div>
-      <!-- <div class="box" data-min-rows='2' autofocus>1</div>
-      <div class="box" data-min-rows='2' autofocus>2</div>
-      <div class="box" data-min-rows='2' autofocus>3</div> -->
 
 
 
-      <!-- add button -->
-      <button id="btn"><i class="fa-solid fa-plus"></i></button>
-      <div class="grab-container">  
-        <div class="triangle"></div><p class="grab-me">Drag me</p> 
-      </div>
-      
+
+
+
+
+
+
+
+    <div class="toolbar tool">
+      <section>
+        <div ><img style="transform: translate(0, 2px);" src="/src/asset/fly logo.svg" alt="fly" width="30px"></div>
+      </section>
+      <section>
+        <div class="item-box" id="h1"><img src="/src/asset/h1.svg" alt="h1-icon" width="18"></div>
+        <div class="item-box" id="h3"><img src="/src/asset/h3.svg" alt="h3-icon" width="19"></div>
+        <div class="item-box" id="paragraph"><i class="fa-solid fa-p"></i></div>
+      </section>
+      <section>
+        <div class="item-box" id="bold"><i class="fa-solid fa-bold"></i></div>
+        <div class="item-box" id="italic"><i class="fa-solid fa-italic"></i></div>
+      </section>
+      <section>
+        <div class="item-box" id="align-left"><i class="fa-solid fa-align-left"></i></div>
+        <div class="item-box" id="align-center"><i class="fa-solid fa-align-center"></i></div>
+        <div class="item-box" id="align-right"><i class="fa-solid fa-align-right"></i></div>
+        <div class="item-box" id="align-full"><i class="fa-solid fa-align-justify"></i></div>
+      </section>
+      <section>
+        <div class="item-box" id="ul"><i class="fa-solid fa-list-ul"></i></div>
+        <div class="item-box" id="ol"><img src="/src/asset/ol.svg" alt="ol-icon" width="13"></div>
+      </section>
+      <section>
+        <div class="item-box"><img src="/src/asset/text-color.svg" alt="text-color" width="11"></div>
+        <div class="item-box"><img src="/src/asset/back-color.svg" alt="text-back-color" width="11"></div>
+      </section>
     </div>
 
+
+
+
+
+
+    <div class="side-tool tool" >
+      <section><div class="item-box" id="btn"><img src="/src/asset/add-button.svg" alt="add-button-icon" width="15"></div></section>
+      <section>
+        <div class="item-box"><i class="fa-solid fa-copy"></i></div>
+        <div class="item-box"><i class="fa-solid fa-scissors"></i></div>
+        <div class="item-box"><i class="fa-solid fa-trash"></i></div>
+      </section>
+      <section><div class="item-box"><i class="fa-solid fa-gear"></i></div></section>
+    </div>
+
+
+
+
+
+
+
+    <div class="container" id="container"> 
+
+      <div class="box" data-min-rows='2' contenteditable spellcheck="false">Drag and drop tombol + untuk menambahkan kartu</div>
+
+    </div>
+
+
+
+    <!-- <button id="btn">+</button> -->
+    <div class="grab-container">  
+      <div class="triangle"></div><p class="grab-me">Drag me</p> 
+    </div>
+<!-- 
     <button class="btn" id="undo">Undo</button>
     <button class="btn" id="redo">Redo</button>
-    <button class="btn" id="ref">ref</button>
+    <button class="btn" id="bold"> Bold </button> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     <!-- ########### script ########## -->
     <script>
       const box = document.querySelectorAll(".box");
-      const editable = document.getElementById("editable");
+      // const container = document.getElementById("container");
 
-      box.forEach((box, index) => {
-        box.style.top = localStorage.getItem(`top${index}`);
-        box.style.left = localStorage.getItem(`left${index}`);
-        box.style.zIndex = localStorage.getItem(`index${index}`);
-      })  
-      if (localStorage.getItem("container") != null) {
-        container.innerHTML = localStorage.getItem("container");
-      }
+      // box.forEach((box, index) => {
+
+        
+      //   box.style.top = localStorage.getItem(`top${index}`);
+      //   box.style.left = localStorage.getItem(`left${index}`);
+      //   box.style.zIndex = localStorage.getItem(`index${index}`);
+      // })  
+      // if (localStorage.getItem("container") != null) {
+      //   container.innerHTML = localStorage.getItem("container");
+      // }
+
+
+      
     </script>
 
     <script type="module" src="./src/index.js"></script>
     <!-- <script src="./dist/main.js"></script> -->
+
+
+
+
+
   </body>
 </html>

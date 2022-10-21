@@ -1,9 +1,7 @@
 import flyingEffect from "./flyingEffect.js";
 import saveCorner from "./saveCorner.js";
 
-// import fly from "./fly-card.js"
 const rotateSpeed = 1.3;
-// let boxNum = 3;
 
 
 
@@ -11,15 +9,8 @@ const rotateSpeed = 1.3;
 
 export default function addCard(e) {
 
-
- 
-
   let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr, moved;
-
-
-
   const para = document.createElement("div");
-
 
   para.classList.add("box");
   para.style.opacity = "0";
@@ -33,14 +24,20 @@ export default function addCard(e) {
   let boxLength = box.length - 1;
   let newBox = box[boxLength];
   newBox.setAttribute('data-min-rows', 2)
-  newBox.setAttribute("autofocus", "")
+  newBox.setAttribute('placeholder', 'type here...')
+  newBox.setAttribute('contenteditable', '')
+  newBox.setAttribute('Spellcheck', false)
   newBox.style.resize = "both";
-  newBox.style.width = "400px";
-  // newBox.setAttribute("place")
+
 
 
   a = e.clientX;
   b = e.clientY;
+
+  const btn = document.getElementById("btn")
+  const btnRectLeft = parseInt(btn.getBoundingClientRect().left);
+  const btnRectTop = parseInt(btn.getBoundingClientRect().top);
+
   const btnTop = parseInt(
     getComputedStyle(document.getElementById("btn")).getPropertyValue("top")
   );
@@ -51,61 +48,20 @@ export default function addCard(e) {
   newBox.style.left = `${btnLeft - 86}px`;
   newBox.style.top = `${btnTop }px`;
 
-  rectLeft = Math.floor(newBox.getBoundingClientRect().left);
-  rectTop = Math.floor(newBox.getBoundingClientRect().top);
+  // rectLeft = Math.floor(newBox.getBoundingClientRect().left);
+  // rectTop = Math.floor(newBox.getBoundingClientRect().top);
+
+  rectLeft = Math.floor(btnRectLeft - 60);
+  rectTop = Math.floor(btnRectTop - 25);
 
   window.addEventListener("mousemove", newFly);
 
 
 
 
-
-
-
-  tinymce.init({
-    selector: "div.box",
-    inline: true,
-    menubar: false,
-    width: "900px",
-    resize: false,
-    draggable_modal: true,
-    fixed_toolbar_container: "#mytoolbar",
-    placeholder: 'Type here...',
-    plugins: [
-      "advlist",
-      "autolink",
-      "link",
-      "image",
-      "lists",
-      "charmap",
-      "preview",
-      "anchor",
-      "pagebreak",
-      "searchreplace",
-      "wordcount",
-      "visualblocks",
-      "visualchars",
-      "code",
-      "fullscreen",
-      "insertdatetime",
-      "media",
-      "table",
-      "emoticons",
-      "template",
-      "help",
-    ],
-    toolbar:
-      "undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor backcolor emoticons",
-
-  });
-
-
-
-
-
   // ---------------------------------------------------------------
   function newFly(e) {
-    // newBox.style.cursor = "grabbing";
+    newBox.style.cursor = "grabbing";
     newBox.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
     newBox.style.opacity = "1";
     window.addEventListener("mouseup", newFlyDown);
@@ -126,7 +82,7 @@ export default function addCard(e) {
   
   // ---------------------------------------------------------------
   function newFlyDown() {
-    // newBox.style.cursor = "grab";
+    newBox.style.cursor = "default";
     newBox.style.boxShadow = "none";
     newBox.style.transform = `rotateX(0) rotateY(0)`;
     const btn = document.querySelector("#btn");
@@ -161,7 +117,19 @@ export default function addCard(e) {
     let box = document.querySelectorAll(".box")[j];
     box.addEventListener("mousedown", flyUp); // flying card
 
-
+    box.addEventListener("mousedown", flyUp); // flying card
+    box.addEventListener("keydown", () => {
+      box.style.height = "auto";
+    }); // flying card
+    box.addEventListener("focus", ()=>{
+      box.removeEventListener('mousedown', flyUp)
+      box.style.cursor = "text";
+    })
+    
+    box.addEventListener("blur", ()=>{
+      box.addEventListener  ('mousedown', flyUp)
+      box.style.cursor = "default";
+    })
 
 
 
@@ -215,7 +183,7 @@ export default function addCard(e) {
 
       // add fly effect --
       // box.style.cursor = "grabbing";
-      // box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
+      box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
 
       // add event handler
       window.addEventListener("mousemove", fly);
@@ -283,7 +251,7 @@ export default function addCard(e) {
       }
       moved = false
 
-      // box = document.querySelectorAll(".box");
+      box = document.querySelectorAll(".box");
       box = document.querySelectorAll(".box")[j];
       // box.style.cursor = "grab";
       box.style.boxShadow = "none";

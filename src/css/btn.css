@@ -1,6 +1,6 @@
 
-#btn {
-  padding: 20px;
+/* #btn {
+  padding: 18px;
   border: .2px solid rgba(75, 75, 75, 0.152);
   border-radius: 5px;
   cursor: default ;
@@ -8,6 +8,7 @@
   position: absolute;
   top: 150px;
   left: 40px;
+  font-size: large;
 }
 
 #btn:focus {
@@ -16,15 +17,19 @@
 
 #btn:hover, #btn:focus, .btn:hover, .btn:focus {
   background-color: rgb(219, 224, 230);
-}
+} */
 
-.btn {
+/* .btn {
   padding: 8px;
 
   position: fixed;
   bottom: 30px;
   border: .2px solid rgba(75, 75, 75, 0.152);
   border-radius: 5px;
+} */
+
+.btn {
+  user-select: none;
 }
 
 #undo {
@@ -35,6 +40,6 @@
   left: 90px;
 }
 
-#ref {
+#bold {
   left: 140px;
 }

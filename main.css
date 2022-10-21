@@ -2,21 +2,17 @@
 @import "/src/css/grab.css";
 @import "/src/css/btn.css";
 
+@font-face {
+  font-family: sera-reguler;
+  src: url('/src/asset/cera-round.otf');
+}
+
 body {
+  box-sizing: border-box;
   margin: 0;
+  font-family: arial;
 }
 
-p {
-  z-index: -9999;
-}
 
-.box p, .box ul {
-  margin: 0;
-  font-size: 12px;
-  color: rgb(83, 83, 83);
-}
 
-/* #mytoolbar {
-  transition: .4s;
-} */
 
