@@ -1,9 +1,6 @@
 
 import dragMe from "./js/dragMe.js";
 import fly from "./js/fly-card.js";
-import bolding from "./js/text-editor/bold.js"
-import italicing from "./js/text-editor/italic.js"
-import { header } from "./js/text-editor/header.js";
 import addEditor from "./js/addEditor.js";
 
 

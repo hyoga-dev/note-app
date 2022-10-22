@@ -118,9 +118,9 @@ export default function addCard(e) {
     box.addEventListener("mousedown", flyUp); // flying card
 
     box.addEventListener("mousedown", flyUp); // flying card
-    box.addEventListener("keydown", () => {
-      box.style.height = "auto";
-    }); // flying card
+    // box.addEventListener("keydown", () => {
+    //   box.style.height = "auto";
+    // }); // flying card
     box.addEventListener("focus", ()=>{
       box.removeEventListener('mousedown', flyUp)
       box.style.cursor = "text";
