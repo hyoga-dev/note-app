@@ -18,9 +18,10 @@ export default function fly() {
   for (let i = 0; i < bix.length; i++) {
     
     const box = qsa(".box")[i];
+    box.style.cursor = "default";
     
     
-
+    console.log(box)
     box.addEventListener("mousedown", flyUp);// flying card
 
 
@@ -66,18 +67,8 @@ export default function fly() {
           arr.push(index);
         } 
         let max = Math.max(...arr);
-        
-        
-        // <-- normalise index
-        if (max < 100) {
-          box.style.zIndex = max + 1;
-          localStorage.setItem(`index${i}`, max);
-        } else {
-          for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-            // console.log(localStorage.getItem(`index${k}`));
-            localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
-            document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
-          }}
+        box.style.zIndex = max + 1;
+
         window.addEventListener("mousemove", fly);
         window.addEventListener("mouseup", flyDown);
 
@@ -96,13 +87,12 @@ export default function fly() {
     //  ========================= Fly ==================================
     //  ================================================================
     function fly(e) {
-  
       moved = true;
       // box.style.cursor = "move";
       box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
 
-      const mouseHor = e.clientX - (a - rectLeft),
-            mouseVer = e.clientY - (b - rectTop);
+      const mouseHor = e.clientX - (a - rectLeft);
+      const mouseVer = e.clientY - (b - rectTop);
   
       box.style.left = `${mouseHor}px`;
       box.style.top = `${mouseVer}px`;
@@ -110,7 +100,7 @@ export default function fly() {
       localStorage.setItem(`top${[i]}`, mouseVer + "px");
       localStorage.setItem(`left${[i]}`, mouseHor + "px");
   
-      flyingEffect(e, box, rotateSpeed)
+      flyingEffect(e, box)
     }
 
 
@@ -122,6 +112,7 @@ export default function fly() {
     //  ===================================================================
     function flyDown() {
       // let container = document.getElementById("container")
+      console.log(box)
 
       if (moved != true) {
         box.focus()

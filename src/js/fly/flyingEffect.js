@@ -14,7 +14,7 @@ let prevEvent, currentEvent;
       const mx = movementX * 1.5;
       const my = movementY * -1.5;
       if (mx < 25 && mx > -25 && my < 25 && my > -25) {
-        box.style.transform = `rotateX(${my / rotateSpeed}deg) rotateY(${mx / rotateSpeed}deg)`;
+        box.style.transform = `rotateX(${my / 1.3}deg) rotateY(${mx / 1.3}deg)`;
       }
     }
   // }
