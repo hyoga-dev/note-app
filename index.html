@@ -6,113 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/src/asset/favicon.ico">
     <link rel="stylesheet" href="./main.css" />
-    <script src="https://kit.fontawesome.com/ba324e01bb.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/ba324e01bb.js" crossorigin="anonymous"></script> -->
     <title>Note app test</title>
-
-    <style>
-
-      .toolbar {
-        display: flex;
-        flex-direction: row;
-        column-gap: 18px;
-        justify-content: start;
-        align-items: center;
-        top: 20px;
-        left: 50%;
-
-        /* border: 1px solid black; */
-        transform: translate(-50%, 0);
-        max-width: 100%;
-        /* min-width: 600px; */
-        height: 50px;
-      }
-
-      .toolbar section {
-        display: flex;
-        flex-direction: row;
-        column-gap: 10px;
-        margin: 0 0 0 5px;
-
-        /* justify-content: center; */
-      }
-
-      .toolbar section:first-child {
-        margin-left: 20px;
-      }
-
-      .toolbar section:last-child {
-        margin-right: 20px;
-      }
-      
-      /* .sel-box {
-        border-radius: 3px;
-        height: 25px;
-        background-color: #e4e8ed;
-      }
-
-      .sel-box-right {
-        width: 80px;
-      }
-
-      .sel-box-left {
-        width: 120px;
-      } */
-
-      .item-box {
-        display: grid;
-        place-content: center;
-        border-radius: 3px;
-
-        width: 30px;
-        height: 30px;
-        border: .2px solid rgba(0, 0, 0, 0.102);
-      }
-
-      .item-box:hover {
-        background-color: #e4e8ed;
-      }
-
-      .item-box i {
-        color: #4e6d89;
-
-      }
-
-      .tool {
-        z-index: 1;
-        position: fixed;
-        background-color: #f8f8f8;
-        border-radius: 4px;
-      }
-
-      .side-tool {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 25px;
-        left: 40px;
-        /* border: 1px solid black; */
-        top: 150px;
-        width: 50px;
-        max-height: 100%;
-      }
-
-      .side-tool section:first-child {
-        margin-top: 15px;
-      }
-
-      .side-tool section:last-child {
-        margin-bottom: 15px;
-      }
-
-      .side-tool section {
-
-        display: flex;
-        flex-direction: column;
-        row-gap: 10px;
-
-      }
-    </style>
-
   </head>
   <body ondragstart="return false;">
     
@@ -122,7 +17,15 @@
 
 
 
-
+    <div class="side-tool tool" >
+      <section><div class="item-box" id="btn"><img src="/src/asset/add-button.svg" alt="add-button-icon" width="15"></div></section>
+      <section>
+        <div class="item-box"><i class="fa-solid fa-copy"></i></div>
+        <div class="item-box"><i class="fa-solid fa-scissors"></i></div>
+        <div class="item-box"><i class="fa-solid fa-trash"></i></div>
+      </section>
+      <section><div class="item-box"><i class="fa-solid fa-gear"></i></div></section>
+    </div>
 
 
 
@@ -160,15 +63,7 @@
 
 
 
-    <div class="side-tool tool" >
-      <section><div class="item-box" id="btn"><img src="/src/asset/add-button.svg" alt="add-button-icon" width="15"></div></section>
-      <section>
-        <div class="item-box"><i class="fa-solid fa-copy"></i></div>
-        <div class="item-box"><i class="fa-solid fa-scissors"></i></div>
-        <div class="item-box"><i class="fa-solid fa-trash"></i></div>
-      </section>
-      <section><div class="item-box"><i class="fa-solid fa-gear"></i></div></section>
-    </div>
+
 
 
 
@@ -202,6 +97,26 @@
 
 
 
+    <div id="context-menu">
+      <div class="menu" id="delete">Delete <span>Delete</span></div>
+      <div class="menu" id="copy">Copy <span>Ctrl + Shift + C</span></div>
+      <div class="menu" id="paste">Paste <span>Ctrl + Shift + V</span></div>
+      <div class="menu" id="lock">Lock <span>Ctrl + L</span></div>
+      <div class="menu" id="unlock">Unlock <span>Ctrl + Alt + L</span></div>
+      <div class="menu" id="unlockall">Unlock all <span>Ctrl + Shift + Alt + L</span></div>
+      <!-- <div class="menu">Delete</div> -->
+    </div>
+    
+    <div id="document-context-menu">
+      <div class="document-menu" id="d-select-all">Select all <span>Ctrl + Shift + V</span></div>
+      <div class="document-menu" id="d-paste">Paste <span>Ctrl + Shift + V</span></div>
+      <!-- <div class="menu">Delete</div> -->
+    </div>
+    
+
+
+
+
 
 
 
@@ -229,8 +144,8 @@
       
     </script>
 
-    <!-- <script type="module" src="./src/index.js"></script> -->
-    <script src="./dist/main.js"></script>
+    <script type="module" src="./src/index.js"></script>
+    <!-- <script src="./dist/main.js"></script> -->
 
 
 

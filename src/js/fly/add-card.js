@@ -1,5 +1,6 @@
 import flyingEffect from "./flyingEffect.js";
 import saveCorner from "./saveCorner.js";
+import Menu from "../menu.js";
 
 const rotateSpeed = 1.3;
 
@@ -117,7 +118,7 @@ export default function addCard(e) {
     let box = document.querySelectorAll(".box")[j];
     box.addEventListener("mousedown", flyUp); // flying card
 
-    box.addEventListener("mousedown", flyUp); // flying card
+    // box.addEventListener("mousedown", flyUp); // flying card
     // box.addEventListener("keydown", () => {
     //   box.style.height = "auto";
     // }); // flying card
@@ -131,13 +132,13 @@ export default function addCard(e) {
       box.style.cursor = "default";
     })
 
-
+    // hapus(box)
 
     // =========================================================================
     // ========================= FlyUp =========================================
     // =========================================================================
     function flyUp(e) {
-      box = document.querySelectorAll(".box")[j];
+      // box = document.querySelectorAll(".box")[j];
       
       
       let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
@@ -199,7 +200,7 @@ export default function addCard(e) {
     // ========================= Fly ===========================================
     // =========================================================================
     function fly(e) {
-      box = document.querySelectorAll(".box")[j];
+      // box = document.querySelectorAll(".box")[j];
       moved = true;
 
 
@@ -239,8 +240,8 @@ export default function addCard(e) {
     }
 
 
-
-
+const menu = new Menu("context-menu", ".box")
+// refreshEvent
 
     // =========================================================================
     // ============================ FlyDown ====================================
@@ -256,11 +257,15 @@ export default function addCard(e) {
       // box.style.cursor = "grab";
       box.style.boxShadow = "none";
       box.style.transform = `rotateX(0) rotateY(0)`;
-
+      
       window.removeEventListener("mousemove", fly);
       window.removeEventListener("mouseup", flyDown);
 
       saveCorner(box);
+      // refreshEvent()
+      menu.eventHandler()
+      menu.refreshEvent()
+
     }
 
 

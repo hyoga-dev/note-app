@@ -1,6 +1,9 @@
 @import "/src/css/fly.css";
 @import "/src/css/grab.css";
 @import "/src/css/btn.css";
+@import "/src/css/ui.css";
+@import "/src/css/context-menu.css";
+
 
 @font-face {
   font-family: sera-reguler;

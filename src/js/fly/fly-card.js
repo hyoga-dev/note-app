@@ -1,7 +1,7 @@
 import flyingEffect from "./flyingEffect.js";
 import saveCorner from "./saveCorner.js";
 
-let box = document.querySelectorAll(".box");
+let bix = document.querySelectorAll(".box");
 const rotateSpeed = 1.3;
 let a, b, rectLeft, rectTop,  arr, moved;
 
@@ -15,16 +15,20 @@ let a, b, rectLeft, rectTop,  arr, moved;
 
 export default function() {
   
-  for (let i = 0; i < box.length; i++) {
+  for (let i = 0; i < bix.length; i++) {
     
-    let box = document.querySelectorAll(".box")[i];
+    const newstBox = document.querySelectorAll(".box");
+    const box = newstBox[i]
     
     
 
-    box.addEventListener("mousedown", flyUp); // flying card
+    box.addEventListener("mousedown", flyUp);// flying card
+
+
     box.addEventListener("keydown", () => {
       box.style.height = "auto";
-    }); // flying card
+    }); 
+
     box.addEventListener("focus", ()=>{
       box.removeEventListener('mousedown', flyUp)
       box.style.cursor = "text";
@@ -62,11 +66,11 @@ export default function() {
           index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
           arr.push(index);
         } 
-        console.groupCollapsed
-        console.log("X axis: ", a - rectLeft)
-        console.log("Y axis: ", b - rectLeft)
-        console.log("the width: ", width - 10)
-        console.groupEnd
+        // console.groupCollapsed
+        // // console.log("X axis: ", a - rectLeft)
+        // // console.log("Y axis: ", b - rectLeft)
+        // // console.log("the width: ", width - 10)
+        // console.groupEnd
         let max = Math.max(...arr);
         
         
@@ -97,7 +101,7 @@ export default function() {
 
 
 
-
+    // hapus(box)
 
 
   
@@ -142,18 +146,6 @@ export default function() {
       
       window.removeEventListener("mousemove", fly);
       window.removeEventListener("mouseup", flyDown);
-
-      // undo redo
-      // let content = localStorage.getItem("arr").split(",")
-      // const left = getComputedStyle(box).getPropertyValue("left")
-      // const top = getComputedStyle(box).getPropertyValue("top")
-      // const pos = [left, top]
-      // content.push(pos)
-      // // if (content.length > 10) {content.shift()}
-      // localStorage.setItem("arr", content)
-      // localStorage.setItem("prev", 0)
-
-      // console.log(content)
       
       saveCorner(box)
     }
