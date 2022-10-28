@@ -133,7 +133,7 @@ export default function() {
     //  ===================================================================
     //  ========================= FlyDown =================================
     //  ===================================================================
-    function flyDown(e) {
+    function flyDown() {
       // let container = document.getElementById("container")
 
       if (moved != true) {

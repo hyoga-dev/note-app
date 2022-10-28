@@ -3,6 +3,7 @@ import saveCorner from "../fly/saveCorner.js";
 import { qsa } from "../utility.js";
 
 let a, b, rectLeft, rectTop,  arr, moved, prevEvent;
+// let prevLoop = false
 
 // let content = localStorage.getItem("arr").split(",")
 
@@ -14,12 +15,14 @@ let a, b, rectLeft, rectTop,  arr, moved, prevEvent;
 export default function fly() {
   let bix = qsa(".box");
   
-  for (let i = 0; i < bix.length; i++) {
+  // for (let i = 0; i < bix.length; i++) {
     
-    const box = qsa(".box")[i];
-    box.style.cursor = "default";
+    const box = qsa(".box")[bix.length - 1];
+    console.log(box)
+    // box.style.cursor = "default";
     
     
+    // box.removeEventListener("mousedown", flyUp);// flying card
     box.addEventListener("mousedown", flyUp);// flying card
 
 
@@ -40,7 +43,6 @@ export default function fly() {
   
 
 
-    
 
     
     // =========================================================================
@@ -68,6 +70,8 @@ export default function fly() {
         let max = Math.max(...arr);
         box.style.zIndex = max + 1;
 
+
+
         window.addEventListener("mousemove", fly);
         window.addEventListener("mouseup", flyDown);
 
@@ -89,7 +93,6 @@ export default function fly() {
       // console.log(box)
 
       moved = true;
-      // box.style.cursor = "move";
       box.style.boxShadow = "0 30px 50px 0 rgba(94, 118, 145, 0.342)";
 
       const mouseHor = e.clientX - (a - rectLeft);
@@ -98,8 +101,8 @@ export default function fly() {
       box.style.left = `${mouseHor}px`;
       box.style.top = `${mouseVer}px`;
   
-      localStorage.setItem(`top${[i]}`, mouseVer + "px");
-      localStorage.setItem(`left${[i]}`, mouseHor + "px");
+      // localStorage.setItem(`top${[i]}`, mouseVer + "px");
+      // localStorage.setItem(`left${[i]}`, mouseHor + "px");
   
       const currentEvent = e;
       if (prevEvent && currentEvent) {
@@ -111,16 +114,10 @@ export default function fly() {
         if (mx < 25 && mx > -25 && my < 25 && my > -25) {
           box.style.transform = `rotateX(${my / 1.3}deg) rotateY(${mx / 1.3}deg)`;
         }  
-        // console.log(currentEvent.screenY)
-        // console.log("prev   : " + prevEvent.screenX)
-        // console.log("current: " + currentEvent.screenX)
       }
-    // }
       prevEvent = currentEvent;
-      // console.log(i)
       // this.flyEffect(e, box)
     }
-
 
 
 
@@ -128,16 +125,16 @@ export default function fly() {
     //  ===================================================================
     //  ========================= FlyDown =================================
     //  ===================================================================
-    function flyDown(e) {
-      // let container = document.getElementById("container")
-      // console.log(box)
+    function flyDown() {
 
-      if (moved != true) {
+
+      if (moved == false) {
         box.focus()
         box.classList.add("selected")
-      }
+      } 
+
       moved = false
-      // box.style.cursor = "pointer";
+
       box.style.boxShadow = "none";
       box.style.transform = `rotateX(0) rotateY(0)`;
       
@@ -145,7 +142,8 @@ export default function fly() {
       window.removeEventListener("mouseup", flyDown);
       
       saveCorner(box)
+
     }
   }
   
-  }
+// }

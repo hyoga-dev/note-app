@@ -45,11 +45,11 @@ bold.addEventListener("mousedown", () => addEditor(event, "bold") )
 const h1 = document.getElementById("h1")
 h1.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h1") )
 
-const h3 = document.getElementById("h3")
-h3.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h3") )
+// const h3 = document.getElementById("h3")
+// h3.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h3") )
 
 const paragraph = document.getElementById("paragraph")
-paragraph.addEventListener("mousedown", () => addEditor(event, "insertParagraph") )
+paragraph.addEventListener("mousedown", () => addEditor(event, "formatBlock", "p") )
 
 const italic = document.getElementById("italic")
 italic.addEventListener("mousedown", () => addEditor(event, "italic") )
@@ -69,11 +69,11 @@ justifyFull.addEventListener("mousedown", () => addEditor(event, "justifyFull") 
 
 
 
-// const insertUnorderedList = document.getElementById("ul")
-// insertUnorderedList.addEventListener("mousedown", () => addEditor(event, "insertUnorderedList") )
+const insertUnorderedList = document.getElementById("ul")
+insertUnorderedList.addEventListener("mousedown", () => addEditor(event, "insertUnorderedList") )
 
-// const insertOrderedList = document.getElementById("ol")
-// insertOrderedList.addEventListener("mousedown", () => addEditor(event, "insertOrderedList") )
+const insertOrderedList = document.getElementById("ol")
+insertOrderedList.addEventListener("mousedown", () => addEditor(event, "insertOrderedList") )
 
 // const redo = document.getElementById("redo")
 // redo.addEventListener("mousedown", () => addEditor(event, "redo") )

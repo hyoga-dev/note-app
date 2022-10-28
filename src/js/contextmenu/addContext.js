@@ -9,7 +9,7 @@ export default function addContext (e) {
     
   } else if (e.target.id == "copy") {
     e.preventDefault();
-    console.log(document.activeElement.tagName)
+    // console.log(document.activeElement.tagName)
     if (document.activeElement.tagName != "BODY") {
       this.copiedText = document.activeElement.cloneNode(true);
     }
