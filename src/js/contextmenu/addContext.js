@@ -31,7 +31,6 @@ export default function addContext (e) {
 
   } else if (secondClass == "side-copy") {
     this.copiedText = document.activeElement.cloneNode(true)
-
   }
 
 
