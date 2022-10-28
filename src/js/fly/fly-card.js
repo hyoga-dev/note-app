@@ -89,7 +89,7 @@ export default function() {
         // add fly effect --
         // box.style.cursor = "grabbing";
         // box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
-    
+          // console.log("fly")
         // add event handler
         window.addEventListener("mousemove", fly);
         window.addEventListener("mouseup", flyDown);
@@ -112,7 +112,7 @@ export default function() {
   
       moved = true;
       // box.style.cursor = "move";
-      box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
+      box.style.boxShadow = "0 30px 50px 0 rgba(94, 118, 145, 0.342)";
 
       const mouseHor = e.clientX - (a - rectLeft),
             mouseVer = e.clientY - (b - rectTop);
@@ -133,11 +133,12 @@ export default function() {
     //  ===================================================================
     //  ========================= FlyDown =================================
     //  ===================================================================
-    function flyDown() {
+    function flyDown(e) {
       // let container = document.getElementById("container")
 
       if (moved != true) {
         box.focus()
+        box.classList.add("selected")
       }
       moved = false
       // box.style.cursor = "pointer";

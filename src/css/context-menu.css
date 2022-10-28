@@ -1,35 +1,15 @@
-/* @import "./context.menu.css"; */
-
-/* .box {
-  padding: 8px;
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  border: .5px solid whitesmoke;
-  border-radius: 3px;
-} */
 
 .box:focus {
   outline: none;
 }
 
-/* .left {
-  background-color: brown;
-  z-index: 2;
-}
-
-.right {
-  background-color: aqua;
-  left: 50px;
-  z-index: 3;
-} */
 
 
 
 #context-menu {
   top: 100px;
   left: 100px;
-  padding: 8px 0 8px 8px;
+  /* padding: 8px 0 8px 8px; */
   position: fixed;
   display: none;
   z-index: 999;
@@ -37,9 +17,11 @@
   /* height: 300px; */
   border-radius: 3px;
   /* background-color: cadetblue; */
-  background-color: rgb(231, 236, 240);
-
+  background-color: rgb(246, 248, 250);
+  box-shadow: 0 4px 10px 0 rgba(94, 118, 145, 0.342);
   /* border: 1px solid black; */
+  border: .5px solid rgb(221, 220, 220);
+
   overflow: hidden;
 }
 
@@ -49,16 +31,24 @@
   color: rgb(104, 104, 104);
   font-family: Arial, Helvetica, sans-serif;
   z-index: 999;
-  padding: 4px;
+  padding: 4px 4px 4px 8px;
   cursor: pointer;
   width: 170px;
   height: auto;
-  background-color: rgb(231, 236, 240);
+  background-color: inherit;
   /* border: 1px solid black; */
 }
 
+.menu:first-child {
+  padding-top: 8px;
+}
+
+.menu:last-child {
+  padding-bottom: 8px;
+}
+
 .menu:hover {
-  background-color: rgb(65, 69, 73);
+  background-color: #4e6d89;
   color: aliceblue;
 }
 
@@ -82,14 +72,21 @@
 }
 
 #lock {
-  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .selected {
 
-  border: 2px solid black;
+  border: 2px solid #4e6d89;
   /* outline-offset: -2px; */
 }
+
+
+
+
+
+
+
 
 
 
@@ -99,12 +96,23 @@
 #document-context-menu {
   top: 100px;
   left: 100px;
-  padding: 8px 0 8px 8px;
+  /* padding: 8px 0 8px 8px; */
   position: fixed;
   display: none;
   z-index: 9999;
-  border-radius: 3px;
-  background-color: rgb(231, 236, 240);
+  border: .5px solid rgb(230, 230, 230);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+
+  border-radius: 4px;
+  background-color: rgb(246, 248, 250);
+}
+
+.document-menu:first-child {
+  padding-top: 8px;
+}
+
+.document-menu:last-child {
+  padding-bottom: 8px;
 }
 
 /* overflow: hidden; */
@@ -113,11 +121,11 @@
   font-size: 12px;
   color: rgb(104, 104, 104);
   font-family: Arial, Helvetica, sans-serif;
-  padding: 4px;
+  padding: 4px 4px 4px 8px;
   cursor: pointer;
   width: 170px;
   height: auto;
-  background-color: rgb(231, 236, 240);
+  background-color: inherit;
   /* border: 1px solid black; */
 }
 
@@ -140,12 +148,8 @@
   float: right;
 }
 
-#duplicate {
-  border-bottom: 0.2px solid rgba(198, 202, 206, 0.514);
-  padding-bottom: 10px;
-}
 
-#lock {
+/* #d-lock {
   padding-top: 10px;
-}
+} */
 

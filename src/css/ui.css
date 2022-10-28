@@ -65,6 +65,8 @@
 }
 
 .tool {
+  user-select: none;
+
   /* z-index: 1; */
   position: fixed;
   background-color: #f8f8f8;

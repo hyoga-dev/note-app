@@ -1,8 +1,8 @@
-import flyingEffect from "./flyEffect.js";
+// import flyingEffect from "./flyEffect.js";
 import saveCorner from "../fly/saveCorner.js";
 import { qsa } from "../utility.js";
 
-let a, b, rectLeft, rectTop,  arr, moved;
+let a, b, rectLeft, rectTop,  arr, moved, prevEvent;
 
 // let content = localStorage.getItem("arr").split(",")
 
@@ -90,7 +90,7 @@ export default function fly() {
 
       moved = true;
       // box.style.cursor = "move";
-      box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
+      box.style.boxShadow = "0 30px 50px 0 rgba(94, 118, 145, 0.342)";
 
       const mouseHor = e.clientX - (a - rectLeft);
       const mouseVer = e.clientY - (b - rectTop);
@@ -101,7 +101,24 @@ export default function fly() {
       localStorage.setItem(`top${[i]}`, mouseVer + "px");
       localStorage.setItem(`left${[i]}`, mouseHor + "px");
   
-      flyingEffect(e, box)
+      const currentEvent = e;
+      if (prevEvent && currentEvent) {
+        var movementX = Math.floor(currentEvent.screenX - prevEvent.screenX);
+        var movementY = Math.floor(currentEvent.screenY - prevEvent.screenY);
+    
+        const mx = movementX * 1.5;
+        const my = movementY * -1.5;
+        if (mx < 25 && mx > -25 && my < 25 && my > -25) {
+          box.style.transform = `rotateX(${my / 1.3}deg) rotateY(${mx / 1.3}deg)`;
+        }  
+        // console.log(currentEvent.screenY)
+        console.log("prev   : " + prevEvent.screenX)
+        console.log("current: " + currentEvent.screenX)
+      }
+    // }
+      prevEvent = currentEvent;
+      console.log(i)
+      // this.flyEffect(e, box)
     }
 
 
@@ -111,12 +128,13 @@ export default function fly() {
     //  ===================================================================
     //  ========================= FlyDown =================================
     //  ===================================================================
-    function flyDown() {
+    function flyDown(e) {
       // let container = document.getElementById("container")
       // console.log(box)
 
       if (moved != true) {
         box.focus()
+        box.classList.add("selected")
       }
       moved = false
       // box.style.cursor = "pointer";

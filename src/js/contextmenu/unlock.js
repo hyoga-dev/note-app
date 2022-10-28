@@ -8,4 +8,6 @@ export default function unlock() {
     document.removeEventListener("mouseup", outline)
   }
   setTimeout(unOutline, 200) 
+  this.select.classList.remove("locked")
+  this.select.classList.add("box")
 }

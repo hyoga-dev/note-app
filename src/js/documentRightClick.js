@@ -11,6 +11,7 @@ export default class DocumentRightClick {
     this.card = qsa(card)
     this.cardName = card
     this.contextMenu = contextMenu
+    this.prevEvent
     // this.fly = fly
     this.rightBox = (e) => {
       const className = e.target.className

@@ -7,6 +7,7 @@ export default function addContext () {
 
     if (e.target.id == "d-paste") {
       this.contextMenu.paste(e, this.contextMenu.copiedText)
+      this.contextMenu.refreshFly()
       this.contextMenu.refreshEvent()
       // fly.eventHandler()
       // console.log(this.fly)

@@ -13,32 +13,58 @@ btn.addEventListener("mousedown", dragMe)
 
 
 
-// const bold = document.getElementById("bold")
-// bold.addEventListener("mousedown", () => addEditor(event, "bold") )
 
-// const h1 = document.getElementById("h1")
-// h1.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h1") )
+fly()
 
-// const h3 = document.getElementById("h3")
-// h3.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h3") )
 
-// const paragraph = document.getElementById("paragraph")
-// paragraph.addEventListener("mousedown", () => addEditor(event, "insertParagraph") )
 
-// const italic = document.getElementById("italic")
-// italic.addEventListener("mousedown", () => addEditor(event, "italic") )
+import DocumentRightClick from "./js/documentRightClick.js";
+import Menu from "./js/menu.js";
 
-// const justifyRight = document.getElementById("align-right")
-// justifyRight.addEventListener("mousedown", () => addEditor(event, "justifyRight") )
+const cm = new Menu("context-menu", ".box")
+cm.refreshEvent()
+cm.eventHandler()
 
-// const justifyCenter = document.getElementById("align-center")
-// justifyCenter.addEventListener("mousedown", () => addEditor(event, "justifyCenter") )
+const rc = new DocumentRightClick("document-context-menu", "document-menu", cm)
+rc.docRightClick()
+rc.addContext()
 
-// const justifyLeft = document.getElementById("align-left")
-// justifyLeft.addEventListener("mousedown", () => addEditor(event, "justifyLeft") )
 
-// const justifyFull = document.getElementById("align-full")
-// justifyFull.addEventListener("mousedown", () => addEditor(event, "justifyFull") )
+
+
+
+
+
+
+
+
+
+const bold = document.getElementById("bold")
+bold.addEventListener("mousedown", () => addEditor(event, "bold") )
+
+const h1 = document.getElementById("h1")
+h1.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h1") )
+
+const h3 = document.getElementById("h3")
+h3.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h3") )
+
+const paragraph = document.getElementById("paragraph")
+paragraph.addEventListener("mousedown", () => addEditor(event, "insertParagraph") )
+
+const italic = document.getElementById("italic")
+italic.addEventListener("mousedown", () => addEditor(event, "italic") )
+
+const justifyRight = document.getElementById("align-right")
+justifyRight.addEventListener("mousedown", () => addEditor(event, "justifyRight") )
+
+const justifyCenter = document.getElementById("align-center")
+justifyCenter.addEventListener("mousedown", () => addEditor(event, "justifyCenter") )
+
+const justifyLeft = document.getElementById("align-left")
+justifyLeft.addEventListener("mousedown", () => addEditor(event, "justifyLeft") )
+
+const justifyFull = document.getElementById("align-full")
+justifyFull.addEventListener("mousedown", () => addEditor(event, "justifyFull") )
 
 
 
@@ -61,20 +87,7 @@ btn.addEventListener("mousedown", dragMe)
 
 
 
-fly()
 
-
-
-import DocumentRightClick from "./js/documentRightClick.js";
-import Menu from "./js/menu.js";
-
-const cm = new Menu("context-menu", ".box")
-cm.refreshEvent()
-cm.eventHandler()
-
-const rc = new DocumentRightClick("document-context-menu", "document-menu", cm)
-rc.docRightClick()
-rc.addContext()
 
 
 

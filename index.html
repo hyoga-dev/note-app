@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/src/asset/favicon.ico">
     <link rel="stylesheet" href="./main.css" />
-    <!-- <script src="https://kit.fontawesome.com/ba324e01bb.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/ba324e01bb.js" crossorigin="anonymous"></script>
     <title>Note app test</title>
   </head>
   <body ondragstart="return false;">
@@ -20,9 +20,9 @@
     <div class="side-tool tool" >
       <section><div class="item-box" id="btn"><img src="/src/asset/add-button.svg" alt="add-button-icon" width="15"></div></section>
       <section>
-        <div class="item-box"><i class="fa-solid fa-copy"></i></div>
-        <div class="item-box"><i class="fa-solid fa-scissors"></i></div>
-        <div class="item-box"><i class="fa-solid fa-trash"></i></div>
+        <div class="item-box side-copy"><i class="fa-solid side-copy fa-copy"></i></div>
+        <!-- <div class="item-box"><i class="fa-solid fa-scissors"></i></div> -->
+        <div class="item-box side-delete"><i class="fa-solid side-delete fa-trash"></i></div>
       </section>
       <section><div class="item-box"><i class="fa-solid fa-gear"></i></div></section>
     </div>
@@ -73,7 +73,19 @@
 
     <div class="container" id="container"> 
 
-      <div class="box" data-min-rows='2' contenteditable spellcheck="false">Drag and drop tombol + untuk menambahkan kartu</div>
+      <div class="box" data-min-rows='2' contenteditable spellcheck="false">
+        <h1>Welcome</h1>
+        <hr> 
+        <p>
+         <strong> Drag and drop tombol + untuk menambahkan kartu</strong>
+        </p>
+        <br>
+        Fitur terbaru: 
+        <ul>
+          <li>Select lebih dari satu card menggunakan shift</li>
+          <li>Klik kanan untuk memunculkan menu</li>
+        </ul>
+      </div>
 
     </div>
 
@@ -93,7 +105,7 @@
 
 
 
-    
+
     <!-- <button id="btn">+</button> -->
     <div class="grab-container">  
       <div class="triangle"></div><p class="grab-me">Drag me</p> 
@@ -106,12 +118,12 @@
       <div class="menu" id="copy">Copy <span>Ctrl + Shift + C</span></div>
       <div class="menu" id="paste">Paste <span>Ctrl + Shift + V</span></div>
       <div class="menu" id="lock">Lock <span>Ctrl + L</span></div>
-      <div class="menu" id="unlock">Unlock <span>Ctrl + Alt + L</span></div>
-      <div class="menu" id="unlockall">Unlock all <span>Ctrl + Shift + Alt + L</span></div>
+      <div class="menu" id="unlock">Unlock </div>
+      <div class="menu" id="unlockall">Unlock all <span>Ctrl + Shift + L</span></div>
     </div>
     
     <div id="document-context-menu">
-      <div class="document-menu" id="d-select-all">Select all <span>Ctrl + Shift + V</span></div>
+      <div class="document-menu" id="d-select-all">Select all <span>Ctrl + A</span></div>
       <div class="document-menu" id="d-paste">Paste <span>Ctrl + Shift + V</span></div>
     </div>
     

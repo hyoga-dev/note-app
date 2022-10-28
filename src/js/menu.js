@@ -13,6 +13,8 @@ import unlockAll from "./contextmenu/unlockAll.js";
 import unselect from "./contextmenu/unselect.js";
 import { getId, qsa } from "./utility.js"
 import refreshFly from "./contextmenu/refreshFly.js"
+import flyEffect from "./contextmenu/flyEffect.js"
+// import flyingEffect from "./fly/flyingEffect.js";
 // let copied;
 
 
@@ -21,6 +23,7 @@ export default class Menu {
     this.menu = getId(menu)
     this.card = qsa(card)
     this.cardName = card
+    this.prevEvent;
 
     this.rightBox = function (e) {
         e.preventDefault()
@@ -38,6 +41,7 @@ export default class Menu {
   }
 }
 
+Menu.prototype.flyEffect = flyEffect
 Menu.prototype.refreshFly = refreshFly
 Menu.prototype.addContext = addContext
 Menu.prototype.duplicate = duplicate

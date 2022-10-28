@@ -28,7 +28,6 @@ export default function paste(e, copiedText) {
     
     
     
-    this.refreshFly()
     copied = this.copiedText
 }
 

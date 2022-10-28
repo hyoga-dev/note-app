@@ -24,6 +24,7 @@ if (ctrl && shift) {
       e.preventDefault();
       this.refreshEvent();
       this.pasteKey(this.copiedText);
+      this.refreshFly()
     }
   } // ==========================================
 
