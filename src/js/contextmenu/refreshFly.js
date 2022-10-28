@@ -1,8 +1,7 @@
-import flyingEffect from "../fly/flyingEffect.js";
+import flyingEffect from "./flyEffect.js";
 import saveCorner from "../fly/saveCorner.js";
 import { qsa } from "../utility.js";
 
-const rotateSpeed = 1.3;
 let a, b, rectLeft, rectTop,  arr, moved;
 
 // let content = localStorage.getItem("arr").split(",")
@@ -13,15 +12,14 @@ let a, b, rectLeft, rectTop,  arr, moved;
 
 
 export default function fly() {
-  
   let bix = qsa(".box");
+  
   for (let i = 0; i < bix.length; i++) {
     
     const box = qsa(".box")[i];
     box.style.cursor = "default";
     
     
-    console.log(box)
     box.addEventListener("mousedown", flyUp);// flying card
 
 
@@ -49,6 +47,7 @@ export default function fly() {
     // ========================= FlyUp =========================================
     // =========================================================================
     function flyUp(e) {
+
       box.style.resize = "both";
       let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
       let width = parseInt(getComputedStyle(box).getPropertyValue("width"));
@@ -87,6 +86,8 @@ export default function fly() {
     //  ========================= Fly ==================================
     //  ================================================================
     function fly(e) {
+      // console.log(box)
+
       moved = true;
       // box.style.cursor = "move";
       box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
@@ -112,7 +113,7 @@ export default function fly() {
     //  ===================================================================
     function flyDown() {
       // let container = document.getElementById("container")
-      console.log(box)
+      // console.log(box)
 
       if (moved != true) {
         box.focus()

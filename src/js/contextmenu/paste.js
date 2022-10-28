@@ -26,9 +26,9 @@ export default function paste(e, copiedText) {
       this.menu.style.display = "block";
     })
     
+    
+    
     this.refreshFly()
-
-
     copied = this.copiedText
 }
 
