@@ -112,12 +112,12 @@ export default function fly() {
           box.style.transform = `rotateX(${my / 1.3}deg) rotateY(${mx / 1.3}deg)`;
         }  
         // console.log(currentEvent.screenY)
-        console.log("prev   : " + prevEvent.screenX)
-        console.log("current: " + currentEvent.screenX)
+        // console.log("prev   : " + prevEvent.screenX)
+        // console.log("current: " + currentEvent.screenX)
       }
     // }
       prevEvent = currentEvent;
-      console.log(i)
+      // console.log(i)
       // this.flyEffect(e, box)
     }
 

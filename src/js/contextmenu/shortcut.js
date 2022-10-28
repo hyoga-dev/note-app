@@ -1,3 +1,5 @@
+import { qsa } from "../utility.js";
+// import removeSelected from "./removeSelected";
 
 
 export default function shortCut(e) {
@@ -13,7 +15,9 @@ export default function shortCut(e) {
 if (ctrl && shift) {
   if (keys == "C" || keys == "c") {
     e.preventDefault();
-    this.copiedText = document.activeElement.cloneNode(true);
+    if (document.activeElement.tagName != "BODY") {
+      this.copiedText = document.activeElement.cloneNode(true);
+    }
   }
 } // ==========================================
 
@@ -33,7 +37,11 @@ if (ctrl && shift) {
   if (ctrl) {
     if (keys == "l" || keys == "L") {
       e.preventDefault();
-      document.activeElement.setAttribute("contenteditable", false);
+      const selected = qsa(".selected")
+      selected.forEach(selected => {
+        selected.setAttribute("contenteditable", false);
+      }) 
+
     }
   } // ==========================================
   
@@ -51,5 +59,55 @@ if (ctrl && shift) {
 if (keys == "Delete") {
   this.removeSelected();
 } // ==========================================
+
+if (keys == "ArrowDown") {
+  const selected = qsa(".selected")
+  if (selected.length > 1) {
+    e.preventDefault()
+    selected.forEach(selected => {
+      const top = parseInt(getComputedStyle(selected).getPropertyValue("top"))
+  
+      selected.style.top = top + 5 + "px"
+    }) 
+  }
+}
+
+if (keys == "ArrowUp") {
+  const selected = qsa(".selected")
+  if (selected.length > 1) {
+    e.preventDefault()
+    selected.forEach(selected => {
+      const top = parseInt(getComputedStyle(selected).getPropertyValue("top"))
+  
+      selected.style.top = top - 5 + "px"
+    }) 
+  }
+}
+
+if (keys == "ArrowRight") {
+  const selected = qsa(".selected")
+  if (selected.length > 1) {
+    e.preventDefault()
+    selected.forEach(selected => {
+      const left = parseInt(getComputedStyle(selected).getPropertyValue("left"))
+  
+      selected.style.left = left + 5 + "px"
+    }) 
+  }
+}
+
+if (keys == "ArrowLeft") {
+  const selected = qsa(".selected")
+  if (selected.length > 1) {
+    e.preventDefault()
+    selected.forEach(selected => {
+      const left = parseInt(getComputedStyle(selected).getPropertyValue("left"))
+  
+      selected.style.left = left - 5 + "px"
+    }) 
+  }
+}
+
+
 
 }

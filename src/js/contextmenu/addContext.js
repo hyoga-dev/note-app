@@ -8,7 +8,11 @@ export default function addContext (e) {
     this.removeSelected()
     
   } else if (e.target.id == "copy") {
-    this.copiedText = this.select.cloneNode(true)
+    e.preventDefault();
+    console.log(document.activeElement.tagName)
+    if (document.activeElement.tagName != "BODY") {
+      this.copiedText = document.activeElement.cloneNode(true);
+    }
 
   } else if (e.target.id == "paste") {
     this.paste(e, this.copiedText)
@@ -27,12 +31,9 @@ export default function addContext (e) {
 
   } else if (secondClass == "side-copy") {
     this.copiedText = document.activeElement.cloneNode(true)
-    
+
   }
 
-  // if (firstClass == "box") {
-  //   e.target.classList.add("selected")
-  // }
 
 
 

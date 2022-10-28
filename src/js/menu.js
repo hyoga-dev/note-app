@@ -14,8 +14,6 @@ import unselect from "./contextmenu/unselect.js";
 import { getId, qsa } from "./utility.js"
 import refreshFly from "./contextmenu/refreshFly.js"
 import flyEffect from "./contextmenu/flyEffect.js"
-// import flyingEffect from "./fly/flyingEffect.js";
-// let copied;
 
 
 export default class Menu {
@@ -35,7 +33,6 @@ export default class Menu {
         this.menu.style.display = 'block';
 
         this.select = e.target
-        // console.log(this.select)
     } 
     this.clickRight = this.rightBox.bind(this)
   }
