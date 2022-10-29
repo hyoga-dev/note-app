@@ -53,7 +53,7 @@
 
   width: 30px;
   height: 30px;
-  border: 0.2px solid rgba(0, 0, 0, 0.102);
+  /* border: 0.2px solid rgba(0, 0, 0, 0.102); */
 }
 
 .item-box:hover {

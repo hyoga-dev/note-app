@@ -3,14 +3,17 @@ import { qs } from "../utility.js";
 let copied;
 
 export default function pasteKey () {
+  // console.log("First", this.copiedText)
   if (this.copiedText != undefined) {
     if (copied == this.copiedText) this.copiedText = copied.cloneNode(true)
-    qs(".container").appendChild(this.copiedText)
     
+    qs(".container").appendChild(this.copiedText)
     const top = parseInt(getComputedStyle(this.copiedText).getPropertyValue("top"))
     const left = parseInt(getComputedStyle(this.copiedText).getPropertyValue("left"))
     this.copiedText.style.top = top + 20 + "px";
     this.copiedText.style.left = left + 20 + "px";
+    this.copiedText.style.cursor = "default";   
+    // console.log("Second", this.copiedText)
     
     this.copiedText.addEventListener("contextmenu", (e) => {
       e.preventDefault()
@@ -22,7 +25,7 @@ export default function pasteKey () {
       this.menu.style.left = x + "px"
       this.menu.style.display = "block";
     })
+    copied = this.copiedText  
     
-    copied = this.copiedText
 }
 }

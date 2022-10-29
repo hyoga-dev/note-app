@@ -18,3 +18,15 @@ export function addGlobalEvent(type, selector, callback, options, parent = docum
   options
   )
 }
+
+export function addEvent(event, callback, parent = document) {
+  parent.addEventListener(event, callback)
+}
+
+export function getStyle(selector, property) {
+  return getComputedStyle(selector).getPropertyValue(property)
+}
+
+export function getStyleInt(selector, property) {
+  return parseInt(getComputedStyle(document.querySelector(selector)).getPropertyValue(property))
+}

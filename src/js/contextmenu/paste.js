@@ -1,6 +1,4 @@
 import { qs } from "../utility.js";
-// import fly from "../fly/fly-card.js"
-// import refreshFly from "./refreshFly.js"
 
 let copied;
 

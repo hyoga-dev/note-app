@@ -26,8 +26,8 @@ if (ctrl && shift) {
   if (ctrl && shift) {
     if (keys == "V" || keys == "v") {
       e.preventDefault();
+      this.pasteKey();
       this.refreshEvent();
-      this.pasteKey(this.copiedText);
       this.refreshFly()
     }
   } // ==========================================

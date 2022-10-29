@@ -10,11 +10,11 @@
   background-size: 6px auto;
 }
 
-.box:first-child {
+/* .box:first-child {
   left: 40%;
-  top: 40%;
+  top: 40%; */
   /* transform: translate(-50%, -50%); */
-}
+/* } */
 
 .box {
   font-size: 12px;
@@ -41,6 +41,10 @@
   transition: box-shadow .4s, transform .1s,left .05s, top .05s, opacity .4s;
   border-radius: 5px;
 }
+
+/* .box:focus {
+  outline: none;
+} */
 
 .box b, .box h1 {
   color: #4e6d89;

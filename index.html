@@ -17,15 +17,6 @@
 
 
 
-    <div class="side-tool tool" >
-      <section><div class="item-box" id="btn"><img src="/src/asset/add-button.svg" alt="add-button-icon" width="15"></div></section>
-      <section>
-        <div class="item-box side-copy"><i class="fa-solid side-copy fa-copy"></i></div>
-        <!-- <div class="item-box"><i class="fa-solid fa-scissors"></i></div> -->
-        <div class="item-box side-delete"><i class="fa-solid side-delete fa-trash"></i></div>
-      </section>
-      <section><div class="item-box"><i class="fa-solid fa-gear"></i></div></section>
-    </div>
 
 
 
@@ -53,10 +44,65 @@
         <div class="item-box" id="ol"><img src="/src/asset/ol.svg" alt="ol-icon" width="13"></div>
       </section>
       <section>
-        <div class="item-box"><img src="/src/asset/text-color.svg" alt="text-color" width="11"></div>
-        <div class="item-box"><img src="/src/asset/back-color.svg" alt="text-back-color" width="11"></div>
+        <div class="item-box" id="color"><img src="/src/asset/text-color.svg" alt="text-color" width="11"></div>
+        <div class="item-box" id="bg-color"><img src="/src/asset/back-color.svg" alt="text-back-color" width="11"></div>
       </section>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="side-tool tool" >
+      <section><div class="item-box" id="btn"><img src="/src/asset/add-button.svg" alt="add-button-icon" width="15"></div></section>
+      <section><div class="item-box side-copy" ><i class="fa-solid side-copy fa-copy" style="color: #8199aa;"></i></div></section>
+      <section><div class="item-box side-delete"><i class="fa-solid side-delete fa-trash" style="color: #8199aa;"></i></div></section>
+      <section><div class="item-box"><i class="fa-solid fa-gear" style="color: #8199aa;"></i></div></section>
+    </div>
+
+
+    <div class="color-palette">
+      <div class="item-box color-item" style="background-color: #a5805e;" ></div>
+      <div class="item-box color-item" style="background-color: #688fad;" ></div>
+      <div class="item-box color-item" style="background-color: #68aa94;" ></div>
+      <div class="item-box color-item" style="background-color: #db9b1d;" ></div>
+      
+      <div class="item-box color-item" style="background-color: #8e5555;" ></div>
+      <div class="item-box color-item" style="background-color: #4e6d89;" ></div>
+      <div class="item-box color-item" style="background-color: #5a9363;" ></div>
+      <div class="item-box color-item" style="background-color: #dd5845;" ></div>
+
+      <div class="item-box color-item" style="background-color: #ce8282;" ></div>
+      <div class="item-box color-item" style="background-color: #5baabc;" ></div>
+      <div class="item-box color-item" style="background-color: #6ed363;" ></div>
+      <div class="item-box color-item" style="background-color: #e1e54a;" ></div>
+    </div>
+
+    <div class="color-palette-bg">
+      <div class="item-box color-item-bg" style="background-color: #a5805e;" ></div>
+      <div class="item-box color-item-bg" style="background-color: #688fad;" ></div>
+      <div class="item-box color-item-bg" style="background-color: #68aa94;" ></div>
+      <div class="item-box color-item-bg" style="background-color: #db9b1d;" ></div>
+      
+      <div class="item-box color-item-bg" style="background-color: #8e5555;" ></div>
+      <div class="item-box color-item-bg" style="background-color: #4e6d89;" ></div>
+      <div class="item-box color-item-bg" style="background-color: #5a9363;" ></div>
+      <div class="item-box color-item-bg" style="background-color: #dd5845;" ></div>
+
+      <div class="item-box color-item-bg" style="background-color: #ce8282;" ></div>
+      <div class="item-box color-item-bg" style="background-color: #5baabc;" ></div>
+      <div class="item-box color-item-bg" style="background-color: #6ed363;" ></div>
+      <div class="item-box color-item-bg" style="background-color: #e1e54a;" ></div>
+    </div>
+
 
 
 
@@ -73,7 +119,7 @@
 
     <div class="container" id="container"> 
 
-      <div class="box" data-min-rows='2' contenteditable spellcheck="false">
+      <div class="box" data-min-rows='2' contenteditable style="left: 40%;top: 40%;" spellcheck="false">
         <h1>Welcome</h1>
         <hr> 
         <p>
@@ -155,7 +201,6 @@
       // if (localStorage.getItem("container") != null) {
       //   container.innerHTML = localStorage.getItem("container");
       // }
-
 
       
     </script>

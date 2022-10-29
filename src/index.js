@@ -2,8 +2,8 @@
 import dragMe from "./js/fly/dragMe.js";
 import fly from "./js/fly/fly-card.js";
 
-import addEditor from "./js/addEditor.js";
 
+import addEditor from "./js/addEditor.js";
 
 
 
@@ -17,9 +17,9 @@ btn.addEventListener("mousedown", dragMe)
 fly()
 
 
-
 import DocumentRightClick from "./js/documentRightClick.js";
 import Menu from "./js/menu.js";
+import { getId, getStyle, qs, qsa } from "./js/utility.js";
 
 const cm = new Menu("context-menu", ".box")
 cm.refreshEvent()
@@ -75,6 +75,12 @@ insertUnorderedList.addEventListener("mousedown", () => addEditor(event, "insert
 const insertOrderedList = document.getElementById("ol")
 insertOrderedList.addEventListener("mousedown", () => addEditor(event, "insertOrderedList") )
 
+// const color = document.getElementById("color")
+// color.addEventListener("mousedown", () => addEditor(event, "foreColor", "#c47b5a") )
+
+// const backColor = document.getElementById("color")
+// backColor.addEventListener("mousedown", () => addEditor(event, "backColor", "#c47b5a") )
+
 // const redo = document.getElementById("redo")
 // redo.addEventListener("mousedown", () => addEditor(event, "redo") )
 
@@ -100,33 +106,98 @@ insertOrderedList.addEventListener("mousedown", () => addEditor(event, "insertOr
 
 
 
+// window.addEventListener("resize", rez)
+
+const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
 
 
 
+const colorPaletteBg = qs(".color-palette-bg")
+const colorChangeBg = getId("bg-color")
+const colorLeftBg = colorChangeBg.getBoundingClientRect().left
+const colorItemBg = qsa(".color-item-bg")
 
 
+colorPaletteBg.style.left = colorLeftBg - 74 + "px";
+colorPaletteBg.style.top =  "80px";
+
+colorChangeBg.addEventListener("click", () => colorPaletteBg.style.display = "grid" )
+document.addEventListener("click", hideBg)
 
 
-function getScrollHeight(elm){
-  var savedValue = elm.value
-  elm.value = ''
-  elm._baseScrollHeight = elm.scrollHeight
-  elm.value = savedValue
+function hideBg(e) {
+  const target = e.target
+  const secondClass = target.className.split(" ")[1]
+  if (target.className != "color-palette-bg" && secondClass != "color-item-bg") {
+    if (target.id != "bg-color" && target.alt != "text-back-color") {
+      colorPaletteBg.style.display = "none";  
+    }
+  }
 }
 
-function onExpandableTextareaInput({ target:elm }){
-  // make sure the input event originated from a textarea and it's desired to be auto-expandable
-  if( !elm.classList.contains('box') || !elm.nodeName == 'TEXTAREA' ) return
-  
-  var minRows = elm.getAttribute('data-min-rows')|0, rows;
-  !elm._baseScrollHeight && getScrollHeight(elm)
+colorItemBg.forEach(item => {
+  const bgColor = getStyle(item, "background-color")
+  item.addEventListener("mousedown", e => {
+    e.preventDefault()
+    document.execCommand("backColor", false, rgb2hex(bgColor))
+    if (rgb2hex(bgColor) != "#e1e54a") {
+      console.log(rgb2hex(bgColor))
+      document.execCommand("foreColor", false, "#ffffff")
+    } else {
+      document.execCommand("foreColor", false, "#dd5845")
+    }
+  })
+})
 
-  elm.rows = minRows
-  rows = Math.ceil((elm.scrollHeight - elm._baseScrollHeight) / 16)
-  elm.rows = minRows + rows
+
+
+
+
+const colorPalette = qs(".color-palette")
+const colorChange = getId("color")
+const colorLeft = colorChange.getBoundingClientRect().left
+const colorItem = qsa(".color-item")
+
+
+
+colorPalette.style.left = colorLeft - 74 + "px";
+colorPalette.style.top =  "80px";
+
+colorChange.addEventListener("click", () => colorPalette.style.display = "grid" )
+document.addEventListener("click", hide)
+
+
+function hide(e) {
+  const target = e.target
+  const secondClass = target.className.split(" ")[1]
+  if (target.className != "color-palette" && secondClass != "color-item") {
+    // alert(target.alt)
+    if (target.id != "color" && target.alt != "text-color") {
+      colorPalette.style.display = "none";  
+    }
+  }
 }
 
+colorItem.forEach(item => {
+  const bgColor = getStyle(item, "background-color")
+  // console.log(rgb2hex(bgColor))
+  item.addEventListener("mousedown", e => {
+    e.preventDefault()
+    document.execCommand("foreColor", false, rgb2hex(bgColor))
+  })
+  // item.style.backgroundColor = 'black'
+})
 
-// global delegated event listener
-document.addEventListener('input', onExpandableTextareaInput)
+
+
+
+
+
+
+
+
+
+
+
+
 

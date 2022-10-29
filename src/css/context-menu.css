@@ -1,7 +1,5 @@
 
-.box:focus {
-  outline: none;
-}
+
 
 
 
@@ -66,18 +64,11 @@
   float: right;
 }
 
-#duplicate {
-  border-bottom: 0.2px solid rgba(198, 202, 206, 0.514);
-  padding-bottom: 10px;
-}
 
-/* #lock {
-  margin-top: 10px;
-} */
 
 .selected {
 
-  border: 2px solid #4e6d89;
+  outline: 2px solid #4e6d89;
   /* outline-offset: -2px; */
 }
 
