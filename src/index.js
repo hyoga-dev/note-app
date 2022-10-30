@@ -106,7 +106,7 @@ insertOrderedList.addEventListener("mousedown", () => addEditor(event, "insertOr
 
 
 
-// window.addEventListener("resize", rez)
+// * fore color and back color
 
 const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
 
@@ -171,7 +171,6 @@ function hide(e) {
   const target = e.target
   const secondClass = target.className.split(" ")[1]
   if (target.className != "color-palette" && secondClass != "color-item") {
-    // alert(target.alt)
     if (target.id != "color" && target.alt != "text-color") {
       colorPalette.style.display = "none";  
     }
@@ -180,12 +179,10 @@ function hide(e) {
 
 colorItem.forEach(item => {
   const bgColor = getStyle(item, "background-color")
-  // console.log(rgb2hex(bgColor))
   item.addEventListener("mousedown", e => {
     e.preventDefault()
     document.execCommand("foreColor", false, rgb2hex(bgColor))
   })
-  // item.style.backgroundColor = 'black'
 })
 
 
@@ -195,9 +192,56 @@ colorItem.forEach(item => {
 
 
 
+// * add setting
 
 
+const settingContainer = qs(".setting-container")
+const setting = getId("setting")
+const color = getId("color")
+const bgColor = getId("bg-color")
+const settingCon =  qs(".setting-container")
+const settingMod = qs(".setting-modal")
+const sweet = qs(".switch") 
+const sweetButton = qs(".switch-button") 
+const root = qs(":root")
+let clicked = false
 
+settingContainer.onclick = (e) => {
+  // settingCon.style.display = "block";
+  // console.log("haii")
+  if (e.target.className == "setting-container") {
+    settingCon.style.transform = "translate(100%, 0)";
+    settingCon.style.opacity = "0";
+    settingCon.style.backdropFilter = "blur(0)";
+  }
+  // settingMod.style.transform = "translate(0, -200%)";
+}
 
+setting.onclick = () => {
+  // settingCon.style.display = "block";
+  // console.log("haii")
 
+  settingCon.style.transform = "translate(0, 0)";
+  settingCon.style.opacity = "1";
+  settingCon.style.backdropFilter = "blur(2px)";
+  // settingMod.style.transform = "translate(0, -200%)";
+}
+
+sweet.onclick = () => {
+  sweetButton.classList.toggle("switch-button-on")
+  // sweet.classList.toggle("switch-on")
+  if (!clicked) {
+    root.style.setProperty("--dark-text", "#f7f7f7")
+    root.style.setProperty("--back-color", "#4e6d89")
+    root.style.setProperty("--normal-text", "#f7f7f7")
+    root.style.setProperty("--container-color", "#4b667e")
+    clicked = true
+  } else {
+    root.style.setProperty("--back-color", "#f7f7f7")
+    root.style.setProperty("--dark-text", "#4e6d89")
+    root.style.setProperty("--normal-text", "#8199aa")
+    root.style.setProperty("--container-color", "#e1e7ee")
+    clicked = false
+  }
+}
 

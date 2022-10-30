@@ -57,11 +57,11 @@
 }
 
 .item-box:hover {
-  background-color: #e4e8ed;
+  background-color: var(--box-border);
 }
 
 .item-box i {
-  color: #4e6d89;
+  color: var(--dark-text);
 }
 
 .tool {
@@ -69,7 +69,7 @@
 
   /* z-index: 1; */
   position: fixed;
-  background-color: #f8f8f8;
+  background-color: var(--back-color);
   border-radius: 4px;
 }
 

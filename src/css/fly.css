@@ -2,7 +2,7 @@
   position: relative;
   /* border: 1px solid black; */
   height: 100vh;
-  background-color: rgb(225, 231, 238);
+  background-color: var(--container-color);
   perspective: 1000px;
   overflow: hidden;
   background-image: url("../asset/dot-bg.svg");
@@ -23,8 +23,8 @@
   padding: 18px;
   z-index: 1;
   transform-style: preserve-3d;
-  background-color: rgb(248, 248, 248);
-  color: #8199aa;
+  background-color: var(--back-color);
+  color: var(--normal-text);
   position: absolute;
   cursor: default;
   min-width: 200px;
@@ -33,9 +33,9 @@
   max-width: 800px;
   max-height: 500px;
   overflow: hidden;
-  /* width: 200px;
+  /* width: 200px;  
   height: 100px; */
-  border: .5px solid rgba(0, 0, 0, 0.102);
+  border: .5px solid var(--box-border);
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.102);
   box-shadow: none;
   transition: box-shadow .4s, transform .1s,left .05s, top .05s, opacity .4s;
@@ -43,11 +43,11 @@
 }
 
 /* .box:focus {
-  outline: none;
+  outline: transparent;
 } */
 
 .box b, .box h1 {
-  color: #4e6d89;
+  color: var(--dark-text);
 }
 
 .box h1 {

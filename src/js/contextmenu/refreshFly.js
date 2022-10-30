@@ -86,7 +86,7 @@ export default function fly() {
   function fly(e) {
 
     moved = true;
-    box.style.boxShadow = "0 30px 50px 0 rgba(94, 118, 145, 0.342)";
+    box.style.boxShadow = "0 30px 50px 0 var(--box-border)";
 
     const mouseHor = e.clientX - (a - rectLeft);
     const mouseVer = e.clientY - (b - rectTop);

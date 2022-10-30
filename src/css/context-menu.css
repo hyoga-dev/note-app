@@ -15,7 +15,7 @@
   /* height: 300px; */
   border-radius: 3px;
   /* background-color: cadetblue; */
-  background-color: rgb(246, 248, 250);
+  background-color: var(--back-color);
   box-shadow: 0 4px 10px 0 rgba(94, 118, 145, 0.342);
   /* border: 1px solid black; */
   border: .5px solid rgb(221, 220, 220);
@@ -26,7 +26,7 @@
 .menu {
   /* margin-left: 8px; */
   font-size: 12px;
-  color: rgb(104, 104, 104);
+  color: var(--dark-text);
   font-family: Arial, Helvetica, sans-serif;
   z-index: 999;
   padding: 4px 4px 4px 8px;
@@ -46,8 +46,8 @@
 } */
 
 .menu:hover {
-  background-color: #4e6d89;
-  color: aliceblue;
+  background-color: var(--dark-text);
+  color:  var(--back-color);
 }
 
 .menu:hover span {
@@ -55,6 +55,7 @@
 }
 
 .menu span {
+  color: #4e6d89;
   /* color: rgb(40, 42, 43); */
   font-size: 10px;
   margin-right: 5px;
@@ -68,7 +69,7 @@
 
 .selected {
 
-  outline: 2px solid #4e6d89;
+  outline: 2px solid var(--dark-text);
   /* outline-offset: -2px; */
 }
 

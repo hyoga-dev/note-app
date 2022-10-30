@@ -112,7 +112,7 @@ export default function() {
   
       moved = true;
       // box.style.cursor = "move";
-      box.style.boxShadow = "0 30px 50px 0 rgba(94, 118, 145, 0.342)";
+      box.style.boxShadow = "0 30px 50px 0 var(--box-border)";
 
       const mouseHor = e.clientX - (a - rectLeft),
             mouseVer = e.clientY - (b - rectTop);

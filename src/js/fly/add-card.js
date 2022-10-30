@@ -63,7 +63,7 @@ export default function addCard(e) {
   // ---------------------------------------------------------------
   function newFly(e) {
     newBox.style.cursor = "grabbing";
-    newBox.style.boxShadow = "0 30px 50px 0 rgba(94, 118, 145, 0.342)";
+    newBox.style.boxShadow = "0 30px 50px 0 var(--box-border)";
     newBox.style.opacity = "1";
     window.addEventListener("mouseup", newFlyDown);
 
@@ -205,7 +205,7 @@ export default function addCard(e) {
 
 
       // box.style.cursor = "grabbing";
-      box.style.boxShadow = "0 30px 50px 0 rgba(94, 118, 145, 0.342)";
+      box.style.boxShadow = "0 30px 50px 0 var(--box-border)";
 
       let mouseHor = e.clientX - (a - rectLeft),
           mouseVer = e.clientY - (b - rectTop);
@@ -246,7 +246,7 @@ const menu = new Menu("context-menu", ".box")
     // =========================================================================
     // ============================ FlyDown ====================================
     // =========================================================================
-    function flyDown(e) {
+    function flyDown() {
       if (moved != true) {
         box.focus()
         box.classList.add("selected")

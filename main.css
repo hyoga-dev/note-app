@@ -3,11 +3,20 @@
 @import "/src/css/btn.css";
 @import "/src/css/ui.css";
 @import "/src/css/context-menu.css";
-
+@import "/src/css/color.css";
 
 @font-face {
   font-family: sera-reguler;
   src: url('/src/asset/cera-round.otf');
+}
+
+:root {
+  --dark-text : #4e6d89;
+  --test : #4b667e;
+  --normal-text : #8199aa;
+  --box-border : rgba(0, 0, 0, 0.102);
+  --back-color : #f7f7f7;
+  --container-color : #e1e7ee;
 }
 
 body {
@@ -17,86 +26,131 @@ body {
   /* user-select: none; */
 }
 
-/* .locked:first-child {
-  left: 40%;
-  top: 40%;
-}
-
-.locked {
-  font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
-  user-select: none;
-  padding: 10px;
-  z-index: 1;
-  transform-style: preserve-3d;
-  background-color: rgb(248, 248, 248);
-  color: #8199aa;
-  position: absolute;
-  cursor: default;
-  min-width: 200px;
-  min-height: 60px;
-  max-width: 800px;
-  max-height: 500px;
-  overflow: hidden;
-  border: .5px solid rgba(0, 0, 0, 0.102);
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.102);
-  box-shadow: none;
-  transition: box-shadow .4s, transform .1s,left .05s, top .05s, opacity .4s;
-  border-radius: 5px;
-} */
-
-/* .locked b, .locked h1 {
-  color: #4e6d89;
-}
-
-
-.locked h3 {
-  color: #6c889e;
-  margin-bottom: 8px;
-
-} */
 
 
 
 
-
-
-/* .color-palette {
-  padding: 15px;
-  background-color: rgb(248, 248, 248);
-  opacity: 1;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  gap: 10px;
-  z-index: 999;
+.setting-container {
+  /* display: none; */
+  transform: translate(100%, 0);
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.296);
+  backdrop-filter: blur(0);
   position: fixed;
-  border-radius: 3px;
-} */
-
-.color-palette-bg, .color-palette {
-  /* top: 0;
-  left: 0; */
-  padding: 15px;
-  /* background-color: black; */
-  background-color: rgb(248, 248, 248);
-  /* opacity: 0; */
-  display: none;
-  grid-template-columns: auto auto auto auto;
-  gap: 10px;
+  top: 0;
+  left: 0;
   z-index: 999;
-  position: fixed;
-  /* width: 200px; */
-  /* height: 200px; */
+  height: 100vh;
+  width: 100vw;
+  transition:  backdrop-filter .4s;
+  /* transition-timing-function: ease-in-out; */
   /* border: 1px solid black; */
+
+  display: grid;
+  place-items: center;
+}
+
+.setting-modal {
+  width: 300px;
+  height: 357px;
+  display: grid;
+  /* align-items: center; */
+  grid-template-rows: 44% 56%;
   border-radius: 3px;
+  background-color: var(--back-color);
+  
+    /* transform: translate(0, 200%); */
 }
 
 
-.color-item-bg:hover, .color-item:hover {
-  outline: .4px solid #6c889e;
+
+.setting-content-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.color-item-bg:active, .color-item:active {
-  transform: scale(90%);
+.profile {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  height: 99%;
+  width: 100%;
 }
 
+.profile p {
+  margin: 8px 0;
+  color: var(--dark-text);
+}
+
+.horizontal-line {
+  width: 95%;
+  border-bottom: .25px solid var(--normal-text);
+}
+
+
+/* setting content bot */
+.setting-content-bot {
+  padding: 0 20px;
+}
+
+.setting-content-bot i {
+  color: var(--dark-text);
+  font-size: 18px;
+}
+
+.setting-content-bot .content {
+  padding-left: 10px;
+  display: inline;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--dark-text);
+}
+
+.setting-content-bot .title {
+  margin-top: 14px;
+  color: var(--normal-text);
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.wrapper {
+  padding: 6px 0;
+}
+
+
+/* swicth */
+.switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 20px;
+  outline: 1px solid var(--dark-text);
+  background-color: var(--back-color);
+  transition: .2s;
+
+  border-radius: 9.5px;
+  float: right;
+}
+
+.switch-button {
+  position: absolute;
+  left: 0;
+  /* border: 1px solid black; */
+  margin: 0 1.6px;
+  height: 16px;
+  width: 16px;
+  background-color: var(--dark-text);
+  transition: .2s;
+  border-radius: 50%;
+}
+
+.switch-button-on {
+  /* background-color: var(--light-back); */
+  left: 20px;
+}
