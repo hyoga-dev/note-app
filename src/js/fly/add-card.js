@@ -87,13 +87,13 @@ export default function addCard(e) {
     newBox.style.boxShadow = "none";
     newBox.style.transform = `rotateX(0) rotateY(0)`;
     const btn = document.querySelector("#btn");
-    btn.style.backgroundColor = "#f0f0f0";
-    btn.addEventListener("mouseenter", () => {
-      btn.style.backgroundColor = "rgb(219, 224, 230)";
-    });
-    btn.addEventListener("mouseleave", () => {
-      btn.style.backgroundColor = "#f0f0f0";
-    });
+    // btn.style.backgroundColor = "#f0f0f0";
+    // btn.addEventListener("mouseenter", () => {
+    //   btn.style.backgroundColor = "var(--box-border)";
+    // });
+    // btn.addEventListener("mouseleave", () => {
+    //   btn.style.backgroundColor = "transparent";
+    // });
     
     window.removeEventListener("mousemove", newFly);
     window.removeEventListener("mouseup", newFlyDown);

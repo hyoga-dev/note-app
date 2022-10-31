@@ -30,6 +30,14 @@ body {
 
 
 
+
+
+
+
+
+
+
+
 .setting-container {
   /* display: none; */
   transform: translate(100%, 0);
@@ -42,8 +50,8 @@ body {
   z-index: 999;
   height: 100vh;
   width: 100vw;
-  transition:  backdrop-filter .4s;
-  /* transition-timing-function: ease-in-out; */
+  transition:  backdrop-filter .1s;
+  /* transition-timing-function: ease-out; */
   /* border: 1px solid black; */
 
   display: grid;
