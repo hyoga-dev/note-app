@@ -51,7 +51,8 @@
 }
 
 .menu:hover span {
-  background-color: transparent;
+  background-color: var(--back-color);
+  color: var(--dark-text);
 }
 
 .menu span {
@@ -92,11 +93,11 @@
   position: fixed;
   display: none;
   z-index: 9999;
-  border: .5px solid rgb(230, 230, 230);
+  border: .5px solid var(--box-border);
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.19);
 
   border-radius: 4px;
-  background-color: rgb(246, 248, 250);
+  background-color: var(--back-color);
 }
 
 /* .document-menu:first-child {
@@ -111,7 +112,7 @@
 .document-menu {
   /* margin-left: 8px; */
   font-size: 12px;
-  color: rgb(104, 104, 104);
+  color: var(--dark-text);
   font-family: Arial, Helvetica, sans-serif;
   padding: 4px 4px 4px 8px;
   cursor: pointer;
@@ -122,22 +123,23 @@
 }
 
 .document-menu:hover {
-  background-color: #4e6d89;
-  color: aliceblue;
-}
-
-.document-menu:hover span {
-  background-color: transparent;
+  background-color: var(--dark-text);
+  color: var(--back-color);
 }
 
 .document-menu span {
-  /* color: rgb(40, 42, 43); */
+  color: var(--dark-text);
   font-size: 10px;
   margin-right: 5px;
   padding: 2px;
   border-radius: 2px;
   background-color: rgb(206, 212, 218);
   float: right;
+}
+
+.document-menu:hover span {
+  background-color: var(--back-color);
+  color: var(--dark-text);
 }
 
 
