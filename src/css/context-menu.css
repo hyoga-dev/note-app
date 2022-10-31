@@ -16,9 +16,9 @@
   border-radius: 3px;
   /* background-color: cadetblue; */
   background-color: var(--back-color);
-  box-shadow: 0 4px 10px 0 rgba(94, 118, 145, 0.342);
+  box-shadow: 0 4px 10px 0 var(--box-border);
   /* border: 1px solid black; */
-  border: .5px solid rgb(221, 220, 220);
+  border: .5px solid var(--box-border);
 
   overflow: hidden;
 }
@@ -34,16 +34,8 @@
   width: 170px;
   height: auto;
   background-color: inherit;
-  /* border: 1px solid black; */
 }
 
-/* .menu:first-child {
-  padding-top: 8px;
-}
-
-.menu:last-child {
-  margin-bottom: 8px;
-} */
 
 .menu:hover {
   background-color: var(--dark-text);
@@ -71,7 +63,6 @@
 .selected {
 
   outline: 2px solid var(--dark-text);
-  /* outline-offset: -2px; */
 }
 
 
@@ -84,7 +75,7 @@
 
 
 
-/*  bambang */
+/*  document context menu */
 
 #document-context-menu {
   top: 100px;
@@ -94,23 +85,13 @@
   display: none;
   z-index: 9999;
   border: .5px solid var(--box-border);
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 10px 0 var(--box-border);
 
   border-radius: 4px;
   background-color: var(--back-color);
 }
 
-/* .document-menu:first-child {
-  padding-top: 8px;
-}
-
-.document-menu:last-child {
-  padding-bottom: 8px;
-} */
-
-/* overflow: hidden; */
 .document-menu {
-  /* margin-left: 8px; */
   font-size: 12px;
   color: var(--dark-text);
   font-family: Arial, Helvetica, sans-serif;
@@ -119,7 +100,6 @@
   width: 170px;
   height: auto;
   background-color: inherit;
-  /* border: 1px solid black; */
 }
 
 .document-menu:hover {
@@ -128,7 +108,7 @@
 }
 
 .document-menu span {
-  color: var(--dark-text);
+  color: var(--back-color);
   font-size: 10px;
   margin-right: 5px;
   padding: 2px;
@@ -143,7 +123,4 @@
 }
 
 
-/* #d-lock {
-  padding-top: 10px;
-} */
 

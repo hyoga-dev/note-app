@@ -14,6 +14,9 @@ export default function addContext () {
 
     } if (e.target.id == "d-select-all") {
       this.selectAll(e)
+    } if (e.target.id == "unlockall") {
+      this.contextMenu.unlockAll()
+  
     }
 
     this.menu.style.display = 'none';

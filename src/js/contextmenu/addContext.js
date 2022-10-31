@@ -1,6 +1,6 @@
 export default function addContext (e) {
     
-  const firstClass = e.target.className.split(" ")[0]
+  // const firstClass = e.target.className.split(" ")[0]
   const secondClass = e.target.className.split(" ")[1]
 
   if (e.target.id == "delete" || secondClass == "side-delete") {
