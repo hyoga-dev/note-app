@@ -212,7 +212,7 @@ let clicked = false
 settingContainer.onclick = (e) => {
   // settingCon.style.display = "block";
   // console.log("haii")
-  if (e.target.className == "setting-container") {
+  if (e.target.className == "setting-container" || e.target.id == "close") {
     settingCon.style.transform = "translate(100%, 0)";
     settingCon.style.opacity = "0";
     settingCon.style.backdropFilter = "blur(0)";

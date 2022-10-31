@@ -61,6 +61,7 @@ body {
 .setting-modal {
   width: 300px;
   height: 357px;
+  position: relative;
   display: grid;
   /* align-items: center; */
   grid-template-rows: 44% 56%;
@@ -70,7 +71,14 @@ body {
     /* transform: translate(0, 200%); */
 }
 
-
+#close {
+  cursor: pointer;
+  color: var(--dark-text);
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  
+}
 
 .setting-content-top {
   display: flex;
@@ -154,7 +162,7 @@ body {
   height: 16px;
   width: 16px;
   background-color: var(--dark-text);
-  transition: .2s;
+  transition: .1s;
   border-radius: 50%;
 }
 
