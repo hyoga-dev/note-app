@@ -4,7 +4,7 @@ export default function addContext (e) {
   const secondClass = e.target.className.split(" ")[1]
 
   if (e.target.id == "delete" || secondClass == "side-delete") {
-    if (document.activeElement.tagName != "BODY") document.activeElement.remove()
+    // if (document.activeElement.tagName != "BODY") document.activeElement.remove()
     this.removeSelected()
     
   } else if (e.target.id == "copy") {

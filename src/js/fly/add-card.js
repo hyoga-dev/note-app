@@ -1,7 +1,12 @@
 import flyingEffect from "./flyingEffect.js";
 import saveCorner from "./saveCorner.js";
 import Menu from "../menu.js";
+import { getId } from "../utility.js";
 
+
+
+
+const container = getId("container")
 const rotateSpeed = 1.3;
 
 
@@ -24,9 +29,9 @@ export default function addCard(e) {
   let box = document.querySelectorAll(".box");
   let boxLength = box.length - 1;
   let newBox = box[boxLength];
-  newBox.setAttribute('data-min-rows', 2)
+  // newBox.setAttribute('data-min-rows', 2)
   newBox.setAttribute('placeholder', 'type here...')
-  newBox.setAttribute('contenteditable', '')
+  // newBox.setAttribute('contenteditable', '')
   newBox.setAttribute('Spellcheck', false)
   newBox.style.resize = "both";
 
@@ -86,7 +91,7 @@ export default function addCard(e) {
     newBox.style.cursor = "default";
     newBox.style.boxShadow = "none";
     newBox.style.transform = `rotateX(0) rotateY(0)`;
-    const btn = document.querySelector("#btn");
+    // const btn = document.querySelector("#btn");
     // btn.style.backgroundColor = "#f0f0f0";
     // btn.addEventListener("mouseenter", () => {
     //   btn.style.backgroundColor = "var(--box-border)";
@@ -248,8 +253,13 @@ const menu = new Menu("context-menu", ".box")
     // =========================================================================
     function flyDown() {
       if (moved != true) {
+        container.style.userSelect = "auto";
+        box.setAttribute('contenteditable', '')
         box.focus()
         box.classList.add("selected")
+      } else {
+        box.setAttribute('contenteditable', 'false')
+        container.style.userSelect = "none";
       }
       moved = false
 

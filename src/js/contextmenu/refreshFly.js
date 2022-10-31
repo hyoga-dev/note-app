@@ -121,10 +121,15 @@ export default function fly() {
   function flyDown() {
 
 
-    if (moved == false) {
+    if (moved != true) {
+      container.style.userSelect = "auto";
+      box.setAttribute('contenteditable', '')
       box.focus()
       box.classList.add("selected")
-    } 
+    } else {
+      box.setAttribute('contenteditable', 'false')
+      container.style.userSelect = "none";
+    }
 
     moved = false
 

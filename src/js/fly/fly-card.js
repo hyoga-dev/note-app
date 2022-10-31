@@ -137,8 +137,13 @@ export default function() {
       // let container = document.getElementById("container")
 
       if (moved != true) {
+        container.style.userSelect = "auto";
+        box.setAttribute('contenteditable', '')
         box.focus()
         box.classList.add("selected")
+      } else {
+        box.setAttribute('contenteditable', 'false')
+        container.style.userSelect = "none";
       }
       moved = false
       // box.style.cursor = "pointer";

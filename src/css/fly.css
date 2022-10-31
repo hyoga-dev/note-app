@@ -1,3 +1,8 @@
+
+.btn {
+  user-select: none;
+}
+
 .container {
   position: relative;
   /* border: 1px solid black; */
@@ -8,6 +13,7 @@
   background-image: url("../asset/dot-bg.svg");
   background-position: right top;
   background-size: 6px auto;
+  /* user-select: none; */
 }
 
 /* .box:first-child {
@@ -19,7 +25,9 @@
 .box {
   font-size: 12px;
   font-family: Arial, Helvetica, sans-serif;
-  user-select: none;
+  /* user-select: none; */
+  -webkit-user-drag: none;
+  /* -webkit-user-select: none; */
   padding: 18px;
   z-index: 1;
   transform-style: preserve-3d;
@@ -42,9 +50,19 @@
   border-radius: 5px;
 }
 
-/* .box:focus {
-  outline: transparent;
-} */
+::selection {
+  color: inherit;
+  background-color: transparent;
+}
+
+.box:focus p::selection, .box:focus li::selection, .box:focus::selection, 
+.box:focus h1::selection {
+  /* outline: transparent; */
+  color: var(--back-color);
+  background-color: var(--dark-text);
+}
+
+
 
 .box b, .box h1 {
   color: var(--dark-text);

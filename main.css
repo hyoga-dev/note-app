@@ -1,6 +1,6 @@
 @import "/src/css/fly.css";
 @import "/src/css/grab.css";
-@import "/src/css/btn.css";
+/* @import "/src/css/btn.css"; */
 @import "/src/css/ui.css";
 @import "/src/css/context-menu.css";
 @import "/src/css/color.css";
@@ -17,6 +17,7 @@
   --box-border : rgba(0, 0, 0, 0.102);
   --back-color : #f7f7f7;
   --container-color : #e1e7ee;
+  --xtra-dark-text : #4e6d89;
 }
 
 body {
@@ -169,4 +170,23 @@ body {
 .switch-button-on {
   /* background-color: var(--light-back); */
   left: 20px;
+}
+
+
+
+
+
+/*                 */
+
+#select-drag {
+  position: fixed;
+  z-index: 9999;
+  opacity: 0.3;
+  display: none;
+  background-color: var(--dark-text);
+  /* left: 200px;
+  top: 200px; */
+  /* opacity: 0; */
+  width: 1px;
+  height: 1px;
 }

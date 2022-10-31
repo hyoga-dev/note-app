@@ -165,7 +165,7 @@
 
     <div class="container" id="container"> 
 
-      <div class="box" data-min-rows='2' contenteditable style="left: 40%;top: 40%;" spellcheck="false">
+      <div class="box" data-min-rows='2'  style="left: 40%;top: 40%;" spellcheck="false">
         <h1>Welcome</h1>
         <hr> 
         <p>
@@ -180,6 +180,7 @@
           <li>Ubah warna font dan background font</li>
           <li>Add setting</li>
           <li>Dark mode</li>
+          <li>Selection on drag</li>
         </ul>
       </div>
 
@@ -210,19 +211,21 @@
 
 
     <div id="context-menu">
-      <div class="menu" id="delete">Delete <span>Delete</span></div>
       <div class="menu" id="copy">Copy <span>Ctrl + Shift + C</span></div>
       <div class="menu" id="paste">Paste <span>Ctrl + Shift + V</span></div>
       <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
-      <div class="menu" id="lock">Lock <span>Ctrl + L</span></div>
-      <div class="menu" id="unlock">Unlock </div>
-      <div class="menu" id="unlockall">Unlock all <span>Ctrl + Shift + L</span></div>
+      <div class="menu" id="delete">Delete <span>Delete</span></div>
+      <!-- <div class="menu" id="lock">Lock <span>Ctrl + L</span></div>
+      <div class="menu" id="unlock">Unlock </div> -->
+      <!-- <div class="menu" id="unlockall">Unlock all <span>Ctrl + Shift + L</span></div> -->
     </div>
     
     <div id="document-context-menu">
       <div class="document-menu" id="d-select-all">Select all <span>Ctrl + A</span></div>
       <div class="document-menu" id="d-paste">Paste <span>Ctrl + Shift + V</span></div>
-      <div class="document-menu" id="unlockall">Unlock all <span>Ctrl + Shift + L</span></div>
+      <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
+      <div class="document-menu" id="d-delete">Delete <span>Delete</span></div>
+      <!-- <div class="document-menu" id="unlockall">Unlock all <span>Ctrl + Shift + L</span></div> -->
 
     </div>
     
@@ -231,15 +234,14 @@
 
 
 
-
-
+    <div id="select-drag"></div>
 
 
 
 
     <!-- ########### script ########## -->
     <script>
-      const box = document.querySelectorAll(".box");
+      // const box = document.querySelectorAll(".box");
       // const container = document.getElementById("container");
 
       // box.forEach((box, index) => {
