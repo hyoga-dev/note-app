@@ -140,7 +140,7 @@ export default function fly() {
     window.removeEventListener("mouseup", flyDown);
     
     saveCorner(box)
-
+    
   }
 }
   

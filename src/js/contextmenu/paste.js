@@ -13,7 +13,7 @@ export default function paste(e, copiedText) {
     this.copiedText.style.top = y - 40 + "px"
     this.copiedText.style.left = x - 40 + "px"
     this.copiedText.style.cursor = "default";
-
+    
     this.copiedText.addEventListener("contextmenu", (e) => {
       e.preventDefault()
       
@@ -28,6 +28,6 @@ export default function paste(e, copiedText) {
     
     
     copied = this.copiedText
-}
-
+  }
+  localStorage.setItem("container", document.getElementById("container").innerHTML)
 }

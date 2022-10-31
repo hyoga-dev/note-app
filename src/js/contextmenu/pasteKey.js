@@ -26,6 +26,7 @@ export default function pasteKey () {
       this.menu.style.display = "block";
     })
     copied = this.copiedText  
+    localStorage.setItem("container", document.getElementById("container").innerHTML)
     
 }
 }
