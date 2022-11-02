@@ -241,21 +241,14 @@
 
     <!-- ########### script ########## -->
     <script>
-      // const box = document.querySelectorAll(".box");
       const container = document.getElementById("container");
 
-      // box.forEach((box, index) => {
-
-        
-      //   box.style.top = localStorage.getItem(`top${index}`);
-      //   box.style.left = localStorage.getItem(`left${index}`);
-      //   box.style.zIndex = localStorage.getItem(`index${index}`);
-      // })  
 
       if (localStorage.getItem("container") != null) {
         container.innerHTML = localStorage.getItem("container");
       }
 
+      
       
     </script>
 

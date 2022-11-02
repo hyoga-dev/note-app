@@ -66,11 +66,6 @@ export default function() {
           index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
           arr.push(index);
         } 
-        // console.groupCollapsed
-        // // console.log("X axis: ", a - rectLeft)
-        // // console.log("Y axis: ", b - rectLeft)
-        // // console.log("the width: ", width - 10)
-        // console.groupEnd
         let max = Math.max(...arr);
         
         
@@ -80,7 +75,6 @@ export default function() {
           localStorage.setItem(`index${i}`, max);
         } else {
           for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-            // console.log(localStorage.getItem(`index${k}`));
             localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
             document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
           }}
@@ -89,7 +83,6 @@ export default function() {
         // add fly effect --
         // box.style.cursor = "grabbing";
         // box.style.boxShadow = "0 30px 50px 0 rgba(0, 0, 0, 0.19)";
-          // console.log("fly")
         // add event handler
         window.addEventListener("mousemove", fly);
         window.addEventListener("mouseup", flyDown);

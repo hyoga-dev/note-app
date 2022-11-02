@@ -3,7 +3,6 @@ import { qs } from "../utility.js";
 let copied;
 
 export default function pasteKey () {
-  // console.log("First", this.copiedText)
   if (this.copiedText != undefined) {
     if (copied == this.copiedText) this.copiedText = copied.cloneNode(true)
     
@@ -13,7 +12,6 @@ export default function pasteKey () {
     this.copiedText.style.top = top + 20 + "px";
     this.copiedText.style.left = left + 20 + "px";
     this.copiedText.style.cursor = "default";   
-    // console.log("Second", this.copiedText)
     
     this.copiedText.addEventListener("contextmenu", (e) => {
       e.preventDefault()

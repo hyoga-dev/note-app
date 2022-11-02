@@ -5,13 +5,11 @@ import { qsa } from "../utility.js"
 
 
 export default function unselect(e) {
-  // console.log(e.target.id)
   const box = e.target.className.split(" ").filter(val => {
     return val === "box";
   })
   const selected = qsa(".selected")
   const shift = e.shiftKey
-  console.log(e.button)
   if (e.button === 0) {
     if (box == "box" || box == "" ) {
       
@@ -23,13 +21,6 @@ export default function unselect(e) {
             }
           }
         }
-  
-        // if (box == "box") {
-        //   e.target.classList.add("selected")
-        // }
-  
-        
-  
       })
   }
   } 

@@ -3,9 +3,6 @@ import saveCorner from "../fly/saveCorner.js";
 import { qsa } from "../utility.js";
 
 let a, b, rectLeft, rectTop,  arr, moved, prevEvent;
-// let prevLoop = false
-
-// let content = localStorage.getItem("arr").split(",")
 
 
 
@@ -17,7 +14,6 @@ export default function fly() {
   
     
   const box = qsa(".box")[bix.length - 1];
-  // console.log(box)
   box.addEventListener("mousedown", flyUp);// flying card
 
 

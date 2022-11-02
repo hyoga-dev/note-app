@@ -24,6 +24,8 @@ body {
   box-sizing: border-box;
   margin: 0;
   font-family: arial;
+  -webkit-font-smoothing: antialiased;
+
   /* user-select: none; */
 }
 

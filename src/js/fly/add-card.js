@@ -176,7 +176,6 @@ export default function addCard(e) {
         localStorage.setItem(`index${j}`, max);
       } else {
         for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-          // console.log(localStorage.getItem(`index${k}`));
           localStorage.setItem(
             `index${k}`,
             localStorage.getItem(`index${k}`) - 10
