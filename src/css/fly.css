@@ -55,8 +55,7 @@
   background-color: transparent;
 }
 
-.box:focus p::selection, .box:focus li::selection, .box:focus::selection, 
-.box:focus h1::selection {
+.box:focus::selection, .box:focus ::selection {
   /* outline: transparent; */
   color: var(--back-color);
   background-color: var(--dark-text);

@@ -19,7 +19,7 @@ const root = qs(":root")
 const textColor = getId("text-color")
 const backColor = getId("back-color")
 const olIcon = getId("ol-icon")
-let clicked = 'false'
+let clicked = 'true'
 
 settingContainer.onclick = (e) => {
   if (e.target.className == "setting-container" || e.target.id == "close") {

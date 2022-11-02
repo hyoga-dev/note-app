@@ -102,6 +102,7 @@ export default function addCard(e) {
     
     window.removeEventListener("mousemove", newFly);
     window.removeEventListener("mouseup", newFlyDown);
+    localStorage.setItem("container", document.getElementById('container').innerHTML)
 
     saveCorner(newBox);
   }
@@ -174,7 +175,8 @@ export default function addCard(e) {
       if (max < 100) {
         box.style.zIndex = max + 1;
         localStorage.setItem(`index${j}`, max);
-      } else {
+      } 
+      else {
         for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
           localStorage.setItem(
             `index${k}`,
@@ -216,9 +218,6 @@ export default function addCard(e) {
 
       box.style.left = `${mouseHor}px`;
       box.style.top = `${mouseVer}px`;
-
-      localStorage.setItem(`top${[j]}`, mouseVer + "px");
-      localStorage.setItem(`left${[j]}`, mouseHor + "px");
 
       // * Wosh
       function wosh() {

@@ -13,7 +13,9 @@ btn.addEventListener("mousedown", dragMe)
 
 
 
-
+document.onkeyup = () => {
+  localStorage.setItem("container", document.getElementById('container').innerHTML)
+}
 fly()
 
 

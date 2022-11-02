@@ -6,4 +6,6 @@ export default function removeSelected() {
     selected.forEach(x => {
       x.remove()
     })
+    localStorage.setItem("container", document.getElementById('container').innerHTML)
+
   }

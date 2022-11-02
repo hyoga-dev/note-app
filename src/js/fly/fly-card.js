@@ -72,8 +72,9 @@ export default function() {
         // <-- normalise index
         if (max < 100) {
           box.style.zIndex = max + 1;
-          localStorage.setItem(`index${i}`, max);
-        } else {
+          // localStorage.setItem(`index${i}`, max);
+        } 
+        else {
           for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
             localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
             document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
@@ -113,8 +114,6 @@ export default function() {
       box.style.left = `${mouseHor}px`;
       box.style.top = `${mouseVer}px`;
   
-      localStorage.setItem(`top${[i]}`, mouseVer + "px");
-      localStorage.setItem(`left${[i]}`, mouseHor + "px");
   
       flyingEffect(e, box, rotateSpeed)
     }
