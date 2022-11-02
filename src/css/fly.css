@@ -61,7 +61,10 @@
   background-color: var(--dark-text);
 }
 
-
+/* .box:focus span[style="background-color: rgb(78, 109, 137);"]::selection {
+  color: var(--dark-text);
+  background-color: var(--back-color);
+} */
 
 .box b, .box h1 {
   color: var(--dark-text);
