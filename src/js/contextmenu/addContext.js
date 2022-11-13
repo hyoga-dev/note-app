@@ -16,7 +16,6 @@ export default function addContext (e) {
     this.refreshEvent()
     this.refreshFly()
 
-
   } else if (e.target.id == "lock") {
     document.activeElement.setAttribute("contenteditable", false)
 
@@ -29,9 +28,6 @@ export default function addContext (e) {
   } else if (secondClass == "side-copy") {
     this.copiedText = document.activeElement.cloneNode(true)
   }
-
-
-
 
   this.menu.style.display = 'none';
 

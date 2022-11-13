@@ -10,8 +10,8 @@ export default function paste(e, copiedText) {
     const x = e.clientX
     const y = e.clientY
   
-    this.copiedText.style.top = y - 40 + "px"
     this.copiedText.style.left = x - 40 + "px"
+    this.copiedText.style.top = y - 40 + "px"
     this.copiedText.style.cursor = "default";
     
     this.copiedText.addEventListener("contextmenu", (e) => {

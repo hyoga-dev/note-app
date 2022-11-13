@@ -97,9 +97,8 @@ insertOrderedList.addEventListener("mousedown", () => addEditor(event, "insertOr
 
 
 
-
-
-
 color()
 setting()
 selectOnDrag()
+
+

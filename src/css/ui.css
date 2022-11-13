@@ -58,6 +58,7 @@
 
 .item-box:hover {
   background-color: var(--box-border);
+  cursor: pointer;
 }
 
 .item-box i {

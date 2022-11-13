@@ -148,7 +148,7 @@ body {
   outline: 1px solid var(--dark-text);
   background-color: var(--back-color);
   transition: .2s;
-
+  cursor: pointer;
   border-radius: 9.5px;
   float: right;
 }

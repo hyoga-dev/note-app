@@ -5,17 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/src/asset/favicon.ico">
-    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="/main.css" />
     <script src="https://kit.fontawesome.com/ba324e01bb.js" crossorigin="anonymous"></script>
     <title>Note app test</title>
   </head>
   <body ondragstart="return false;">
     
-
-
-
-
-
 
 
 
@@ -52,24 +47,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
     <div class="side-tool tool" >
       <section><div class="item-box" id="btn"><img src="/src/asset/add-button.svg" alt="add-button-icon" width="15"></div></section>
       <section><div class="item-box side-copy" ><i class="fa-solid side-copy fa-copy" style="color: #8199aa;"></i></div></section>
       <section><div class="item-box side-delete"><i class="fa-solid side-delete fa-trash" style="color: #8199aa;"></i></div></section>
       <section><div class="item-box" id="setting"><i class="fa-solid fa-gear" style="color: #8199aa;"></i></div></section>
     </div>
-
-
-
 
 
 
@@ -100,17 +83,6 @@
 
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -151,18 +123,6 @@
 
 
 
-
-    
-
-
-
-
-
-
-
-
-
-
     <div class="container" id="container"> 
 
       <div class="box" data-min-rows='2'  style="left: 40%;top: 40%;" spellcheck="false">
@@ -188,27 +148,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <button id="btn">+</button> -->
     <div class="grab-container">  
       <div class="triangle"></div><p class="grab-me">Drag me</p> 
     </div>
-
-
 
     <div id="context-menu">
       <div class="menu" id="copy">Copy <span>Ctrl + Shift + C</span></div>
@@ -228,36 +170,20 @@
       <!-- <div class="document-menu" id="unlockall">Unlock all <span>Ctrl + Shift + L</span></div> -->
 
     </div>
-    
-
-
-
-
 
     <div id="select-drag"></div>
-
 
 
 
     <!-- ########### script ########## -->
     <script>
       const container = document.getElementById("container");
-
-
       if (localStorage.getItem("container") != null) {
         container.innerHTML = localStorage.getItem("container");
       }
-
-      
-      
     </script>
 
-    <!-- <script type="module" src="./src/index.js"></script> -->
-    <script src="./dist/main.js"></script>
-
-
-
-
-
+    <script type="module" src="./src/index.js"></script>
+    <!-- <script src="./dist/main.js"></script> -->
   </body>
 </html>
