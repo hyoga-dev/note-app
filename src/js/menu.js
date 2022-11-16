@@ -25,8 +25,9 @@ export default class Menu {
 
     this.rightBox = function (e) {
         e.preventDefault()
-        document.activeElement.blur()
-        e.currentTarget.classList.add("selected")
+        // document.activeElement.blur()
+        // e.currentTarget.classList.add("selected")
+
         const x = e.clientX
         const y = e.clientY
       
