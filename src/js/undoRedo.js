@@ -21,7 +21,6 @@ redoBtn.addEventListener("click", redo)
 let after = []
 const container2 = document.getElementById("container")
 
-// console.log(before, after)
 
 function undo() {
   const bef = JSON.parse(sessionStorage.getItem("before")) 
@@ -35,7 +34,6 @@ function undo() {
   after.unshift(before[0])
   before.shift()
   container2.innerHTML = before[0]
-  console.log(before)
   sessionStorage.setItem("before", JSON.stringify(before))
   sessionStorage.setItem("after", "not-moved")
   fly()

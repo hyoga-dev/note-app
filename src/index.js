@@ -46,9 +46,6 @@ bold.addEventListener("mousedown", () => addEditor(event, "bold") )
 const h1 = document.getElementById("h1")
 h1.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h1") )
 
-// const h3 = document.getElementById("h3")
-// h3.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h3") )
-
 const paragraph = document.getElementById("paragraph")
 paragraph.addEventListener("mousedown", () => addEditor(event, "formatBlock", "p") )
 
@@ -76,20 +73,6 @@ insertUnorderedList.addEventListener("mousedown", () => addEditor(event, "insert
 const insertOrderedList = document.getElementById("ol")
 insertOrderedList.addEventListener("mousedown", () => addEditor(event, "insertOrderedList") )
 
-// const color = document.getElementById("color")
-// color.addEventListener("mousedown", () => addEditor(event, "foreColor", "#c47b5a") )
-
-// const backColor = document.getElementById("color")
-// backColor.addEventListener("mousedown", () => addEditor(event, "backColor", "#c47b5a") )
-
-// const redo = document.getElementById("redo")
-// redo.addEventListener("mousedown", () => addEditor(event, "redo") )
-
-// const undo = document.getElementById("undo")
-// undo.addEventListener("mousedown", () => addEditor(event, "undo") )
-
-// const insertHorizontalRule = document.getElementById("hr")
-// insertHorizontalRule.addEventListener("mousedown", () => addEditor(event, "insertHorizontalRule") )
 
 
 

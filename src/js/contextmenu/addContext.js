@@ -17,13 +17,11 @@ export default function addContext (e) {
     this.refreshFly()
 
   } else if (e.target.id == "lock") {
-    // console.log(this.selectBox)
     // this.selectBox.setAttribute("contenteditable", false)
     // const left = getComputedStyle(this.selectBox).getPropertyValue("left")
     // this.selectBox.classList.add("lock")
     // this.selectBox.classList.remove("box")
     // const lock = qs("lock")
-    // console.log(left)
     // lock.style.setProperty("left", `20px !important`)
 
   } else if (e.target.id == "unlock") {
