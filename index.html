@@ -128,7 +128,7 @@
 
       <div class="box" style="left: 40%;top: 40%;" spellcheck="false">
         <h1>Welcome</h1>
-        <hr> 
+        <hr class="hr"> 
         <p>
           Drag and drop tombol + untuk menambahkan kartu
         </p>
@@ -183,6 +183,8 @@
       if (localStorage.getItem("container") != null) {
         container.innerHTML = localStorage.getItem("container");
       }
+
+      sessionStorage.setItem("before", "[]")
     </script>
 
     <script type="module" src="./src/index.js"></script>

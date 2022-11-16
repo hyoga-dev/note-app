@@ -22,6 +22,7 @@ const profile = getId("profile")
 const textColor = getId("text-color")
 const backColor = getId("back-color")
 const olIcon = getId("ol-icon")
+const hr = qs("hr")
 let clicked = 'true'
 
 settingContainer.onclick = (e) => {
@@ -57,6 +58,7 @@ function darkMode() {
     olIcon.setAttribute("src", "/src/asset/ol dark.svg")
     pName.innerHTML = "Bambang";
     
+    hr.style.color = '#7e6340'
     root.style.setProperty("--dark-text", "#ddd")
     root.style.setProperty("--back-color", "#33373a")
     root.style.setProperty("--normal-text", "#aaa")
@@ -74,6 +76,7 @@ function darkMode() {
     olIcon.setAttribute("src", "/src/asset/ol.svg")
     pName.innerHTML = "John doe";
 
+    hr.style.color = '#e1e7ee'
     root.style.setProperty("--dark-text", "#4e6d89")
     root.style.setProperty("--back-color", "#f7f7f7")
     root.style.setProperty("--normal-text", "#8199aa")
