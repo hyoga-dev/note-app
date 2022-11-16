@@ -70,7 +70,7 @@ function darkMode() {
     addBtn.setAttribute("src", "/src/asset/add-button.svg")
     textColor.setAttribute("src", "/src/asset/text-color.svg")
     backColor.setAttribute("src", "/src/asset/back-color.svg")
-    profile.setAttribute("src", "/src/asset/profile.svg")
+    profile.setAttribute("src", "/src/asset/profile-pic.svg")
     olIcon.setAttribute("src", "/src/asset/ol.svg")
     pName.innerHTML = "John doe";
 
