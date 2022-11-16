@@ -1,7 +1,7 @@
 
 import dragMe from "./js/fly/dragMe.js";
 import fly from "./js/fly/fly-card.js";
-import undoRedo from "./js/undoRedo.js";
+import { undo, redo} from "./js/undoRedo.js";
 import addEditor from "./js/addEditor.js";
 
 const btn = document.getElementById("btn")
@@ -11,7 +11,14 @@ document.onkeyup = () => {
   localStorage.setItem("container", document.getElementById('container').innerHTML)
 }
 
-undoRedo()
+const undoBtn = document.getElementById("undo")
+const redoBtn = document.getElementById("redo")
+undoBtn.addEventListener("click", undo)
+redoBtn.addEventListener("click", redo)
+
+// contextUndo.addEventListener("click", undo)
+// contextRedo.addEventListener("click", redo)
+// undoRedo()
 fly()
 
 

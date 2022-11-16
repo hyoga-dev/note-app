@@ -50,10 +50,10 @@
 
 
     <div class="side-tool tool" >
-      <section><div title="add card" class="item-box" id="btn"><img src="/src/asset/add-button.svg" alt="add-button-icon" width="15"></div></section>
-      <section><div title="copy" class="item-box side-copy" ><i class="fa-solid side-copy fa-copy" style="color: #8199aa;"></i></div></section>
-      <section><div title="delete" class="item-box side-delete"><i class="fa-solid side-delete fa-trash" style="color: #8199aa;"></i></div></section>
-      <section><div title="setting" class="item-box" id="setting"><i class="fa-solid fa-gear" style="color: #8199aa;"></i></div></section>
+      <section><div title="add card" class="item-box" id="btn"><img src="/src/asset/add-button.svg" id="add-btn" alt="add-button-icon" width="15"></div></section>
+      <section><div title="copy" class="item-box side-copy" ><i class="fa-solid side-copy fa-copy"></i></div></section>
+      <section><div title="delete" class="item-box side-delete"><i class="fa-solid side-delete fa-trash"></i></div></section>
+      <section><div title="setting" class="item-box" id="setting"><i class="fa-solid fa-gear"></i></div></section>
     </div>
 
 
@@ -167,6 +167,9 @@
       <div class="document-menu" id="d-select-all">Select all <span>Ctrl + A</span></div>
       <div class="document-menu" id="d-paste">Paste <span>Ctrl + Shift + V</span></div>
       <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
+      <div class="document-menu" id="context-undo">Undo <span>Ctrl + Z</span></div>
+      <div class="document-menu" id="context-redo">Redo <span>Ctrl + Y</span></div>
+      <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
       <div class="document-menu" id="d-delete">Delete <span>Delete</span></div>
       <!-- <div class="document-menu" id="unlockall">Unlock all <span>Ctrl + Shift + L</span></div> -->
 
@@ -183,7 +186,7 @@
       }
     </script>
 
-    <!-- <script type="module" src="./src/index.js"></script> -->
-    <script src="./dist/main.js"></script>
+    <script type="module" src="./src/index.js"></script>
+    <!-- <script src="./dist/main.js"></script> -->
   </body>
 </html>

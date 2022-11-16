@@ -1,3 +1,4 @@
+import { redo, undo } from "../undoRedo.js";
 import { qsa } from "../utility.js";
 // import removeSelected from "./removeSelected";
 
@@ -120,6 +121,21 @@ if (keys == "ArrowLeft") {
   }
 }
 
+if (ctrl) {
+  if (keys == "z" || keys == "Z") {
+    if (document.activeElement.tagName == "BODY") {
+      undo()
+    }
+  }
+}
+
+if (ctrl) {
+  if (keys == "y" || keys == "Y") {
+    if (document.activeElement.tagName == "BODY") {
+      redo()
+    }
+  }
+}
 
 
 }

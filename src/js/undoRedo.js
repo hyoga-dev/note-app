@@ -3,20 +3,20 @@ import Menu from "./menu.js";
 // import DocumentRightClick from "./documentRightClick.js";
 
 
-export default function() {
+// export default function() {
 
-const cm = new Menu("context-menu", ".box")
 
 const undoBtn = document.getElementById("undo")
 const redoBtn = document.getElementById("redo")
-undoBtn.addEventListener("click", undo)
-redoBtn.addEventListener("click", redo)
+// undoBtn.addEventListener("click", undo)
+// redoBtn.addEventListener("click", redo)
 
 let after = []
 const container2 = document.getElementById("container")
 
 
-function undo() {
+export function undo() {
+  const cm = new Menu("context-menu", ".box")
   const bef = JSON.parse(sessionStorage.getItem("before")) 
   const before = bef.slice(0, bef.length)
 
@@ -35,7 +35,8 @@ function undo() {
   // const after = JSON.parse(sessionStorage.getItem("after")) 
 }
 
-function redo() {
+export function redo() {
+  const cm = new Menu("context-menu", ".box")
   const bef = JSON.parse(sessionStorage.getItem("before")) 
   const before = bef.slice(0, bef.length)
   undoBtn.style.opacity = "1"
@@ -57,4 +58,4 @@ function redo() {
   cm.refreshEvent()
 }
 
-}
+// }

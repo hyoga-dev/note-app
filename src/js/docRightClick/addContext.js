@@ -1,3 +1,4 @@
+import { redo, undo } from "../undoRedo.js"
 
 
 export default function addContext () {
@@ -15,6 +16,10 @@ export default function addContext () {
       this.contextMenu.removeSelected()
     } if (e.target.id == "unlockall") {
       this.contextMenu.unlockAll()
+    } if (e.target.id == "context-undo") {
+      undo()
+    } if (e.target.id == "context-redo") {
+      redo()
     }  
 
     this.menu.style.display = 'none';
