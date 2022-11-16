@@ -1,3 +1,4 @@
+import { qsa } from "../utility.js";
 
 export default function addContext (e) {
     
@@ -35,7 +36,11 @@ export default function addContext (e) {
     this.unlockAll()
 
   } else if (secondClass == "side-copy") {
+    // console.log("hai")
     this.copiedText = document.activeElement.cloneNode(true)
+  } else if (secondClass == "side-delete") {
+    e.preventDefault()
+    this.removeSelected()
   }
 
   this.menu.style.display = 'none';
