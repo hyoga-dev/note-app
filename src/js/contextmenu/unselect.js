@@ -10,7 +10,7 @@ export default function unselect(e) {
   })
   const selected = qsa(".selected")
   const shift = e.shiftKey
-  if (e.button === 0) {
+  // if (e.button === 0) {
     if (box == "box" || box == "" ) {
       
       selected.forEach(x => {
@@ -23,5 +23,5 @@ export default function unselect(e) {
         }
       })
   }
-  } 
+  // } 
 }

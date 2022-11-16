@@ -1,27 +1,23 @@
 
 import dragMe from "./js/fly/dragMe.js";
 import fly from "./js/fly/fly-card.js";
-
-
+import undoRedo from "./js/undoRedo.js";
 import addEditor from "./js/addEditor.js";
-
-
-
 
 const btn = document.getElementById("btn")
 btn.addEventListener("mousedown", dragMe)
 
-
-
 document.onkeyup = () => {
   localStorage.setItem("container", document.getElementById('container').innerHTML)
 }
+
+undoRedo()
 fly()
+
 
 
 import DocumentRightClick from "./js/documentRightClick.js";
 import Menu from "./js/menu.js";
-import { getId, getStyle, qs, qsa } from "./js/utility.js";
 import selectOnDrag from "./js/selectOnDrag.js";
 import setting from "./js/setting.js";
 import color from "./js/color.js";

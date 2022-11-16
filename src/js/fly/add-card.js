@@ -8,7 +8,7 @@ import { getId } from "../utility.js";
 
 const container = getId("container")
 const rotateSpeed = 1.3;
-
+let newArr = []
 
 
 
@@ -172,18 +172,21 @@ export default function addCard(e) {
       // indexing -->
 
       // <-- normalise index
-      if (max < 100) {
-        box.style.zIndex = max + 1;
-        localStorage.setItem(`index${j}`, max);
-      } 
-      else {
-        for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-          localStorage.setItem(
-            `index${k}`,
-            localStorage.getItem(`index${k}`) - 10
-          );
-          document.querySelectorAll(".box")[k].style.zIndex =
-            localStorage.getItem(`index${k}`);
+      const shift = e.shiftKey
+      if (!shift && e.button == 0) {
+        if (max < 100) {
+          box.style.zIndex = max + 1;
+          localStorage.setItem(`index${j}`, max);
+        } 
+        else {
+          for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
+            localStorage.setItem(
+              `index${k}`,
+              localStorage.getItem(`index${k}`) - 10
+            );
+            document.querySelectorAll(".box")[k].style.zIndex =
+              localStorage.getItem(`index${k}`);
+          }
         }
       }
       // normalise index -->
@@ -275,6 +278,15 @@ const menu = new Menu("context-menu", ".box")
       menu.eventHandler()
       menu.refreshEvent()
 
+      if (sessionStorage.getItem("before") != null) {
+        newArr = JSON.parse(sessionStorage.getItem("before"))
+      }
+
+      newArr.unshift(getId("container").innerHTML)
+      sessionStorage.setItem("before", JSON.stringify(newArr))
+      sessionStorage.setItem("after", "moved")
+      getId("redo").style.opacity = "0.5"
+      getId("undo").style.opacity = "1"
     }
 
 

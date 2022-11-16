@@ -2,8 +2,8 @@ import { qs } from "../utility.js";
 
 let copied;
 
-export default function paste(e, copiedText) {
-  if (copiedText != undefined) {
+export default function paste(e) {
+  if (this.copiedText != undefined) {
     if (copied == this.copiedText) this.copiedText = copied.cloneNode(true)
     qs(".container").appendChild(this.copiedText)
     
@@ -13,6 +13,7 @@ export default function paste(e, copiedText) {
     this.copiedText.style.left = x - 40 + "px"
     this.copiedText.style.top = y - 40 + "px"
     this.copiedText.style.cursor = "default";
+    // this.copiedText.style.zIndex = "99";
     
     this.copiedText.addEventListener("contextmenu", (e) => {
       e.preventDefault()

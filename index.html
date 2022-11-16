@@ -17,30 +17,32 @@
 
     <div class="toolbar tool">
       <section>
-        <div ><img style="transform: translate(0, 2px);" src="/src/asset/fly logo.svg" alt="fly" width="30px"></div>
+        <div class="item-box" title="undo" id="undo"><i class="fa-solid fa-rotate-left"></i></div>
+        <div class="item-box" title="redo" id="redo"><i class="fa-solid fa-rotate-right"></i></i></div>
+        <!-- <div ><img style="transform: translate(0, 2px);" src="/src/asset/fly logo.svg" alt="fly" width="30px"></div> -->
       </section>
       <section>
-        <div class="item-box" id="h1"><i class="fa-solid fa-h"></i></div>
+        <div class="item-box" title="heading 1" id="h1"><i class="fa-solid fa-h"></i></div>
         <!-- <div class="item-box" id="h3"><img src="/src/asset/h3.svg" alt="h3-icon" width="19"></div> -->
-        <div class="item-box" id="paragraph"><i class="fa-solid fa-p"></i></div>
+        <div class="item-box" title="paragraph" id="paragraph"><i class="fa-solid fa-p"></i></div>
       </section>
       <section>
-        <div class="item-box" id="bold"><i class="fa-solid fa-bold"></i></div>
-        <div class="item-box" id="italic"><i class="fa-solid fa-italic"></i></div>
+        <div class="item-box" title="bold" id="bold"><i class="fa-solid fa-bold"></i></div>
+        <div class="item-box" title="italic" id="italic"><i class="fa-solid fa-italic"></i></div>
       </section>
       <section>
-        <div class="item-box" id="align-left"><i class="fa-solid fa-align-left"></i></div>
-        <div class="item-box" id="align-center"><i class="fa-solid fa-align-center"></i></div>
-        <div class="item-box" id="align-right"><i class="fa-solid fa-align-right"></i></div>
-        <div class="item-box" id="align-full"><i class="fa-solid fa-align-justify"></i></div>
+        <div class="item-box" title="align-left" id="align-left"><i class="fa-solid fa-align-left"></i></div>
+        <div class="item-box" title="align-center" id="align-center"><i class="fa-solid fa-align-center"></i></div>
+        <div class="item-box" title="align-right" id="align-right"><i class="fa-solid fa-align-right"></i></div>
+        <div class="item-box" title="align-full" id="align-full"><i class="fa-solid fa-align-justify"></i></div>
       </section>
       <section>
-        <div class="item-box" id="ul"><i class="fa-solid fa-list-ul"></i></div>
-        <div class="item-box" id="ol"><img src="/src/asset/ol.svg" alt="ol-icon" id="ol-icon" width="13.5"></div>
+        <div class="item-box" title="ul" id="ul"><i class="fa-solid fa-list-ul"></i></div>
+        <div class="item-box" title="ol" id="ol"><img src="/src/asset/ol.svg" alt="ol-icon" id="ol-icon" width="13.5"></div>
       </section>
       <section>
-        <div class="item-box" id="color"><img src="/src/asset/text-color.svg" alt="text-color" id="text-color" width="11"></div>
-        <div class="item-box" id="bg-color"><img src="/src/asset/back-color.svg" alt="text-back-color" id="back-color" width="15"></div>
+        <div class="item-box" title="color" id="color"><img src="/src/asset/text-color.svg" alt="text-color" id="text-color" width="11"></div>
+        <div class="item-box" title="bg-color" id="bg-color"><img src="/src/asset/back-color.svg" alt="text-back-color" id="back-color" width="15"></div>
       </section>
     </div>
 
@@ -48,16 +50,15 @@
 
 
     <div class="side-tool tool" >
-      <section><div class="item-box" id="btn"><img src="/src/asset/add-button.svg" alt="add-button-icon" width="15"></div></section>
-      <section><div class="item-box side-copy" ><i class="fa-solid side-copy fa-copy" style="color: #8199aa;"></i></div></section>
-      <section><div class="item-box side-delete"><i class="fa-solid side-delete fa-trash" style="color: #8199aa;"></i></div></section>
-      <section><div class="item-box" id="setting"><i class="fa-solid fa-gear" style="color: #8199aa;"></i></div></section>
+      <section><div title="add card" class="item-box" id="btn"><img src="/src/asset/add-button.svg" alt="add-button-icon" width="15"></div></section>
+      <section><div title="copy" class="item-box side-copy" ><i class="fa-solid side-copy fa-copy" style="color: #8199aa;"></i></div></section>
+      <section><div title="delete" class="item-box side-delete"><i class="fa-solid side-delete fa-trash" style="color: #8199aa;"></i></div></section>
+      <section><div title="setting" class="item-box" id="setting"><i class="fa-solid fa-gear" style="color: #8199aa;"></i></div></section>
     </div>
 
 
 
     <div class="setting-container">
-
 
       <div class="setting-modal">
         <i class="fa-solid fa-xmark" id="close"></i>
@@ -125,7 +126,7 @@
 
     <div class="container" id="container"> 
 
-      <div class="box" data-min-rows='2'  style="left: 40%;top: 40%;" spellcheck="false">
+      <div class="box" style="left: 40%;top: 40%;" spellcheck="false">
         <h1>Welcome</h1>
         <hr> 
         <p>
@@ -157,8 +158,8 @@
       <div class="menu" id="paste">Paste <span>Ctrl + Shift + V</span></div>
       <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
       <div class="menu" id="delete">Delete <span>Delete</span></div>
-      <!-- <div class="menu" id="lock">Lock <span>Ctrl + L</span></div>
-      <div class="menu" id="unlock">Unlock </div> -->
+      <!-- <div class="menu" id="lock">Lock <span>Ctrl + L</span></div> -->
+      <!-- <div class="menu" id="unlock">Unlock </div> -->
       <!-- <div class="menu" id="unlockall">Unlock all <span>Ctrl + Shift + L</span></div> -->
     </div>
     
@@ -172,7 +173,6 @@
     </div>
 
     <div id="select-drag"></div>
-
 
 
     <!-- ########### script ########## -->

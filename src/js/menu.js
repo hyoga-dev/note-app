@@ -25,6 +25,8 @@ export default class Menu {
 
     this.rightBox = function (e) {
         e.preventDefault()
+        document.activeElement.blur()
+        e.currentTarget.classList.add("selected")
         const x = e.clientX
         const y = e.clientY
       
@@ -33,6 +35,7 @@ export default class Menu {
         this.menu.style.display = 'block';
 
         this.select = e.target
+        this.selectBox = e.currentTarget
     } 
     this.clickRight = this.rightBox.bind(this)
   }

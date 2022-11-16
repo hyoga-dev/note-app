@@ -1,8 +1,8 @@
 // import flyingEffect from "./flyEffect.js";
 import saveCorner from "../fly/saveCorner.js";
-import { qsa } from "../utility.js";
-
+import { qsa, getId } from "../utility.js";
 let a, b, rectLeft, rectTop,  arr, moved, prevEvent;
+let newArr = []
 
 
 
@@ -53,14 +53,16 @@ export default function fly() {
       e.preventDefault()
 
       // <-- indexing
-      arr = [];
-      for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-        index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
-        arr.push(index);
-      } 
-      let max = Math.max(...arr);
-      box.style.zIndex = max + 1;
-
+      const shift = e.shiftKey
+      if (!shift && e.button == 0) {
+        arr = [];
+        for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
+          index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
+          arr.push(index);
+        } 
+        let max = Math.max(...arr);
+        box.style.zIndex = max + 1;
+    }
 
 
       window.addEventListener("mousemove", fly);
@@ -137,6 +139,17 @@ export default function fly() {
     
     saveCorner(box)
     
+
+    if (sessionStorage.getItem("before") != null) {
+      newArr = JSON.parse(sessionStorage.getItem("before"))
+    }
+
+    newArr.unshift(getId("container").innerHTML)
+    sessionStorage.setItem("before", JSON.stringify(newArr))
+    sessionStorage.setItem("after", "moved")
+    getId("redo").style.opacity = "0.5"
+    getId("undo").style.opacity = "1"
+
   }
 }
   

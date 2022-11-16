@@ -1,3 +1,4 @@
+import { getId } from "../utility.js";
 import flyingEffect from "./flyingEffect.js";
 import saveCorner from "./saveCorner.js";
 
@@ -5,7 +6,7 @@ let bix = document.querySelectorAll(".box");
 const rotateSpeed = 1.3;
 let a, b, rectLeft, rectTop,  arr, moved;
 
-
+let newArr = []
 // let content = localStorage.getItem("arr").split(",")
 
 
@@ -70,15 +71,18 @@ export default function() {
         
         
         // <-- normalise index
-        if (max < 100) {
-          box.style.zIndex = max + 1;
-          // localStorage.setItem(`index${i}`, max);
-        } 
-        else {
-          for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-            localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
-            document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
-          }}
+        const shift = e.shiftKey
+        if (!shift && e.button == 0) {
+          if (max < 100) {
+            box.style.zIndex = max + 1;
+            // localStorage.setItem(`index${i}`, max);
+          } 
+          else {
+            for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
+              localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
+              document.querySelectorAll(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
+            }}
+        }
         // normalise index -->
         
         // add fly effect --
@@ -146,6 +150,19 @@ export default function() {
       window.removeEventListener("mouseup", flyDown);
       
       saveCorner(box)
+
+
+
+      if (sessionStorage.getItem("before") != null) {
+        newArr = JSON.parse(sessionStorage.getItem("before"))
+      }
+
+      newArr.unshift(getId("container").innerHTML)
+      sessionStorage.setItem("before", JSON.stringify(newArr))
+      sessionStorage.setItem("after", "moved")
+      getId("redo").style.opacity = "0.5"
+      getId("undo").style.opacity = "1"
+
     }
   }
   
