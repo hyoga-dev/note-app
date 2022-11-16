@@ -9,7 +9,7 @@ export default function addContext (e) {
   } else if (e.target.id == "copy") {
     e.preventDefault();
     if (document.activeElement.tagName != "BODY") {
-      this.copiedText = this.selectBox.cloneNode(true);
+      this.copiedText = document.activeElement.cloneNode(true);
     }
   } else if (e.target.id == "paste") {
     this.paste(e)
