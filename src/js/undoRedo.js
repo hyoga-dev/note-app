@@ -6,12 +6,6 @@ import Menu from "./menu.js";
 export default function() {
 
 const cm = new Menu("context-menu", ".box")
-// cm.eventHandler()
-  
-// const rc = new DocumentRightClick("document-context-menu", "document-menu", cm)
-// rc.docRightClick()
-// rc.addContext()
-
 
 const undoBtn = document.getElementById("undo")
 const redoBtn = document.getElementById("redo")
@@ -44,13 +38,12 @@ function undo() {
 function redo() {
   const bef = JSON.parse(sessionStorage.getItem("before")) 
   const before = bef.slice(0, bef.length)
+  undoBtn.style.opacity = "1"
 
   if (after.length <= 0) {
     redoBtn.style.opacity = "0.5"
     return
-  }
-
-  if (sessionStorage.getItem("after") == "moved") {
+  } if (sessionStorage.getItem("after") == "moved") {
     after = []
     redoBtn.style.opacity = "0.5"
     return

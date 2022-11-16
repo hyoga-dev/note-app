@@ -132,6 +132,9 @@ export default function() {
     function flyDown() {
       // let container = document.getElementById("container")
 
+      box.style.boxShadow = "none";
+      box.style.transform = `rotateX(0) rotateY(0)`;
+
       if (moved != true) {
         container.style.userSelect = "auto";
         box.setAttribute('contenteditable', '')
@@ -140,11 +143,19 @@ export default function() {
       } else {
         box.setAttribute('contenteditable', 'false')
         container.style.userSelect = "none";
+        if (sessionStorage.getItem("before") != null) {
+          newArr = JSON.parse(sessionStorage.getItem("before"))
+        }
+  
+        newArr.unshift(getId("container").innerHTML)
+        sessionStorage.setItem("before", JSON.stringify(newArr))
+        sessionStorage.setItem("after", "moved")
+        getId("redo").style.opacity = "0.5"
+        getId("undo").style.opacity = "1"
       }
       moved = false
       // box.style.cursor = "pointer";
-      box.style.boxShadow = "none";
-      box.style.transform = `rotateX(0) rotateY(0)`;
+      
       
       window.removeEventListener("mousemove", fly);
       window.removeEventListener("mouseup", flyDown);
@@ -153,15 +164,7 @@ export default function() {
 
 
 
-      if (sessionStorage.getItem("before") != null) {
-        newArr = JSON.parse(sessionStorage.getItem("before"))
-      }
-
-      newArr.unshift(getId("container").innerHTML)
-      sessionStorage.setItem("before", JSON.stringify(newArr))
-      sessionStorage.setItem("after", "moved")
-      getId("redo").style.opacity = "0.5"
-      getId("undo").style.opacity = "1"
+      
 
     }
   }

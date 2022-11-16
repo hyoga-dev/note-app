@@ -253,6 +253,9 @@ const menu = new Menu("context-menu", ".box")
     // ============================ FlyDown ====================================
     // =========================================================================
     function flyDown() {
+      box.style.boxShadow = "none";
+      box.style.transform = `rotateX(0) rotateY(0)`;
+
       if (moved != true) {
         container.style.userSelect = "auto";
         box.setAttribute('contenteditable', '')
@@ -261,14 +264,23 @@ const menu = new Menu("context-menu", ".box")
       } else {
         box.setAttribute('contenteditable', 'false')
         container.style.userSelect = "none";
+
+        if (sessionStorage.getItem("before") != null) {
+          newArr = JSON.parse(sessionStorage.getItem("before"))
+        }
+  
+        newArr.unshift(getId("container").innerHTML)
+        sessionStorage.setItem("before", JSON.stringify(newArr))
+        sessionStorage.setItem("after", "moved")
+        getId("redo").style.opacity = "0.5"
+        getId("undo").style.opacity = "1"
       }
       moved = false
 
-      box = document.querySelectorAll(".box");
-      box = document.querySelectorAll(".box")[j];
+      // box = document.querySelectorAll(".box");
+      // box = document.querySelectorAll(".box")[j];
       // box.style.cursor = "grab";
-      box.style.boxShadow = "none";
-      box.style.transform = `rotateX(0) rotateY(0)`;
+      
       
       window.removeEventListener("mousemove", fly);
       window.removeEventListener("mouseup", flyDown);
@@ -278,15 +290,7 @@ const menu = new Menu("context-menu", ".box")
       menu.eventHandler()
       menu.refreshEvent()
 
-      if (sessionStorage.getItem("before") != null) {
-        newArr = JSON.parse(sessionStorage.getItem("before"))
-      }
-
-      newArr.unshift(getId("container").innerHTML)
-      sessionStorage.setItem("before", JSON.stringify(newArr))
-      sessionStorage.setItem("after", "moved")
-      getId("redo").style.opacity = "0.5"
-      getId("undo").style.opacity = "1"
+      
     }
 
 
