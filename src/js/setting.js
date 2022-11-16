@@ -16,7 +16,9 @@ const settingCon =  qs(".setting-container")
 const sweet = qs(".switch") 
 const sweetButton = qs(".switch-button") 
 const root = qs(":root")
+const pName = getId("profile-name")
 const addBtn = getId("add-btn")
+const profile = getId("profile")
 const textColor = getId("text-color")
 const backColor = getId("back-color")
 const olIcon = getId("ol-icon")
@@ -47,13 +49,17 @@ darkMode()
 function darkMode() {
   if (clicked == 'false') {
     sweetButton.classList.add("switch-button-on")
+    
     addBtn.setAttribute("src", "/src/asset/add-button-dark.svg")
     textColor.setAttribute("src", "/src/asset/text-color-dark.svg")
     backColor.setAttribute("src", "/src/asset/bg-color-dark.svg")
+    profile.setAttribute("src", "/src/asset/profile-dark.svg")
     olIcon.setAttribute("src", "/src/asset/ol dark.svg")
-    root.style.setProperty("--dark-text", "#f7f7f7")
+    pName.innerHTML = "Bambang";
+    
+    root.style.setProperty("--dark-text", "#ddd")
     root.style.setProperty("--back-color", "#33373a")
-    root.style.setProperty("--normal-text", "#e1e7ee")
+    root.style.setProperty("--normal-text", "#aaa")
     root.style.setProperty("--container-color", "#212223")
 
     localStorage.setItem('clicked', clicked)
@@ -64,7 +70,10 @@ function darkMode() {
     addBtn.setAttribute("src", "/src/asset/add-button.svg")
     textColor.setAttribute("src", "/src/asset/text-color.svg")
     backColor.setAttribute("src", "/src/asset/back-color.svg")
+    profile.setAttribute("src", "/src/asset/profile.svg")
     olIcon.setAttribute("src", "/src/asset/ol.svg")
+    pName.innerHTML = "John doe";
+
     root.style.setProperty("--dark-text", "#4e6d89")
     root.style.setProperty("--back-color", "#f7f7f7")
     root.style.setProperty("--normal-text", "#8199aa")
