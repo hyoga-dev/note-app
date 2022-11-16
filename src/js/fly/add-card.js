@@ -173,7 +173,7 @@ export default function addCard(e) {
 
       // <-- normalise index
       const shift = e.shiftKey
-      if (!shift && e.button == 0) {
+      if (!shift) {
         if (max < 100) {
           box.style.zIndex = max + 1;
           localStorage.setItem(`index${j}`, max);

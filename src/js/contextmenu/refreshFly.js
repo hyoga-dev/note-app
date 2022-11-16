@@ -54,7 +54,7 @@ export default function fly() {
 
       // <-- indexing
       const shift = e.shiftKey
-      if (!shift && e.button == 0) {
+      if (!shift) {
         arr = [];
         for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
           index = parseInt(getComputedStyle(document.querySelectorAll(".box")[k]).getPropertyValue("z-index"));
@@ -62,7 +62,7 @@ export default function fly() {
         } 
         let max = Math.max(...arr);
         box.style.zIndex = max + 1;
-    }
+      }
 
 
       window.addEventListener("mousemove", fly);
