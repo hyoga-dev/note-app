@@ -15,10 +15,6 @@ const undoBtn = document.getElementById("undo")
 const redoBtn = document.getElementById("redo")
 undoBtn.addEventListener("click", undo)
 redoBtn.addEventListener("click", redo)
-
-// contextUndo.addEventListener("click", undo)
-// contextRedo.addEventListener("click", redo)
-// undoRedo()
 fly()
 
 
