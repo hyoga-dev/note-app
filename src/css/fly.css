@@ -35,7 +35,7 @@
   color: var(--normal-text);
   position: absolute;
   cursor: default;
-  min-width: 200px;
+  min-width: 100px;
   min-height: 16px;
   width: 210px;
   max-width: 800px;
@@ -45,17 +45,10 @@
   height: 100px; */
   border: .5px solid var(--box-border);
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.102);
-  /* box-shadow: none; */
-  /* box-shadow:inset 0 -50px 20px -40px white; */
-  transition: box-shadow .4s, transform .1s,left .05s, top .05s, opacity .4s;
+  box-shadow: none;
+  transition: box-shadow .4s, transform .2s,left .01s, top .01s, opacity .4s;
   border-radius: 5px;
 }
-
-/* .box::after {
-  content: "";
-  position: absolute; top: 0; bottom: 0; left: -15px; right: -15px;
-  box-shadow: inset var(--back-color) 0 -30px 15px -10px;
-} */
 
 ::selection {
   color: inherit;
