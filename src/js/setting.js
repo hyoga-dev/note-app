@@ -60,6 +60,7 @@ function darkMode() {
     
     hr.style.color = '#7e6340'
     root.style.setProperty("--dark-text", "#ddd")
+    root.style.setProperty("--mid-text", "#ccc")
     root.style.setProperty("--back-color", "#33373a")
     root.style.setProperty("--normal-text", "#aaa")
     root.style.setProperty("--container-color", "#212223")
@@ -78,6 +79,7 @@ function darkMode() {
 
     hr.style.color = '#e1e7ee'
     root.style.setProperty("--dark-text", "#4e6d89")
+    root.style.setProperty("--mid-text", "#6c889e")
     root.style.setProperty("--back-color", "#f7f7f7")
     root.style.setProperty("--normal-text", "#8199aa")
     root.style.setProperty("--container-color", "#e1e7ee")

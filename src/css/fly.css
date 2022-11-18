@@ -71,11 +71,12 @@
 }
 
 .box h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
   margin-top: 5px;
 }
 
 .box h3 {
-  color: #6c889e;
+  color: var(--mid-text);
   margin-bottom: 8px;
 
 }
