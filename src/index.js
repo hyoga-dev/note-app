@@ -49,7 +49,7 @@ bold.addEventListener("mousedown", () => addEditor(event, "bold") )
 const h1 = document.getElementById("h1")
 h1.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h1") )
 
-const h3 = document.getElementById("h3")
+const h3 = document.querySelector(".h3")
 h3.addEventListener("mousedown", () => addEditor(event, "formatBlock", "h3") )
 
 const paragraph = document.getElementById("paragraph")
