@@ -21,6 +21,7 @@ const addBtn = getId("add-btn")
 const profile = getId("profile")
 const textColor = getId("text-color")
 const backColor = getId("back-color")
+const h3 = getId("h3")
 const olIcon = getId("ol-icon")
 const hr = qs("hr")
 let clicked = 'true'
@@ -56,6 +57,7 @@ function darkMode() {
     backColor.setAttribute("src", "/src/asset/bg-color-dark.svg")
     profile.setAttribute("src", "/src/asset/profile-dark.svg")
     olIcon.setAttribute("src", "/src/asset/ol dark.svg")
+    h3.setAttribute("src", "/src/asset/h3-dark.svg")
     pName.innerHTML = "Bambang";
     
     hr.style.color = '#7e6340'
@@ -74,7 +76,9 @@ function darkMode() {
     textColor.setAttribute("src", "/src/asset/text-color.svg")
     backColor.setAttribute("src", "/src/asset/back-color.svg")
     profile.setAttribute("src", "/src/asset/profile-pic.svg")
+    h3.setAttribute("src", "/src/asset/h3.svg")
     olIcon.setAttribute("src", "/src/asset/ol.svg")
+
     pName.innerHTML = "John doe";
 
     hr.style.color = '#e1e7ee'
