@@ -16,7 +16,7 @@ document.onmousedown = (e) => {
     if (e.button === 0) { 
     const x = e.clientX
     const y = e.clientY
-    const selectPos = select.getBoundingClientRect()
+    // const selectPos = select.getBoundingClientRect()
 
     select.style.left = x + "px";
     select.style.top = y + "px";

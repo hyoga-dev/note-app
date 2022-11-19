@@ -58,7 +58,7 @@ export default function() {
       rectTop = Math.floor(box.getBoundingClientRect().top);
       a = e.clientX;
       b = e.clientY;
-      if (a - rectLeft < width - 2 || b - rectTop < height - 2 ) {
+      if (a - rectLeft < width + 20 || b - rectTop < height + 20) {
         e.preventDefault()
 
         // <-- indexing
