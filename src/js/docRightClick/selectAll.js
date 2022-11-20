@@ -1,11 +1,4 @@
-
-
-
-
-
 import { qsa } from "../utility.js"
-
-
 
 
 export default function selectAll() {

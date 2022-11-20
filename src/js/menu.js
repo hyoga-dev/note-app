@@ -3,8 +3,7 @@
 import addContext from "./contextmenu/addContext.js";
 import duplicate from "./contextmenu/duplicate.js";
 import eventHandler from "./contextmenu/eventHandler.js";
-import paste from "./contextmenu/paste.js";
-import pasteKey from "./contextmenu/pasteKey.js";
+import { paste, pasteKey } from "./contextmenu/paste.js";
 import refreshEvent from "./contextmenu/refreshEvent.js";
 import removeSelected from "./contextmenu/removeSelected.js";
 import shortCut from "./contextmenu/shortcut.js";
@@ -12,6 +11,7 @@ import unlock from "./contextmenu/unlock.js";
 import unlockAll from "./contextmenu/unlockAll.js";
 import unselect from "./contextmenu/unselect.js";
 import { getId, qsa } from "./utility.js"
+// import refreshFly from "./contextmenu/refreshFly.js"
 import flyEffect from "./contextmenu/flyEffect.js"
 
 
@@ -24,8 +24,8 @@ export default class Menu {
 
     this.rightBox = function (e) {
         e.preventDefault()
-        // document.activeElement.blur()
-        // e.currentTarget.classList.add("selected")
+        document.activeElement.blur()
+        e.currentTarget.classList.add("selected")
 
         const x = e.clientX
         const y = e.clientY
@@ -42,6 +42,7 @@ export default class Menu {
 }
 
 Menu.prototype.flyEffect = flyEffect
+// Menu.prototype.refreshFly = refreshFly
 Menu.prototype.addContext = addContext
 Menu.prototype.duplicate = duplicate
 Menu.prototype.pasteKey = pasteKey

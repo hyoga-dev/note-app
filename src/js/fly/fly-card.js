@@ -3,8 +3,8 @@ import { qsa, getStyleInt } from "../utility.js";
 import flyingEffect from "./flyingEffect.js";
 import saveCorner from "./saveCorner.js";
 
-// let bix = qsa(".box");
-let x, y, rectLeft, rectTop,  arr, moved, max, index;
+let x, y, rectLeft, rectTop,  arr, max, index;
+let moved = false
 
 
 
@@ -12,14 +12,13 @@ let x, y, rectLeft, rectTop,  arr, moved, max, index;
 
 
 
-export default function() {
-  
-  console.count()
-  const newstBox = qsa(".box");
-  console.log(newstBox.length)
+export default function fly(box, sibling = ".box") {
+  // console.count()
+  // const newstBox = qsa(".box");
+  // console.log(newstBox.length)
 
-  for (let i = 0; i < newstBox.length; i++) {
-    const box = newstBox[i]
+  // for (let i = 0; i < newstBox.length; i++) {
+    // const box = newstBox
 
     box.addEventListener("mousedown", flyUp);// flying card
 
@@ -28,6 +27,7 @@ export default function() {
     });
 
     box.addEventListener("focus", ()=>{
+      // console.log("focused")
       box.removeEventListener('mousedown', flyUp)
       box.style.cursor = "text";
     })
@@ -48,7 +48,6 @@ export default function() {
     // =========================================================================
     function flyUp(e) {
       const shift = e.shiftKey
-
       const width = getStyleInt(box, "width");
       const height = getStyleInt(box, "height");
 
@@ -60,8 +59,8 @@ export default function() {
 
       if (x - rectLeft < width + 20 || y - rectTop < height + 20) {
         e.preventDefault()
-        for (let k = 0; k < qsa(".box").length; k++) {
-          index = getStyleInt(qsa(".box")[k], "z-index");
+        for (let k = 0; k < qsa(sibling).length; k++) {
+          index = getStyleInt(qsa(sibling)[k], "z-index");
           arr.push(index);
         }
 
@@ -71,9 +70,9 @@ export default function() {
           if (max < 100) {
             box.style.zIndex = max + 1;
           } else {
-            for (let k = 0; k < qsa(".box").length; k++) {
+            for (let k = 0; k < qsa(sibling).length; k++) {
               localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
-              qsa(".box")[k].style.zIndex = localStorage.getItem(`index${k}`);
+              qsa(sibling)[k].style.zIndex = localStorage.getItem(`index${k}`);
             }
           }
         }
@@ -91,7 +90,6 @@ export default function() {
     //  ========================= Fly ==================================
     //  ================================================================
     function fly(e) {
-  
       moved = true;
       box.style.boxShadow = "0 30px 50px 0 var(--box-border)";
 
@@ -114,8 +112,7 @@ export default function() {
     function flyDown() {
       box.style.boxShadow = "none";
       box.style.transform = `rotateX(0) rotateY(0)`;
-
-      if (moved != true) {
+      if (moved == false) {
         container.style.userSelect = "auto";
         box.setAttribute('contenteditable', '')
         box.focus()
@@ -124,7 +121,6 @@ export default function() {
         box.setAttribute('contenteditable', 'false')
         setBefore()
       }
-
       moved = false
       
       window.removeEventListener("mousemove", fly);
@@ -132,6 +128,5 @@ export default function() {
       
       saveCorner(box)
     }
-  }
-  
-  }
+  // }
+}

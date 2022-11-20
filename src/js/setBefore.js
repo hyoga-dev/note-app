@@ -8,7 +8,7 @@ export default function setBefore() {
 
   before.unshift(getId("container").innerHTML)
   sessionStorage.setItem("before", JSON.stringify(before))
-  sessionStorage.setItem("after", "moved")
+  sessionStorage.setItem("moved", "moved")
   getId("redo").style.opacity = "0.5"
   getId("undo").style.opacity = "1"
 }

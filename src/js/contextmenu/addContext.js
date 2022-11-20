@@ -11,13 +11,14 @@ export default function addContext (e) {
     
   } else if (e.target.id == "copy") {
     e.preventDefault();
-    if (document.activeElement.tagName != "BODY") {
-      this.copiedText = document.activeElement.cloneNode(true);
-    }
+    this.copiedText = this.selectBox.cloneNode(true);
+    // if (document.activeElement.tagName != "BODY") {
+    //   // this.copiedText = document.activeElement.cloneNode(true);
+    // }
   } else if (e.target.id == "paste") {
     this.paste(e)
     this.refreshEvent()
-    flyCard()
+    // this.refreshFly()
 
   } else if (e.target.id == "lock") {
     // this.selectBox.setAttribute("contenteditable", false)
@@ -30,7 +31,7 @@ export default function addContext (e) {
 
   } else if (secondClass == "side-copy") {
     this.copiedText = document.activeElement.cloneNode(true)
-    
+
   } else if (secondClass == "side-delete") {
     e.preventDefault()
     this.removeSelected()

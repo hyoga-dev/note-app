@@ -8,6 +8,7 @@ import setting from "./js/setting.js";
 import color from "./js/color.js";
 import addClick from "./js/addClick.js";
 import setBefore from "./js/setBefore.js";
+import { qsa } from "./js/utility.js";
 
 const btn = document.getElementById("btn")
 btn.addEventListener("mousedown", dragMe)
@@ -29,9 +30,11 @@ const rc = new DocumentRightClick("document-context-menu", "document-menu", cm)
 rc.docRightClick()
 rc.addContext()
 
+qsa(".box").forEach( box => {
+  fly(box)
+})
 
-fly()
-addClick( )
+addClick()
 color()
 setting()
 selectOnDrag()
