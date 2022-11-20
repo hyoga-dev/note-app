@@ -66,6 +66,7 @@ function darkMode() {
     root.style.setProperty("--back-color", "#33373a")
     root.style.setProperty("--normal-text", "#aaa")
     root.style.setProperty("--container-color", "#212223")
+    root.style.setProperty("--box-border", "rgba(255, 255, 255, 0.05)")
 
     localStorage.setItem('clicked', clicked)
     clicked = 'true'
@@ -87,6 +88,7 @@ function darkMode() {
     root.style.setProperty("--back-color", "#f7f7f7")
     root.style.setProperty("--normal-text", "#8199aa")
     root.style.setProperty("--container-color", "#e1e7ee")
+    root.style.setProperty("--box-border", "rgba(0, 0, 0, 0.102)")
     
     localStorage.setItem('clicked', clicked)
     clicked = 'false'

@@ -36,15 +36,14 @@ export default function shortCut(e) {
         card.classList.add("selected")
       }) 
     } 
-    
+
+    // not executed when focus on box
     if (document.activeElement.tagName != "BODY") return
     if (keys == "z" || keys == "Z") {
         undo()
     } if (keys == "y" || keys == "Y") {
         redo()
-    } if (keys == "Delete") {
-      this.removeSelected();
-    }
+    } 
   } 
   
   if (keys == "ArrowUp") {
@@ -93,5 +92,10 @@ export default function shortCut(e) {
         selected.style.left = left + 5 + "px"
       }) 
     }
+  }
+
+  if (document.activeElement.tagName != "BODY") return
+  if (keys == "Delete") {
+    this.removeSelected();
   }
 }

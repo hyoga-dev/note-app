@@ -68,7 +68,7 @@ export default function addCard(e) {
   // ---------------------------------------------------------------
   function newFly(e) {
     newBox.style.cursor = "grabbing";
-    newBox.style.boxShadow = "0 30px 50px 0 var(--box-border)";
+    newBox.style.boxShadow = "0 30px 50px 0 var(--shadow)";
     newBox.style.opacity = "1";
     window.addEventListener("mouseup", newFlyDown);
 
@@ -175,20 +175,20 @@ export default function addCard(e) {
       // <-- normalise index
       const shift = e.shiftKey
       if (!shift) {
-        if (max < 100) {
+        // if (max < 100) {
           box.style.zIndex = max + 1;
-          localStorage.setItem(`index${j}`, max);
-        } 
-        else {
-          for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
-            localStorage.setItem(
-              `index${k}`,
-              localStorage.getItem(`index${k}`) - 10
-            );
-            document.querySelectorAll(".box")[k].style.zIndex =
-              localStorage.getItem(`index${k}`);
-          }
-        }
+          // localStorage.setItem(`index${j}`, max);
+        // } 
+        // else {
+        //   for (let k = 0; k < document.querySelectorAll(".box").length; k++) {
+        //     localStorage.setItem(
+        //       `index${k}`,
+        //       localStorage.getItem(`index${k}`) - 1
+        //     );
+        //     document.querySelectorAll(".box")[k].style.zIndex =
+        //       localStorage.getItem(`index${k}`);
+        //   }
+        // }
       }
       // normalise index -->
 
@@ -215,7 +215,7 @@ export default function addCard(e) {
 
 
       // box.style.cursor = "grabbing";
-      box.style.boxShadow = "0 30px 50px 0 var(--box-border)";
+      box.style.boxShadow = "0 30px 50px 0 var(--shadow)";
 
       let mouseHor = e.clientX - (a - rectLeft),
           mouseVer = e.clientY - (b - rectTop);

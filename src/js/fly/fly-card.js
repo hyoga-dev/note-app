@@ -67,14 +67,15 @@ export default function fly(box, sibling = ".box") {
         max = Math.max(...arr);
 
         if (!shift) {
-          if (max < 100) {
+          // if (max < 100) {
             box.style.zIndex = max + 1;
-          } else {
-            for (let k = 0; k < qsa(sibling).length; k++) {
-              localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
-              qsa(sibling)[k].style.zIndex = localStorage.getItem(`index${k}`);
-            }
-          }
+          // }
+          //  else {
+          //   for (let k = 0; k < qsa(sibling).length; k++) {
+          //     localStorage.setItem(`index${k}`, localStorage.getItem(`index${k}`) - 10);
+          //     qsa(sibling)[k].style.zIndex = localStorage.getItem(`index${k}`);
+          //   }
+          // }
         }
         window.addEventListener("mousemove", fly);
         window.addEventListener("mouseup", flyDown);
@@ -91,7 +92,7 @@ export default function fly(box, sibling = ".box") {
     //  ================================================================
     function fly(e) {
       moved = true;
-      box.style.boxShadow = "0 30px 50px 0 var(--box-border)";
+      box.style.boxShadow = "0 30px 50px 0 var(--shadow)";
 
       const mouseHor = e.clientX - (x - rectLeft);
       const mouseVer = e.clientY - (y - rectTop);

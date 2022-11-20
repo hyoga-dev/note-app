@@ -1,3 +1,4 @@
+import setBefore from "../setBefore.js"
 import { qsa } from "../utility.js"
 
 
@@ -7,5 +8,5 @@ export default function removeSelected() {
       x.remove()
     })
     localStorage.setItem("container", document.getElementById('container').innerHTML)
-
-  }
+    setBefore()
+}

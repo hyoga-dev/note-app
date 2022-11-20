@@ -1,18 +1,13 @@
 
 
 import addContext from "./contextmenu/addContext.js";
-import duplicate from "./contextmenu/duplicate.js";
 import eventHandler from "./contextmenu/eventHandler.js";
-import { paste, pasteKey } from "./contextmenu/paste.js";
 import refreshEvent from "./contextmenu/refreshEvent.js";
 import removeSelected from "./contextmenu/removeSelected.js";
 import shortCut from "./contextmenu/shortcut.js";
-import unlock from "./contextmenu/unlock.js";
-import unlockAll from "./contextmenu/unlockAll.js";
 import unselect from "./contextmenu/unselect.js";
+import { paste, pasteKey } from "./contextmenu/paste.js";
 import { getId, qsa } from "./utility.js"
-// import refreshFly from "./contextmenu/refreshFly.js"
-import flyEffect from "./contextmenu/flyEffect.js"
 
 
 export default class Menu {
@@ -41,16 +36,11 @@ export default class Menu {
   }
 }
 
-Menu.prototype.flyEffect = flyEffect
-// Menu.prototype.refreshFly = refreshFly
 Menu.prototype.addContext = addContext
-Menu.prototype.duplicate = duplicate
 Menu.prototype.pasteKey = pasteKey
-Menu.prototype.paste = paste
-Menu.prototype.unlockAll = unlockAll
-Menu.prototype.unlock = unlock
-Menu.prototype.removeSelected = removeSelected
-Menu.prototype.unselect = unselect
-Menu.prototype.refreshEvent = refreshEvent
 Menu.prototype.shortCut = shortCut
+Menu.prototype.paste = paste
+Menu.prototype.removeSelected = removeSelected
+Menu.prototype.refreshEvent = refreshEvent
 Menu.prototype.eventHandler = eventHandler
+Menu.prototype.unselect = unselect

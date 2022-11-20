@@ -8,7 +8,7 @@ const container2 = document.getElementById("container")
 let after = []
 
 
-
+// ------------------------------------------------------
 export function undo() {
   const bef = JSON.parse(sessionStorage.getItem("before")) 
   const cm = new Menu("context-menu", ".box")
@@ -37,6 +37,7 @@ export function undo() {
   }
 }
 
+// ------------------------------------------------------
 export function redo() {
   if (sessionStorage.getItem("moved") == "moved") return
   const cm = new Menu("context-menu", ".box")

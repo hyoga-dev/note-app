@@ -1,4 +1,3 @@
-
 import dragMe from "./js/fly/dragMe.js";
 import fly from "./js/fly/fly-card.js";
 import DocumentRightClick from "./js/documentRightClick.js";
@@ -8,13 +7,16 @@ import setting from "./js/setting.js";
 import color from "./js/color.js";
 import addClick from "./js/addClick.js";
 import setBefore from "./js/setBefore.js";
-import { qsa } from "./js/utility.js";
+import { qsa, getId } from "./js/utility.js";
+import toPdf from "./js/toPdf.js";
 
-const btn = document.getElementById("btn")
+const btn = getId("btn")
+const pdfBtn = getId("to-pdf")
 btn.addEventListener("mousedown", dragMe)
+pdfBtn.addEventListener("click", toPdf)
 
 document.onkeyup = () => {
-  localStorage.setItem("container", document.getElementById('container').innerHTML)
+  localStorage.setItem("container", getId('container').innerHTML)
 }
 
 
@@ -39,6 +41,6 @@ color()
 setting()
 selectOnDrag()
 setBefore()
-document.getElementById("undo").style.opacity = "0.5"
+getId("undo").style.opacity = "0.5"
 
 

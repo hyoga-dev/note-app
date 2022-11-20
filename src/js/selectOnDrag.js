@@ -2,7 +2,6 @@
 
 
 export default function () {
-  // * select on drag
 
 const select = document.getElementById("select-drag")
 let startArea;
@@ -16,8 +15,7 @@ document.onmousedown = (e) => {
     if (e.button === 0) { 
     const x = e.clientX
     const y = e.clientY
-    // const selectPos = select.getBoundingClientRect()
-
+    
     select.style.left = x + "px";
     select.style.top = y + "px";
     document.addEventListener("mousemove", dragging)
@@ -28,12 +26,7 @@ document.onmousedown = (e) => {
 
 
 
-
-
-
-
-
-
+// ------------------------------------------------------------------------------------------
 function dragging(e) {
   const x = e.clientX
   const y = e.clientY
@@ -68,8 +61,6 @@ function dragging(e) {
       }
     } 
     
-    
-    
     if (selectPos.left > getPos(elem)[0][1] || selectPos.right < getPos(elem)[0][0] ) {
         elem.classList.remove("selected")
     }
@@ -77,13 +68,12 @@ function dragging(e) {
     if (selectPos.top > getPos(elem)[1][1] || selectPos.bottom < getPos(elem)[1][0]) {
         elem.classList.remove("selected")
       }
-
   })
 }
 
 
 
-
+// ------------------------------------------------------------------------------------------
 function removeDragging() {
   const selectPos = select.getBoundingClientRect()
   const box = document.querySelectorAll(".box");
@@ -101,6 +91,7 @@ function removeDragging() {
   select.style.width = "0";
   select.style.height = "0";
   select.style.zIndex = "-1";
+  
   document.removeEventListener("mousemove", dragging)
   document.removeEventListener("mouseup", removeDragging)
 }
