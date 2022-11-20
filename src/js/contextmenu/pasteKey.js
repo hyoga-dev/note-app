@@ -1,3 +1,4 @@
+import setBefore from "../setBefore.js";
 import { qs } from "../utility.js";
 
 let copied;
@@ -26,6 +27,6 @@ export default function pasteKey () {
     })
     copied = this.copiedText  
     localStorage.setItem("container", document.getElementById("container").innerHTML)
-    
+    setBefore()
 }
 }

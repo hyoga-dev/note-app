@@ -1,3 +1,4 @@
+import flyCard from "../fly/fly-card.js"
 import { redo, undo } from "../undoRedo.js"
 
 
@@ -6,8 +7,9 @@ export default function addContext () {
 
     if (e.target.id == "d-paste") {
       this.contextMenu.paste(e, this.contextMenu.copiedText)
-      this.contextMenu.refreshFly()
       this.contextMenu.refreshEvent()
+      // this.contextMenu.refreshFly()
+      flyCard()
 
     } if (e.target.id == "d-select-all") {
       this.selectAll(e)

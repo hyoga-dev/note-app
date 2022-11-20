@@ -9,23 +9,22 @@ let newArr = []
 
 
 
-export default function fly() {
-  let bix = qsa(".box");
+export default function () {
+  const newBox = qsa(".box");
   
-    
-  const box = qsa(".box")[bix.length - 1];
+  const box = qsa(".box")[newBox.length - 1];
   box.addEventListener("mousedown", flyUp);// flying card
 
 
   box.addEventListener("keydown", () => {
     box.style.height = "auto";
   }); 
-  
+
   box.addEventListener("focus", ()=>{
     box.removeEventListener('mousedown', flyUp)
     box.style.cursor = "text";
   })
-  
+
   box.addEventListener("blur", ()=>{
     box.addEventListener  ('mousedown', flyUp)
     box.style.cursor = "default";
@@ -40,8 +39,6 @@ export default function fly() {
   // ========================= FlyUp =========================================
   // =========================================================================
   function flyUp(e) {
-
-    box.style.resize = "both";
     let index = parseInt(getComputedStyle(box).getPropertyValue("z-index"));
     let width = parseInt(getComputedStyle(box).getPropertyValue("width"));
     let height = parseInt(getComputedStyle(box).getPropertyValue("height"));
@@ -63,13 +60,8 @@ export default function fly() {
         let max = Math.max(...arr);
         box.style.zIndex = max + 1;
       }
-
-
       window.addEventListener("mousemove", fly);
       window.addEventListener("mouseup", flyDown);
-
-
-
     }
   }
 

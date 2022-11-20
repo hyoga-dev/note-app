@@ -8,7 +8,7 @@ import { getId } from "../utility.js";
 
 const container = getId("container")
 const rotateSpeed = 1.3;
-let newArr = []
+let before = []
 
 
 
@@ -91,18 +91,19 @@ export default function addCard(e) {
     newBox.style.cursor = "default";
     newBox.style.boxShadow = "none";
     newBox.style.transform = `rotateX(0) rotateY(0)`;
-    // const btn = document.querySelector("#btn");
-    // btn.style.backgroundColor = "#f0f0f0";
-    // btn.addEventListener("mouseenter", () => {
-    //   btn.style.backgroundColor = "var(--box-border)";
-    // });
-    // btn.addEventListener("mouseleave", () => {
-    //   btn.style.backgroundColor = "transparent";
-    // });
     
     window.removeEventListener("mousemove", newFly);
     window.removeEventListener("mouseup", newFlyDown);
-    localStorage.setItem("container", document.getElementById('container').innerHTML)
+
+    if (sessionStorage.getItem("before") != null) {
+      before = JSON.parse(sessionStorage.getItem("before"))
+    }
+
+    before.unshift(getId("container").innerHTML)
+    sessionStorage.setItem("before", JSON.stringify(before))
+    sessionStorage.setItem("after", "moved")
+    getId("redo").style.opacity = "0.5"
+    getId("undo").style.opacity = "1"
 
     saveCorner(newBox);
   }
@@ -266,11 +267,11 @@ const menu = new Menu("context-menu", ".box")
         container.style.userSelect = "none";
 
         if (sessionStorage.getItem("before") != null) {
-          newArr = JSON.parse(sessionStorage.getItem("before"))
+          before = JSON.parse(sessionStorage.getItem("before"))
         }
   
-        newArr.unshift(getId("container").innerHTML)
-        sessionStorage.setItem("before", JSON.stringify(newArr))
+        before.unshift(getId("container").innerHTML)
+        sessionStorage.setItem("before", JSON.stringify(before))
         sessionStorage.setItem("after", "moved")
         getId("redo").style.opacity = "0.5"
         getId("undo").style.opacity = "1"

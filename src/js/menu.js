@@ -12,7 +12,6 @@ import unlock from "./contextmenu/unlock.js";
 import unlockAll from "./contextmenu/unlockAll.js";
 import unselect from "./contextmenu/unselect.js";
 import { getId, qsa } from "./utility.js"
-import refreshFly from "./contextmenu/refreshFly.js"
 import flyEffect from "./contextmenu/flyEffect.js"
 
 
@@ -43,7 +42,6 @@ export default class Menu {
 }
 
 Menu.prototype.flyEffect = flyEffect
-Menu.prototype.refreshFly = refreshFly
 Menu.prototype.addContext = addContext
 Menu.prototype.duplicate = duplicate
 Menu.prototype.pasteKey = pasteKey

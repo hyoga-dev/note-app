@@ -1,4 +1,6 @@
-import { qsa } from "../utility.js";
+// import { qsa } from "../utility.js";
+
+import flyCard from "../fly/fly-card.js";
 
 export default function addContext (e) {
     
@@ -15,29 +17,20 @@ export default function addContext (e) {
   } else if (e.target.id == "paste") {
     this.paste(e)
     this.refreshEvent()
-    this.refreshFly()
+    flyCard()
 
   } else if (e.target.id == "lock") {
     // this.selectBox.setAttribute("contenteditable", false)
-    // const left = getComputedStyle(this.selectBox).getPropertyValue("left")
-    // this.selectBox.classList.add("lock")
-    // this.selectBox.classList.remove("box")
-    // const lock = qs("lock")
-    // lock.style.setProperty("left", `20px !important`)
 
   } else if (e.target.id == "unlock") {
     // this.selectBox.setAttribute("contenteditable", true)
-    // this.selectBox.classList.remove("lock")
-    // this.selectBox.classList.add("box")
-    // this.refreshEvent()
-    // this.refreshFly()
 
   } else if (e.target.id == "unlockall") {
     this.unlockAll()
 
   } else if (secondClass == "side-copy") {
-    // console.log("hai")
     this.copiedText = document.activeElement.cloneNode(true)
+    
   } else if (secondClass == "side-delete") {
     e.preventDefault()
     this.removeSelected()

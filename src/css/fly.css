@@ -43,6 +43,7 @@
   overflow: hidden;
   /* width: 200px;  
   height: 100px; */
+  resize: both;
   border: .5px solid var(--box-border);
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.102);
   box-shadow: none;

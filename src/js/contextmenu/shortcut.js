@@ -1,3 +1,4 @@
+import flyCard from "../fly/fly-card.js";
 import { redo, undo } from "../undoRedo.js";
 import { qsa } from "../utility.js";
 // import removeSelected from "./removeSelected";
@@ -29,7 +30,8 @@ if (ctrl && shift) {
       e.preventDefault();
       this.pasteKey();
       this.refreshEvent();
-      this.refreshFly()
+      // this.refreshFly()
+      flyCard()
     }
   } // ==========================================
 

@@ -28,5 +28,10 @@ export function getStyle(selector, property) {
 }
 
 export function getStyleInt(selector, property) {
-  return parseInt(getComputedStyle(document.querySelector(selector)).getPropertyValue(property))
+  return parseInt(getComputedStyle(selector).getPropertyValue(property))
+}
+
+export function addEditor (e, editor, val) {
+  e.preventDefault()
+  document.execCommand(editor, false, val)
 }
