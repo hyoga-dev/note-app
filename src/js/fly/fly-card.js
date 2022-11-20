@@ -170,34 +170,3 @@ export default function() {
   }
   
   }
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-  
-  // let index1 = getComputedStyle(box[0]).getPropertyValue("z-index");
-  // let index2 = getComputedStyle(box[1]).getPropertyValue("z-index");
-  // let index3 = getComputedStyle(box[2]).getPropertyValue("z-index");
-  // let index4 = getComputedStyle(box[3]).getPropertyValue("z-index");
-
-
-
-
-      // document.getElementById("demo").innerHTML =
-      //   "Box number : " + 0 + ", have index of: " + index1;
-      // document.getElementById("demo2").innerHTML =
-      //   "Box number : " + 1 + ", have index of: " + index2;
-      // document.getElementById("demo3").innerHTML =
-      //   "Box number : " + 2 + ", have index of: " + index3;
-      // document.getElementById("demo4").innerHTML =
-      //   "Box number : " + 3 + ", have index of: " + index4;
