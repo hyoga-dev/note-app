@@ -13,37 +13,41 @@
   <body ondragstart="return false;">
     
 
-    <!-- <button onclick="toPdf()">To pdf</button> -->
 
 
     <div class="toolbar tool">
       <section>
-        <div class="item-box" title="undo" id="undo"><i class="fa-solid fa-rotate-left"></i></div>
-        <div class="item-box" title="redo" id="redo"><i class="fa-solid fa-rotate-right"></i></i></div>
+        <div class="item-box" title="undo" id="undo"><i class="fa-solid fa-rotate-left icon"></i></div>
+        <div class="item-box" title="redo" id="redo"><i class="fa-solid fa-rotate-right icon"></i></i></div>
         <!-- <div ><img style="transform: translate(0, 2px);" src="/src/asset/fly logo.svg" alt="fly" width="30px"></div> -->
       </section>
       <div class="s-line"></div>
       <section>
-        <div class="item-box" title="heading" id="h1"><i class="fa-solid fa-h"></i></div>
+        <div class="item-box" title="heading" id="h1"><i class="fa-solid fa-h icon"></i></div>
         <div class="item-box h3" title="heading 3" ><img src="/src/asset/h3.svg" id="h3" alt="h3-icon" width="20"></div>
-        <div class="item-box" title="paragraph" id="paragraph"><i class="fa-solid fa-p"></i></div>
+        <div class="item-box paragraph" title="paragraph" id="paragraph"><i class="fa-solid fa-p icon"></i></div>
       </section>
       <div class="s-line"></div>
       <section>
-        <div class="item-box" title="bold" id="bold"><i class="fa-solid fa-bold"></i></div>
-        <div class="item-box" title="italic" id="italic"><i class="fa-solid fa-italic"></i></div>
+        <div class="item-box bold" title="bold" id="bold"><i class="fa-solid fa-bold icon"></i></div>
+        <div class="item-box italic" title="italic" id="italic"><i class="fa-solid fa-italic icon"></i></div>
       </section>
       <div class="s-line"></div>
       <section>
-        <div class="item-box" title="align-left" id="align-left"><i class="fa-solid fa-align-left"></i></div>
-        <div class="item-box" title="align-center" id="align-center"><i class="fa-solid fa-align-center"></i></div>
-        <div class="item-box" title="align-right" id="align-right"><i class="fa-solid fa-align-right"></i></div>
-        <div class="item-box" title="align-full" id="align-full"><i class="fa-solid fa-align-justify"></i></div>
+        <div class="item-box" title="align-left" id="align-left"><i class="fa-solid fa-align-left icon"></i></div>
+        <div class="item-box" title="align-center" id="align-center"><i class="fa-solid fa-align-center icon"></i></div>
+        <div class="item-box" title="align-right" id="align-right"><i class="fa-solid fa-align-right icon"></i></div>
+        <div class="item-box" title="align-full" id="align-full"><i class="fa-solid fa-align-justify icon"></i></div>
       </section>
       <div class="s-line"></div>
       <section>
-        <div class="item-box" title="ul" id="ul"><i class="fa-solid fa-list-ul"></i></div>
+        <div class="item-box" title="ul" id="ul"><i class="fa-solid fa-list-ul icon"></i></div>
         <div class="item-box" title="ol" id="ol"><img src="/src/asset/ol.svg" alt="ol-icon" id="ol-icon" width="13.5"></div>
+      </section>
+      <div class="s-line"></div>
+      <section>
+        <div class="item-box" title="add link" id="link"><i class="fa-solid fa-link icon"></i></div>
+        <div class="item-box" title="add image" id="image"><i class="fa-regular fa-image icon"></i></div>
       </section>
       <div class="s-line"></div>
       <section>
@@ -57,9 +61,9 @@
 
     <div class="side-tool tool" >
       <section><div title="add card" class="item-box" id="btn"><img src="/src/asset/add-button.svg" id="add-btn" alt="add-button-icon" width="15"></div></section>
-      <section><div title="copy" class="item-box side-copy" ><i class="fa-solid side-copy fa-copy"></i></div></section>
-      <section><div title="delete" class="item-box side-delete"><i class="fa-solid side-delete fa-trash"></i></div></section>
-      <section><div title="setting" class="item-box" id="setting"><i class="fa-solid fa-gear"></i></div></section>
+      <section><div title="copy" class="item-box side-copy" ><i class="fa-solid side-copy fa-copy icon"></i></div></section>
+      <section><div title="delete" class="item-box side-delete"><i class="fa-solid side-delete fa-trash icon"></i></div></section>
+      <section><div title="setting" class="item-box" id="setting"><i class="fa-solid fa-gear icon"></i></div></section>
     </div>
 
 
@@ -98,6 +102,15 @@
     </div>
 
 
+    <div class="add-link-pop">
+      <input type="text" class="input-link" id="input-link">
+      <button class="add-link-btn" id="add-link-btn">Add Link</button>
+    </div>
+
+    <div class="add-link-pop image">
+      <input type="text" class="input-link" id="input-image">
+      <button class="add-link-btn" id="add-image-btn">Add Image</button>
+    </div>
 
 
     <div class="color-palette">
@@ -115,6 +128,12 @@
       <div class="item-box color-item" style="background-color: #5baabc;" ></div>
       <div class="item-box color-item" style="background-color: #6ed363;" ></div>
       <div class="item-box color-item" style="background-color: #e1e54a;" ></div>
+      
+      
+      <div class="item-box color-item" data-clear="true">
+        <div class="hypen"></div>
+      </div>
+      <div ><input type="color" class="color-input" id="col-inp"></div>
     </div>
 
     <div class="color-palette-bg">
@@ -132,6 +151,13 @@
       <div class="item-box color-item-bg" style="background-color: #5baabc;" ></div>
       <div class="item-box color-item-bg" style="background-color: #6ed363;" ></div>
       <div class="item-box color-item-bg" style="background-color: #e1e54a;" ></div>
+      
+      
+      <div class="item-box color-item-bg" data-clear="true">
+        <div class="hypen"></div>
+      </div>
+      <div ><input type="color" class="color-input" id="col-inp-back"></div>
+
     </div>
 
 
@@ -142,19 +168,18 @@
         <h1>Welcome</h1>
         <hr class="hr"> 
         <p>
-          Drag and drop tombol + untuk menambahkan kartu
+          Drag and drop + button to add card.
         </p>
-        <br>
-        <h3>Fitur terbaru: </h3>
+        <h3>Update: </h3>
         <ul>
-          <li>Seleksi lebih dari satu kartu menggunakan shift</li>
-          <li>Klik kanan untuk memunculkan menu</li>
-          <li>Pindah beberapa kartu menggunakan tombol panah</li>
-          <li>Ubah warna font dan background font</li>
-          <li>Add setting</li>
-          <li>Dark mode</li>
-          <li>Selection on drag</li>
           <li>Undo & redo</li>
+          <li>Download pdf (not supported in firefox)</li>
+          <li>Detect text style</li>
+          <li>Add link</li>
+          <li>Add image</li>
+          <li>Add lock, unclock, unlock-all</li>
+          <li>Copy more than one</li>
+          <li>Fix some bug</li>
         </ul>
       </div>
 
@@ -171,6 +196,8 @@
       <div class="menu" id="paste">Paste <span>Ctrl + Shift + V</span></div>
       <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
       <div class="menu" id="delete">Delete <span>Delete</span></div>
+      <div class="menu" id="lock">Lock <span>Ctrl + L</span></div>
+      <div class="menu" id="unlock">Unlock <span></span></div>
     </div>
     
     <div id="document-context-menu">
@@ -179,6 +206,7 @@
       <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
       <div class="document-menu" id="context-undo">Undo <span>Ctrl + Z</span></div>
       <div class="document-menu" id="context-redo">Redo <span>Ctrl + Y</span></div>
+      <div class="document-menu" id="unlock-all">Unlock-all <span>Ctrl + Shift + L</span></div>
     </div>
 
     <div id="select-drag"></div>

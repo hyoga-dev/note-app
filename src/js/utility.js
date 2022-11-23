@@ -35,3 +35,100 @@ export function addEditor (e, editor, val) {
   e.preventDefault()
   document.execCommand(editor, false, val)
 }
+
+
+
+
+
+
+const bold = getId("bold")
+const faBold = qs('.fa-bold')
+
+export function addImage(e, modifier) {
+  e.preventDefault()
+  const select = document.getSelection()
+  const elem = document.createElement(modifier)
+  const mod = container.querySelectorAll(modifier)
+    
+  let ranges = [];
+
+  for (let i = 0; i < select.rangeCount; i++) {
+    ranges[i] = select.getRangeAt(i);
+  }
+  
+  const firstParent = ranges[0].endContainer.parentNode.nodeName
+  const parent = ranges[0].endContainer.parentNode
+  
+
+  
+  
+  if (firstParent == modifier.toUpperCase()) {
+    bold.style.backgroundColor = "var(--back-color)";
+    faBold.style.color = "var(--dark-text)";
+
+    const txt = `</${modifier}>${ranges[0].toString()}<${modifier}>`
+    ranges[0].deleteContents()
+    ranges[0].innerHTML = txt
+    console.log(txt)
+  } else {
+    const copied = ranges[0].extractContents()
+    bold.style.backgroundColor = "var(--dark-text)";
+    faBold.style.color = "var(--back-color)";
+    elem.appendChild(copied); 
+    ranges[0].insertNode(elem)
+  }
+  
+  mod.forEach(x => {
+    if (x.innerHTML == "") {
+      x.remove()  
+    }
+  })
+
+}
+
+
+
+// const bold = getId("bold")
+// const faBold = qs('.fa-bold')
+
+// export function addEditorNew (e, modifier) {
+//   e.preventDefault()
+//   const select = document.getSelection()
+//   const elem = document.createElement(modifier)
+//   const mod = container.querySelectorAll(modifier)
+    
+//   let ranges = [];
+
+//   for (let i = 0; i < select.rangeCount; i++) {
+//     ranges[i] = select.getRangeAt(i);
+//   }
+  
+//   const firstParent = ranges[0].endContainer.parentNode.nodeName
+//   const parent = ranges[0].endContainer.parentNode
+  
+
+  
+  
+//   if (firstParent == modifier.toUpperCase()) {
+//     bold.style.backgroundColor = "var(--back-color)";
+//     faBold.style.color = "var(--dark-text)";
+
+//     const txt = `</${modifier}>${ranges[0].toString()}<${modifier}>`
+//     ranges[0].deleteContents()
+//     ranges[0].innerHTML = txt
+//     console.log(txt)
+//   } else {
+//     const copied = ranges[0].extractContents()
+//     bold.style.backgroundColor = "var(--dark-text)";
+//     faBold.style.color = "var(--back-color)";
+//     elem.appendChild(copied); 
+//     ranges[0].insertNode(elem)
+//   }
+  
+//   mod.forEach(x => {
+//     if (x.innerHTML == "") {
+//       x.remove()
+//     }
+//   })
+
+// }

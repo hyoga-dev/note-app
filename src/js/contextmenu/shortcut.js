@@ -9,33 +9,30 @@ export default function shortCut(e) {
 
 
 
-
-  if (ctrl && shift) {
-    if (keys == "C" || keys == "c") {
-      e.preventDefault();
-      if (document.activeElement.tagName != "BODY") {
-        this.copiedText = document.activeElement.cloneNode(true);
-      }
-    } if (keys == "V" || keys == "v") {
-      e.preventDefault();
-      this.pasteKey();
-    } 
-  } 
-
   if (ctrl) {
-    if (keys == "l" || keys == "L") {
+    if (keys == "a" || keys == "A") {
       e.preventDefault();
-      const selected = qsa(".selected")
-      selected.forEach(selected => {
-        selected.setAttribute("contenteditable", false);
+      const box = qsa(".box")
+      box.forEach(item => {
+        item.classList.add("selected")
       }) 
-    } if (keys == "a" || keys == "A") {
+
+    } if (keys == "l" || keys == "L") {
       e.preventDefault();
-      const card = qsa(".box")
-      card.forEach(card => {
-        card.classList.add("selected")
-      }) 
+      qsa('.selected').forEach( item => {
+        item.classList.remove("selected")
+        item.setAttribute('contenteditable', false)
+        item.setAttribute('data-lock', true)
+      })
     } 
+    // if (keys == "l" || keys == "L") {
+    //   e.preventDefault();
+    //   qsa('.box').forEach( item => {
+    //     item.setAttribute('data-lock', false)
+    //   })
+    //   localStorage.setItem("container", container.innerHTML)
+    // } 
+
 
     // not executed when focus on box
     if (document.activeElement.tagName != "BODY") return
@@ -45,57 +42,92 @@ export default function shortCut(e) {
         redo()
     } 
   } 
-  
-  if (keys == "ArrowUp") {
-    const selected = qsa(".selected")
-    if (selected.length > 1) {
-      e.preventDefault()
-      selected.forEach(selected => {
-        const top = parseInt(getComputedStyle(selected).getPropertyValue("top"))
-        
-        selected.style.top = top - 5 + "px"
-      }) 
-    }
-  }
-  
-  if (keys == "ArrowDown") {
-    const selected = qsa(".selected")
-    if (selected.length > 1) {
-      e.preventDefault()
-      selected.forEach(selected => {
-        const top = parseInt(getComputedStyle(selected).getPropertyValue("top"))
-    
-        selected.style.top = top + 5 + "px"
-      }) 
-    }
-  }
 
-  if (keys == "ArrowLeft") {
-    const selected = qsa(".selected")
-    if (selected.length > 1) {
-      e.preventDefault()
-      selected.forEach(selected => {
-        const left = parseInt(getComputedStyle(selected).getPropertyValue("left"))
-    
-        selected.style.left = left - 5 + "px"
-      }) 
-    }
-  }
-  
-  if (keys == "ArrowRight") {
-    const selected = qsa(".selected")
-    if (selected.length > 1) {
-      e.preventDefault()
-      selected.forEach(selected => {
-        const left = parseInt(getComputedStyle(selected).getPropertyValue("left"))
-    
-        selected.style.left = left + 5 + "px"
-      }) 
-    }
-  }
+  if (ctrl && shift) {
+    if (keys == "C" || keys == "c") {
+      e.preventDefault();
+      
+      const txt = []
+      qsa('.selected').forEach( item => {
+        txt.push(item.cloneNode(true));
+      })
+      this.copiedText = txt
+      
+    } if (keys == "V" || keys == "v") {
+      e.preventDefault();
+      this.pasteKey();
 
-  if (document.activeElement.tagName != "BODY") return
-  if (keys == "Delete") {
-    this.removeSelected();
-  }
+    } if (keys == "l" || keys == "L") {
+      e.preventDefault();
+      const box = qsa(".box")
+      box.forEach(item => {
+        if (item.getAttribute('data-lock') == 'true') {
+          item.classList.add("selected")
+        } 
+        item.setAttribute('data-lock', false)
+        // console.log(item)
+      }) 
+
+    } 
+  } 
+
+  
+  qsa('.selected').forEach( item => {
+    if (item.getAttribute('data-lock') == 'true') return
+
+    if (keys == "ArrowUp") {
+      const selected = qsa(".selected")
+      if (selected.length > 1) {
+        e.preventDefault()
+        selected.forEach(selected => {
+          const top = parseInt(getComputedStyle(selected).getPropertyValue("top"))
+          
+          selected.style.top = top - 5 + "px"
+        }) 
+      }
+    }
+    
+    if (keys == "ArrowDown") {
+      const selected = qsa(".selected")
+      if (selected.length > 1) {
+        e.preventDefault()
+        selected.forEach(selected => {
+          const top = parseInt(getComputedStyle(selected).getPropertyValue("top"))
+      
+          selected.style.top = top + 5 + "px"
+        }) 
+      }
+    }
+
+    if (keys == "ArrowLeft") {
+      const selected = qsa(".selected")
+      if (selected.length > 1) {
+        e.preventDefault()
+        selected.forEach(selected => {
+          const left = parseInt(getComputedStyle(selected).getPropertyValue("left"))
+      
+          selected.style.left = left - 5 + "px"
+        }) 
+      }
+    }
+    
+    if (keys == "ArrowRight") {
+      const selected = qsa(".selected")
+      if (selected.length > 1) {
+        e.preventDefault()
+        selected.forEach(selected => {
+          const left = parseInt(getComputedStyle(selected).getPropertyValue("left"))
+      
+          selected.style.left = left + 5 + "px"
+        }) 
+      }
+    }
+
+
+    // if (document.activeElement.tagName != "BODY") return
+    if (keys == "Delete") {
+      this.removeSelected();
+    }
+  })
+
 }

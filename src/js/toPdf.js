@@ -4,10 +4,13 @@ export default function toPdf(){
   document.querySelector(".loader-fix").style.display = "inline-block";
   let unit = "in"
   let format = "a3"
+  let scale = 5
   if (window.innerWidth >= 1550) {
     format = "a2"
+    scale = 7
   } if (window.innerWidth >= 2400) {
     format = "a1"
+    scale = 9
   }
 
   const element = document.getElementById('container');
@@ -16,7 +19,7 @@ export default function toPdf(){
     filename:     'myfile.pdf',
     // pagebreak: { mode: 'avoid-all' },
     // image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2 },
+    html2canvas:  { scale: 5 },
     jsPDF:        { unit: unit, format: format, orientation: 'landscape' }
   };
 

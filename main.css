@@ -4,6 +4,7 @@
 @import "/src/css/ui.css";
 @import "/src/css/context-menu.css";
 @import "/src/css/color.css";
+@import "/src/css/link.css";
 
 @font-face {
   font-family: sera-reguler;
@@ -70,4 +71,39 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+
+input[type="color"] {
+	-webkit-appearance: none;
+  cursor: pointer;
+	border: 1px solid black;
+  overflow: hidden;
+  border-radius: 2px;
+	width: 32px;
+	height: 32px;
+}
+
+input[type="color"]:hover {
+  outline: 1px solid #6c889e;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+div[data-clear="true"] {
+  background-color: var(--dark-text);
+  overflow: hidden;
+}
+
+.hypen {
+  width: 200px;
+  height: 10px;
+  transform: rotate(-45deg);
+  background-color: red;
 }

@@ -5,6 +5,11 @@ import { getStyleInt, qs } from "../utility.js";
 let copied;
 
 export function paste(e) {
+  // console.log(this.copiedText)
+  // console.log(this.copiedText.length)
+
+  if (this.copiedText.length > 1) return this.pasteKey()
+  this.copiedText = this.copiedText[0]
   if (this.copiedText != undefined) {
     if (copied == this.copiedText) this.copiedText = copied.cloneNode(true)
     qs(".container").appendChild(this.copiedText)
@@ -27,26 +32,31 @@ export function paste(e) {
 }
 
 export function pasteKey () {
-  if (this.copiedText != undefined) {
-    if (copied == this.copiedText) this.copiedText = copied.cloneNode(true)
-    qs(".container").appendChild(this.copiedText)
-    
-    const top = parseInt(getComputedStyle(this.copiedText).getPropertyValue("top"))
-    const left = parseInt(getComputedStyle(this.copiedText).getPropertyValue("left"))
-    this.copiedText.style.top = top + 20 + "px";
-    this.copiedText.style.left = left + 20 + "px";
-    this.copiedText.style.cursor = "default";   
-    this.copiedText.style.zIndex = getStyleInt(this.copiedText, "z-index") + 1;
+  const copied = []
+  if (this.copiedText == undefined) return
+    this.copiedText.forEach( (copiedText) => {
+      // if (copied == copiedText) copiedText = copied.cloneNode(true)
+      // copiedText = copiedText.cloneNode(true)
+      qs(".container").appendChild(copiedText)
+      
+      let top = parseInt(getComputedStyle(copiedText).getPropertyValue("top"))
+      let left = parseInt(getComputedStyle(copiedText).getPropertyValue("left"))
 
-    addMenu(this.copiedText, this.menu)
-    copied = this.copiedText  
+      copiedText.style.top = top + 20 + "px";
+      copiedText.style.left = left + 20 + "px";
+      copiedText.style.cursor = "default";   
+      copiedText.style.zIndex = getStyleInt(copiedText, "z-index") + 1;
+      
+      addMenu(copiedText, this.menu)
+      // copied = copiedText  
+      fly(copiedText)
+      copied.push(copiedText.cloneNode(true))
+    })
+    // console.log(copied)
+    this.copiedText = copied
     this.refreshEvent()
-    fly(copied)
-
-    
     localStorage.setItem("container", document.getElementById("container").innerHTML)
     setBefore()
-}
 }
 
 function addMenu(parent, menu) {

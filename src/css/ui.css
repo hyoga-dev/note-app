@@ -58,7 +58,7 @@
   cursor: pointer;
 }
 
-.item-box i {
+.icon {
   color: var(--dark-text);
 }
 
@@ -105,3 +105,21 @@
 #undo, #redo {
   opacity: 0.5;
 }
+
+.dark-back {
+  background-color: var(--dark-text);
+}
+
+.dark-color {
+  color: var(--back-color);
+}
+
+.dark-back:hover {
+  background-color: var(--dark-text);
+  opacity: .7;
+}
+
+/* #bold:hover, #italic:hover {
+  background-color: var(--dark-text);
+} */
+

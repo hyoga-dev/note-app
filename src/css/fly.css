@@ -38,11 +38,9 @@
   min-width: 100px;
   min-height: 16px;
   width: 150px;
-  max-width: 800px;
-  max-height: 500px;
+  /* max-width: 800px; */
+  /* max-height: 500px; */
   overflow: hidden;
-  /* width: 200px;  
-  height: 100px; */
   resize: both;
   border: .5px solid var(--box-border);
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.102);
@@ -88,90 +86,3 @@ hr {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.lock {
-  font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
-  /* user-select: none; */
-  -webkit-user-drag: none;
-  /* -webkit-user-select: none; */
-  padding: 18px;
-  z-index: 1;
-  transform-style: preserve-3d;
-  background-color: var(--back-color);
-  color: var(--normal-text);
-  position: absolute;
-  cursor: default;
-  min-width: 200px;
-  min-height: 16px;
-  width: 210px;
-  max-width: 800px;
-  max-height: 500px;
-  overflow: hidden;
-  /* left: 40px !important;
-  top: 40px !important; */
-  /* width: 200px;  
-  height: 100px; */
-  border: .5px solid var(--box-border);
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.102);
-  box-shadow: none;
-  transition: box-shadow .4s, transform .1s,left .05s, top .05s, opacity .4s;
-  border-radius: 5px;
-}
-
-::selection {
-  color: inherit;
-  background-color: transparent;
-}
-
-.lock:focus::selection, .lock:focus ::selection {
-  /* outline: transparent; */
-  color: var(--back-color);
-  background-color: var(--dark-text);
-}
-
-/* .lock:focus span[style="background-color: rgb(78, 109, 137);"]::selection {
-  color: var(--dark-text);
-  background-color: var(--back-color);
-} */
-
-.lock b, .lock h1 {
-  color: var(--dark-text);
-}
-
-.lock h1 {
-  margin-top: 5px;
-}
-
-.lock h3 {
-  color: #6c889e;
-  margin-bottom: 8px;
-
-}
-
-.lock hr {
-  color: #b7cfd6;
-
-}

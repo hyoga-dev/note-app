@@ -4,7 +4,6 @@ import { getId,  qs } from "./utility.js";
 
 
 export default function() {
-  // * add setting
 
 
 const settingContainer = qs(".setting-container")

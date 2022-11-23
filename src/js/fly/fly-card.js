@@ -47,6 +47,9 @@ export default function fly(box, sibling = ".box") {
     // ========================= FlyUp =========================================
     // =========================================================================
     function flyUp(e) {
+      if (e.altKey && e.ctrlKey) return
+      if (box.getAttribute('data-lock') == 'true') return
+
       const shift = e.shiftKey
       const width = getStyleInt(box, "width");
       const height = getStyleInt(box, "height");

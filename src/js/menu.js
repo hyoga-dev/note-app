@@ -31,6 +31,7 @@ export default class Menu {
 
         this.select = e.target
         this.selectBox = e.currentTarget
+        // console.log(this.selectBox)
     } 
     this.clickRight = this.rightBox.bind(this)
   }
