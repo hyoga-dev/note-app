@@ -55,7 +55,7 @@
 }
 
 .box:focus::selection, .box:focus ::selection {
-  /* outline: transparent; */
+  outline: transparent;
   color: var(--back-color);
   background-color: var(--dark-text);
 }

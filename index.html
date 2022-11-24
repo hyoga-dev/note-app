@@ -11,8 +11,6 @@
     <title>Note app test</title>
   </head>
   <body ondragstart="return false;">
-    
-
 
 
     <div class="toolbar tool">
@@ -74,8 +72,10 @@
         <i class="fa-solid fa-xmark" id="close"></i>
         <div class="setting-content-top">
           <div class="profile">
-            <img src="/src/asset/profile-pic.svg" id="profile" alt="profile" width="60">
-            <p><strong id="profile-name">John doe</strong></p>
+            <div class="profile-picture">
+              <img id="profile" alt="profile" width="60">
+            </div>
+            <p><strong id="profile-name"></strong></p>
           </div>
           <div class="horizontal-line"></div>
         </div>
@@ -93,7 +93,10 @@
             <i class="fa-solid fa-address-book" style="font-size: 16px;"></i> 
             <p class="content" style="padding-left: 4px;transform: translateY(0);">Contact me</p>
           </div>
-          <div class="wrapper"><i class="fa-solid fa-right-from-bracket"></i><p class="content" style="padding-left: 8px;">Log out</p></div>
+          <div class="wrapper" id="log-out" >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <p class="content" style="padding-left: 2px;">Log out</p>
+          </div>
         </div>
 
       </div>
@@ -214,12 +217,23 @@
     <!-- ########### script ########## -->
     <script>
       const container = document.getElementById("container");
+      const pName = document.getElementById("profile-name")
+      const pPicture = document.getElementById("profile")
+
       if (localStorage.getItem("container") != null) {
         container.innerHTML = localStorage.getItem("container");
       }
       
+      if (localStorage.getItem("username") != null) {
+        pName.innerHTML = localStorage.getItem("username")
+        pName.style.cursor = "default"
+        pPicture.setAttribute("src", localStorage.getItem("photo-url"))
+      } else {
+        // pPicture.setAttribute("src", "/src/asset/profile-pic.svg")
+        pName.innerHTML = "Sign In"
+      }
+
       sessionStorage.setItem("before", "[]")
-      const udin = "udin"
       </script>
 
     <script type="module" src="./src/index.js"></script>

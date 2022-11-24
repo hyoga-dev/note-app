@@ -58,6 +58,14 @@
   color: var(--dark-text);
 }
 
+.profile-picture {
+  /* border: 1px solid black; */
+  overflow: hidden;
+  height: 60px;
+  border-radius: 50%;
+  width: 60px;
+}
+
 .horizontal-line {
   width: 95%;
   border-bottom: .25px solid var(--normal-text);
@@ -134,4 +142,8 @@
 .switch-button-on {
   /* background-color: var(--light-back); */
   left: 20px;
+}
+
+#profile-name {
+  cursor: pointer;
 }

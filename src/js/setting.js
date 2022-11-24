@@ -8,16 +8,13 @@ export default function() {
 
 const settingContainer = qs(".setting-container")
 const setting = getId("setting")
-// const color = getId("color")
-// const bgColor = getId("bg-color")
 const settingCon =  qs(".setting-container")
-// const settingMod = qs(".setting-modal")
 const sweet = qs(".switch") 
 const sweetButton = qs(".switch-button") 
 const root = qs(":root")
-const pName = getId("profile-name")
+// const pName = getId("profile-name")
 const addBtn = getId("add-btn")
-const profile = getId("profile")
+// const profile = getId("profile")
 const textColor = getId("text-color")
 const backColor = getId("back-color")
 const h3 = getId("h3")
@@ -54,11 +51,13 @@ function darkMode() {
     addBtn.setAttribute("src", "/src/asset/add-button-dark.svg")
     textColor.setAttribute("src", "/src/asset/text-color-dark.svg")
     backColor.setAttribute("src", "/src/asset/bg-color-dark.svg")
-    profile.setAttribute("src", "/src/asset/profile-dark.svg")
     olIcon.setAttribute("src", "/src/asset/ol dark.svg")
     h3.setAttribute("src", "/src/asset/h3-dark.svg")
-    pName.innerHTML = "Bambang";
     
+    if (localStorage.getItem('username') == null) {
+      pPicture.setAttribute("src", "/src/asset/profile-dark.svg")
+    }
+
     hr.style.color = '#7e6340'
     root.style.setProperty("--dark-text", "#ddd")
     root.style.setProperty("--mid-text", "#ccc")
@@ -75,11 +74,12 @@ function darkMode() {
     addBtn.setAttribute("src", "/src/asset/add-button.svg")
     textColor.setAttribute("src", "/src/asset/text-color.svg")
     backColor.setAttribute("src", "/src/asset/back-color.svg")
-    profile.setAttribute("src", "/src/asset/profile-pic.svg")
     h3.setAttribute("src", "/src/asset/h3.svg")
     olIcon.setAttribute("src", "/src/asset/ol.svg")
-
-    pName.innerHTML = "John doe";
+    
+    if (localStorage.getItem('username') == null){
+      pPicture.setAttribute("src", "/src/asset/profile-pic.svg")
+    }
 
     hr.style.color = '#e1e7ee'
     root.style.setProperty("--dark-text", "#4e6d89")
