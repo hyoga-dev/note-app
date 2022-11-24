@@ -107,3 +107,7 @@ div[data-clear="true"] {
   transform: rotate(-45deg);
   background-color: red;
 }
+
+img {
+  border-radius: 5px;
+}
