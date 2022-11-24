@@ -1,5 +1,5 @@
-import signIn from "./auth/signIn.js"
-import logOut from "./auth/signOut.js"
+// import signIn from "./auth/signIn.js"
+// import logOut from "./auth/signOut.js"
 import { redo, undo } from "./undoRedo.js"
 import { addEditor, getId, qs } from "./utility.js"
 
@@ -25,11 +25,11 @@ export default function addClick() {
     qs(".fa-p").classList.toggle("dark-color") 
   })
 
-  const profileName = getId('profile-name')
-  profileName.addEventListener('click', signIn)
+  // const profileName = getId('profile-name')
+  // profileName.addEventListener('click', signIn)
   
-  const SignOut = getId('log-out')
-  SignOut.addEventListener('click', logOut)
+  // const signOut = getId('log-out')
+  // signOut.addEventListener('click', logOut)
 
   const h1 = getId("h1")
   h1.addEventListener("mousedown", () => addEditor(event, "formatBlock","h1") )

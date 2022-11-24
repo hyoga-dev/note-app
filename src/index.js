@@ -24,8 +24,6 @@ document.onkeyup = () => {
 
 
 
-
-
 const linkBtn = document.getElementById('link')
 const imgBtn = getId('image')
 const linkPop = qs('.add-link-pop')
@@ -36,7 +34,7 @@ const addLinkBtn = document.getElementById('add-link-btn')
 const addImageBtn = document.getElementById('add-image-btn')
 const select = document.getSelection();
 const box = qsa('.box')
-const anchor = document.getElementsByTagName('a')
+const anchor = document.getElementsByTagName('A')
 const img = document.getElementsByTagName('IMG')
 let activeElem;
 let link = [] ;
@@ -48,21 +46,17 @@ addImageBtn.addEventListener('mousedown', addImage)
 
 function unhideLinkPop(e) {
   e.preventDefault()
-  
   for (let i = 0; i < select.rangeCount; i++) {
     link[i] = select.getRangeAt(i);
   }
-
   linkPop.classList.toggle('unhide')
 }
 
 function unhideImgPop(e) {
   e.preventDefault()
-  
   for (let i = 0; i < select.rangeCount; i++) {
     link[i] = select.getRangeAt(i);
   }
-
   imgPop.classList.toggle('unhide')
 }
 

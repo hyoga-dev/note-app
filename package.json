@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "make": "webpack",
+    "make": "webpack --mode=production",
     "watch": "webpack --watch"
   },
   "repository": {
