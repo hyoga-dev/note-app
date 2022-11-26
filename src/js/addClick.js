@@ -27,6 +27,9 @@ export default function addClick() {
     qs(".fa-p").classList.toggle("dark-color") 
   })
 
+
+
+  
   const save = qsa("#save > div p")
   save.forEach( (item, index) => {
     const room = index + 1
@@ -40,6 +43,7 @@ export default function addClick() {
   load.forEach( (item, index) => {
     const room = index + 1
     item.addEventListener("mousedown", () => {
+      container.style.opacity = "0.5"
       getDb(localStorage.getItem("uid"), room)
     })
   })

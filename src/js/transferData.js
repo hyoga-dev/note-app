@@ -59,7 +59,6 @@ export async function updateDb(uid, content, room) {
     room: room
   }
 
-  container.style.opacity = "0.5"
   const option = {
     method: "POST",
     headers: {
