@@ -12,12 +12,6 @@ let moved = false
 
 
 export default function fly(box, sibling = ".box") {
-  // console.count()
-  // const newstBox = qsa(".box");
-  // console.log(newstBox.length)
-
-  // for (let i = 0; i < newstBox.length; i++) {
-    // const box = newstBox
 
     box.addEventListener("mousedown", flyUp);// flying card
 
@@ -26,7 +20,6 @@ export default function fly(box, sibling = ".box") {
     });
 
     box.addEventListener("focus", ()=>{
-      // console.log("focused")
       box.removeEventListener('mousedown', flyUp)
       box.style.cursor = "text";
     })

@@ -77,9 +77,7 @@ export async function updateDb(uid, content, room) {
   }
   
   const send = await fetch(url + "update_db", option)
-  // const data = await send.json()
   localStorage.setItem("container", container.innerHTML)
-  // console.log(data)
 }
 
 // =================================================

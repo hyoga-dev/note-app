@@ -77,7 +77,6 @@ export default function shortCut(e) {
           item.classList.add("selected")
         } 
         item.setAttribute('data-lock', false)
-        // console.log(item)
       }) 
 
     } 
