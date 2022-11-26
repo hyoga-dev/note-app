@@ -11,7 +11,6 @@ let moved = false
 
 
 
-
 export default function fly(box, sibling = ".box") {
   // console.count()
   // const newstBox = qsa(".box");
@@ -68,6 +67,7 @@ export default function fly(box, sibling = ".box") {
         }
 
         max = Math.max(...arr);
+        localStorage.setItem('max', max)
 
         if (!shift) {
           // if (max < 100) {

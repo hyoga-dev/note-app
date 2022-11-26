@@ -1,3 +1,4 @@
+import { updateDb } from "../transferData.js";
 import { redo, undo } from "../undoRedo.js";
 import { qsa } from "../utility.js";
 
@@ -8,9 +9,19 @@ export default function shortCut(e) {
   const keys = e.key;
 
 
-
+  if (keys == "Delete") {
+    this.removeSelected();
+  }
+  
   if (ctrl) {
-    if (keys == "a" || keys == "A") {
+    if (keys == "s" || keys == "S") {
+      e.preventDefault();
+      if (localStorage.getItem("uid") != null) {
+        updateDb(localStorage.getItem("uid"), container.innerHTML)
+        alert("saved")
+      }
+
+    } if (keys == "a" || keys == "A") {
       e.preventDefault();
       const box = qsa(".box")
       box.forEach(item => {
@@ -125,9 +136,7 @@ export default function shortCut(e) {
 
 
     // if (document.activeElement.tagName != "BODY") return
-    if (keys == "Delete") {
-      this.removeSelected();
-    }
+    
   })
 
 }

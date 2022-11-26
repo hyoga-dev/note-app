@@ -3,8 +3,8 @@
   opacity: 0;
   transform: translate(20px, 0);
   position: absolute;
-  left: 90px;
-  top: 167px;
+  right: 90px;
+  top: 190px;
   z-index: 99;
   transition: .1s ease-out .1s;
   display: flex;
@@ -35,6 +35,6 @@
   width: 0;
   height: 0;
   border-top: 5px solid transparent;
-	border-right: 7px solid var(--dark-text);
+  border-left: 7px solid var(--dark-text);
 	border-bottom: 5px solid transparent;
 }

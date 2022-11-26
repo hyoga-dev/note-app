@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/main.css" />
     <script defer src="https://kit.fontawesome.com/ba324e01bb.js" crossorigin="anonymous"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- <script type="module" src="./src/index.js"></script> -->
-    <script defer src="./dist/main.js"></script>
+    <script type="module" src="./src/index.js"></script>
+    <!-- <script defer src="./dist/main.js"></script> -->
     <title>Note app test</title>
   </head>
   <body ondragstart="return false;">
@@ -23,7 +23,7 @@
       </section>
       <div class="s-line"></div>
       <section>
-        <div class="item-box" title="heading" id="h1"><i class="fa-solid fa-h icon"></i></div>
+        <div class="item-box h1" title="heading" id="h1"><i class="fa-solid fa-h icon"></i></div>
         <div class="item-box h3" title="heading 3" ><img src="/src/asset/h3.svg" id="h3" alt="h3-icon" width="20"></div>
         <div class="item-box paragraph" title="paragraph" id="paragraph"><i class="fa-solid fa-p icon"></i></div>
       </section>
@@ -54,10 +54,16 @@
         <div class="item-box" title="color" id="color"><img src="/src/asset/text-color.svg" alt="text-color" id="text-color" width="11"></div>
         <div class="item-box" title="bg-color" id="bg-color"><img src="/src/asset/back-color.svg" alt="text-back-color" id="back-color" width="15"></div>
       </section>
+      <div class="s-line"></div>
+      <section>
+        <div class="item-box" title="fullscreen" id="expand-container"><i id="expand" class="fa-solid fa-expand"></i></div>
+      </section>
     </div>
 
 
-
+    <div class="grab-container">  
+      <p class="grab-me">Drag me</p> <div class="triangle"></div>
+    </div>
 
     <div class="side-tool tool" >
       <section><div title="add card" class="item-box" id="btn"><img src="/src/asset/add-button.svg" id="add-btn" alt="add-button-icon" width="15"></div></section>
@@ -169,12 +175,12 @@
 
     <div class="container" id="container"> 
 
-      <div class="box" style="left: 30%;top: 30%;width: 200px;" spellcheck="false">
-        <h1>Welcome</h1>
-        <hr class="hr"> 
-        <p>
+      <div class="box" style="left: 30%;top: 30%;width: 250px;" spellcheck="false">
+        <h1 style="text-align: center;">Welcome</h1>
+        <p style="text-align: center;">
           Drag and drop + button to add card.
         </p>
+        <hr class="hr"> 
         <h3>Update: </h3>
         <ul>
           <li>Undo & redo</li>
@@ -182,8 +188,10 @@
           <li>Detect text style</li>
           <li>Add link</li>
           <li>Add image</li>
-          <li>Add lock, unclock, unlock-all</li>
+          <li>Add lock, unlock, and unlock-all</li>
           <li>Copy more than one</li>
+          <li>Add authentication</li>
+          <li>Save to cloud</li>
           <li>Fix some bug</li>
         </ul>
       </div>
@@ -192,9 +200,7 @@
 
 
 
-    <div class="grab-container">  
-      <div class="triangle"></div><p class="grab-me">Drag me</p> 
-    </div>
+    
 
     <div id="context-menu">
       <div class="menu" id="copy">Copy <span>Ctrl + Shift + C</span></div>
@@ -211,10 +217,54 @@
       <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
       <div class="document-menu" id="context-undo">Undo <span>Ctrl + Z</span></div>
       <div class="document-menu" id="context-redo">Redo <span>Ctrl + Y</span></div>
+      <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
+      <div class="document-menu" id="save">Save <span>Ctrl + S</span></div>
+      <div class="document-menu" id="load">Load </div>
       <div class="document-menu" id="unlock-all">Unlock-all <span>Ctrl + Shift + L</span></div>
     </div>
 
     <div id="select-drag"></div>
+
+
+
+
+
+
+    <!-- <button id="getDb">Get db</button>
+    <button id="sendDb">Send db</button>
+    <button id="updateDb">Update data</button>
+
+    <script type="module">
+      import { getDb, sendDb, updateDb } from "./src/js/transferData.js"
+      const con = document.getElementById("container");
+
+      const getData = document.getElementById("getDb")
+      getData.addEventListener("click", getDb)
+      
+      const sendData = document.getElementById("sendDb")
+      sendData.addEventListener("click", () => {
+        sendDb(con.innerHTML)
+      })
+
+      const updateData = document.getElementById("updateDb")
+      updateData.addEventListener("click", () => {
+        console.log("onai")
+        updateDb(con.innerHTML)
+      })
+
+      
+
+    </script> -->
+
+
+
+
+
+
+
+
+
+
 
     <!-- ########### script ########## -->
     
@@ -229,82 +279,86 @@
       }
       
       if (localStorage.getItem("username") != null) {
+        pPicture.setAttribute("src", localStorage.getItem("photo-url"))
         pName.innerHTML = localStorage.getItem("username")
         pName.style.cursor = "default"
-        pPicture.setAttribute("src", localStorage.getItem("photo-url"))
       } else {
         pPicture.setAttribute("src", "/src/asset/profile-pic.svg")
         pName.innerHTML = "Sign In"
       }
 
       sessionStorage.setItem("before", "[]")
-      </script>
+    </script>
       
-      <!-- ========================================================================================= -->
-      <script defer type="module">
-        import {  signInWithPopup, GoogleAuthProvider, getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-        // import firebaseConfig from "/src/js/auth/firebaseConfig.js";
+    <!-- ========================================================================================= -->
+    <script defer type="module">
+      import { sendDb } from "./src/js/transferData.js"
+      import { signInWithPopup, GoogleAuthProvider, getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 
-        const firebaseConfig = {
-          apiKey: "AIzaSyBv6B0SK9i8RPaxEAl8xEvUGvB5sCKqYJE",
-          authDomain: "crested-century-358414.firebaseapp.com",
-          projectId: "crested-century-358414",
-          storageBucket: "crested-century-358414.appspot.com",
-          messagingSenderId: "877727470884",
-          appId: "1:877727470884:web:e4a72436ace1abdfbccfb1",
-          measurementId: "G-V7ST810NKZ",
-          databaseURL: "https://crested-century-358414-default-rtdb.firebaseio.com"
-        };
+      const firebaseConfig = {
+        apiKey: "AIzaSyBv6B0SK9i8RPaxEAl8xEvUGvB5sCKqYJE",
+        authDomain: "crested-century-358414.firebaseapp.com",
+        projectId: "crested-century-358414",
+        storageBucket: "crested-century-358414.appspot.com",
+        messagingSenderId: "877727470884",
+        appId: "1:877727470884:web:e4a72436ace1abdfbccfb1",
+        measurementId: "G-V7ST810NKZ",
+        databaseURL: "https://crested-century-358414-default-rtdb.firebaseio.com"
+      };
 
-        const provider = new GoogleAuthProvider();
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-  
-        function signIn() {
-          if (localStorage.getItem("username") != null) return
-          signInWithPopup(auth, provider)
-          .then((result) => {
-            const user = result.user;
-  
-            localStorage.setItem("uid", user.uid)
-            localStorage.setItem("username", user.displayName)
-            localStorage.setItem("photo-url", user.photoURL)
-  
-            pName.innerHTML = user.displayName
-            pName.style.cursor = "default"
-            pPicture.setAttribute("src", user.photoURL)
-          })
-        }
+      const provider = new GoogleAuthProvider();
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
 
-        // const app = initializeApp(firebaseConfig);
-        // const auth = getAuth(app);
 
-        function logOut() {
-          // console.log('hai')
-          signOut(auth).then(() => {
-            
-            localStorage.removeItem("username")
-            localStorage.removeItem("uid")
-            localStorage.removeItem("photo-url")
+      function signIn() {
+        if (localStorage.getItem("username") != null) return
+        signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+          sendDb(user.uid, user.displayName, container.innerHTML)
 
-            pName.innerHTML = "Sign In"
-            pName.style.cursor = "pointer"
+          localStorage.setItem("uid", user.uid)
+          localStorage.setItem("username", user.displayName)
+          localStorage.setItem("photo-url", user.photoURL)
+          
+          pName.innerHTML = user.displayName
+          pName.style.cursor = "default"
+          pPicture.setAttribute("src", user.photoURL)
+          
+        })
+      }
 
-            if (localStorage.getItem("clicked") == "false") {
-              pPicture.setAttribute("src", "/src/asset/profile-dark.svg")
-            } else if (localStorage.getItem("clicked") == "true"){
-              pPicture.setAttribute("src", "/src/asset/profile-pic.svg")
-            } 
-          })
-        }
 
-        const profileName = document.getElementById('profile-name')
-        profileName.addEventListener('click', signIn)
-        
-        const out = document.getElementById('log-out')
-        out.addEventListener('click', logOut)
-      </script>
+      function logOut() {
+        signOut(auth).then(() => {
+          
+          localStorage.removeItem("username")
+          localStorage.removeItem("uid")
+          localStorage.removeItem("photo-url")
+
+          pName.innerHTML = "Sign In"
+          pName.style.cursor = "pointer"
+
+          if (localStorage.getItem("clicked") == "false") {
+            pPicture.setAttribute("src", "/src/asset/profile-dark.svg")
+          } else if (localStorage.getItem("clicked") == "true"){
+            pPicture.setAttribute("src", "/src/asset/profile-pic.svg")
+          } 
+        })
+      }
+
+      const profileName = document.getElementById('profile-name')
+      profileName.addEventListener('click', signIn)
+      
+      const out = document.getElementById('log-out')
+      out.addEventListener('click', logOut)
+
+      // if (localStorage.getItem("uid") != null) {
+      //   setInterval(() => updateDb(localStorage.getItem("uid"), container.innerHTML), 1000 * 60)
+      // }
+    </script>
 
   </body>
 </html>

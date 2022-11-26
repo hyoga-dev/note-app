@@ -6,7 +6,7 @@ import fly from "./fly-card.js";
 
 
 
-
+const cm = new Menu("context-menu", ".box")
 const container = getId("container")
 const rotateSpeed = 1.3;
 let before = []
@@ -16,12 +16,13 @@ let before = []
 
 export default function addCard(e) {
 
-  let a, b, rectLeft, rectTop, prevEvent, currentEvent, arr, moved;
+  let a, b, rectLeft, rectTop
+  // , prevEvent, currentEvent, arr, moved;
   const para = document.createElement("div");
 
   para.classList.add("box");
   para.style.opacity = "0";
-  para.style.zIndex = "100";
+  para.style.zIndex = localStorage.getItem('max') + 1;
 
   container.appendChild(para);
 
@@ -106,6 +107,7 @@ export default function addCard(e) {
     getId("redo").style.opacity = "0.5"
     getId("undo").style.opacity = "1"
 
+    cm.refreshEvent()
     saveCorner(newBox);
   }
 

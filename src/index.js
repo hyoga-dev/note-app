@@ -60,6 +60,7 @@ function unhideImgPop(e) {
   imgPop.classList.toggle('unhide')
 }
 
+// ========================================================================
 function addLink(e) {
   e.preventDefault()
   select.removeAllRanges()
@@ -79,6 +80,7 @@ function addLink(e) {
   // linkPop.classList.remove('unhide')
 }
 
+// ========================================================================
 function addImage(e) {
   e.preventDefault()
   select.removeAllRanges()
@@ -89,6 +91,7 @@ function addImage(e) {
   for (const item of img) {
     if (item.id == '') {
       item.style.width = '100%'
+      item.style.borderRadius = '5px'
       item.style.objectFit = 'contain'
     }
   }

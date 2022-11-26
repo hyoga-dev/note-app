@@ -1,3 +1,5 @@
+// const html2pdf = await import("https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js")
+
 export default function toPdf(){
   document.getElementById("download-pdf").style.opacity = "0.5";
   document.querySelector(".fa-file-arrow-down").style.opacity = "0.5";
@@ -18,8 +20,8 @@ export default function toPdf(){
     margin:       1,
     filename:     'myfile.pdf',
     // pagebreak: { mode: 'avoid-all' },
-    // image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 5 },
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: scale },
     jsPDF:        { unit: unit, format: format, orientation: 'landscape' }
   };
 

@@ -108,6 +108,24 @@ div[data-clear="true"] {
   background-color: red;
 }
 
-img {
+/* img {
   border-radius: 5px;
+} */
+
+#expand {
+  /* transform: scale(140%); */
+  color: var(--dark-text);
+  /* z-index: 888; */
+  /* position: fixed;
+  top: 34px;
+  right: 34px; */
 }
+
+/* #expand-container {
+  cursor: pointer;
+  transform: scale(140%);
+  z-index: 888;
+  position: fixed;
+  top: 40px;
+  right: 60px;
+} */

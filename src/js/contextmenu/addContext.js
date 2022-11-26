@@ -41,11 +41,17 @@ export default function addContext (e) {
       item.setAttribute('data-lock', false)
     })
   } else if (secondClass == "side-copy") {
-    this.copiedText = document.activeElement.cloneNode(true)
+    e.preventDefault();
+
+    const txt = []
+    qsa('.selected').forEach( item => {
+      txt.push(item.cloneNode(true));
+    })
+    this.copiedText = txt
   } else if (secondClass == "side-delete") {
     e.preventDefault()
     this.removeSelected()
-  }
+  } 
 
   this.menu.style.display = 'none';
 }

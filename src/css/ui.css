@@ -81,7 +81,7 @@
   flex-direction: column;
   align-items: center;
   row-gap: 25px;
-  left: 40px;
+  right: 40px;
   /* border: 1px solid black; */
   top: 150px;
   width: 50px;

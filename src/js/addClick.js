@@ -1,5 +1,6 @@
 // import signIn from "./auth/signIn.js"
 // import logOut from "./auth/signOut.js"
+import openFullscreen from "./fullscreen.js"
 import { redo, undo } from "./undoRedo.js"
 import { addEditor, getId, qs } from "./utility.js"
 
@@ -30,6 +31,11 @@ export default function addClick() {
   
   // const signOut = getId('log-out')
   // signOut.addEventListener('click', logOut)
+
+  const expandContainer = getId("expand-container")
+  const expand = getId("expand")
+  expand.addEventListener("click", openFullscreen)
+  expandContainer.addEventListener("click", openFullscreen)
 
   const h1 = getId("h1")
   h1.addEventListener("mousedown", () => addEditor(event, "formatBlock","h1") )
