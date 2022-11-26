@@ -13,7 +13,7 @@
   background-image: url("../asset/dot-bg.svg");
   background-position: right top;
   background-size: 6px auto;
-  transition: filter .4s, opacity .4s;
+  transition: filter .1s, opacity .1s;
   /* user-select: none; */
 }
 
