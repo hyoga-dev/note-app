@@ -23,6 +23,7 @@ export async function getDb(uid, room) {
   container.innerHTML = data["room" + room]
   container.style.opacity = "1"
   container.style.filter = "blur(0)"
+  localStorage.setItem("container", container.innerHTML)
   cm.refreshEvent()
   refreshFly()
 }

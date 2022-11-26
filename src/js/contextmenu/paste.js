@@ -5,9 +5,6 @@ import { getStyleInt, qs } from "../utility.js";
 let copied;
 
 export function paste(e) {
-  // console.log(this.copiedText)
-  // console.log(this.copiedText.length)
-
   if (this.copiedText.length > 1) return this.pasteKey()
   this.copiedText = this.copiedText[0]
   if (this.copiedText != undefined) {
@@ -35,8 +32,6 @@ export function pasteKey () {
   const copied = []
   if (this.copiedText == undefined) return
     this.copiedText.forEach( (copiedText) => {
-      // if (copied == copiedText) copiedText = copied.cloneNode(true)
-      // copiedText = copiedText.cloneNode(true)
       qs(".container").appendChild(copiedText)
       
       let top = parseInt(getComputedStyle(copiedText).getPropertyValue("top"))
@@ -48,11 +43,9 @@ export function pasteKey () {
       copiedText.style.zIndex = getStyleInt(copiedText, "z-index") + 1;
       
       addMenu(copiedText, this.menu)
-      // copied = copiedText  
       fly(copiedText)
       copied.push(copiedText.cloneNode(true))
     })
-    // console.log(copied)
     this.copiedText = copied
     this.refreshEvent()
     localStorage.setItem("container", document.getElementById("container").innerHTML)
