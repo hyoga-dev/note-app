@@ -1,5 +1,9 @@
 
 /* save */
+#save {
+  display: none;
+}
+
 #save:hover > div {
   display: block;
 }
@@ -27,8 +31,15 @@
 
 
 
-
 /* load */
+#load {
+  display: none;
+}
+
+#load-hr {
+  display: none;
+}
+
 #load div{
   display: none;
   position: absolute;

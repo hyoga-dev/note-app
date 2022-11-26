@@ -216,19 +216,19 @@
       <div class="document-menu" id="d-select-all">Select all <span>Ctrl + A</span></div>
       <div class="document-menu" id="d-paste">Paste <span>Ctrl + Shift + V</span></div>
       <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
-      <div class="document-menu" id="save">Save <div>
+      <div class="document-menu" id="save">Save <span id="triangle-save"></span><div>
         <p>room 1</p>
         <p>room 2</p>
         <p>room 3</p>
         <p>room 4</p>
       </div></div>
-      <div class="document-menu" id="load">Load <div>
+      <div class="document-menu" id="load">Load <span id="triangle-load"></span><div>
         <p>room 1</p>
         <p>room 2</p>
         <p>room 3</p>
         <p>room 4</p>
       </div> </div>
-      <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
+      <div id="load-hr" style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
       <div class="document-menu" id="context-undo">Undo <span>Ctrl + Z</span></div>
       <div class="document-menu" id="context-redo">Redo <span>Ctrl + Y</span></div>
       <div class="document-menu" id="unlock-all">Unlock-all <span>Ctrl + Shift + L</span></div>
@@ -241,31 +241,6 @@
 
 
 
-    <!-- <button id="getDb">Get db</button>
-    <button id="sendDb">Send db</button>
-    <button id="updateDb">Update data</button>
-
-    <script type="module">
-      import { getDb, sendDb, updateDb } from "./src/js/transferData.js"
-      const con = document.getElementById("container");
-
-      const getData = document.getElementById("getDb")
-      getData.addEventListener("click", getDb)
-      
-      const sendData = document.getElementById("sendDb")
-      sendData.addEventListener("click", () => {
-        sendDb(con.innerHTML)
-      })
-
-      const updateData = document.getElementById("updateDb")
-      updateData.addEventListener("click", () => {
-        console.log("onai")
-        updateDb(con.innerHTML)
-      })
-
-      
-
-    </script> -->
 
 
 
@@ -283,13 +258,18 @@
       const container = document.getElementById("container");
       const pName = document.getElementById("profile-name")
       const pPicture = document.getElementById("profile")
- 
+      const save = document.getElementById("save")
+      const load = document.getElementById("load")
+      const loadHr = document.getElementById("load-hr")
 
       if (localStorage.getItem("container") != null) {
         container.innerHTML = localStorage.getItem("container");
       }
       
       if (localStorage.getItem("username") != null) {
+        save.style.display = "block"
+        load.style.display = "block"
+        loadHr.style.display = "block"
         pPicture.setAttribute("src", localStorage.getItem("photo-url"))
         pName.innerHTML = localStorage.getItem("username")
         pName.style.cursor = "default"
@@ -325,6 +305,10 @@
         .then((result) => {
           const user = result.user;
           sendDb(user.uid, user.displayName, container.innerHTML)
+
+          save.style.display = "block"
+          load.style.display = "block"
+          loadHr.style.display = "block"
 
           localStorage.setItem("uid", user.uid)
           localStorage.setItem("username", user.displayName)

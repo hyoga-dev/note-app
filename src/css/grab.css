@@ -4,7 +4,7 @@
   transform: translate(20px, 0);
   position: absolute;
   right: 90px;
-  top: 190px;
+  top: 168px;
   z-index: 99;
   transition: .1s ease-out .1s;
   display: flex;
@@ -37,4 +37,20 @@
   border-top: 5px solid transparent;
   border-left: 7px solid var(--dark-text);
 	border-bottom: 5px solid transparent;
+}
+
+#triangle-save, #triangle-load {
+  border-radius: 0;
+  padding: 0;
+
+  display: inline-block;
+  margin-top: 3px;
+  width: 0;
+  height: 0;
+  opacity: 0.5;
+  border-right: 0 solid transparent;
+  border-top: 4px solid transparent;
+  border-left: 7px solid var(--dark-text);
+	border-bottom: 4px solid transparent;
+  background-color: transparent;
 }
