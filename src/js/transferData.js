@@ -59,6 +59,7 @@ export async function updateDb(uid, content, room) {
     room: room
   }
 
+  container.style.opacity = "0.5"
   const option = {
     method: "POST",
     headers: {
@@ -66,9 +67,10 @@ export async function updateDb(uid, content, room) {
     },
     body: JSON.stringify(obj)
   }
-
+  
   const send = await fetch(url + "update_db", option)
   const data = await send.json()
+  container.style.opacity = "1"
   console.log(data)
 }
 
