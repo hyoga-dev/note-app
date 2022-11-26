@@ -1,7 +1,6 @@
 const url = "https://note-app-server-production.up.railway.app/"
 import fly from "./fly/fly-card.js"
 import Menu from "./menu.js"
-const container = document.getElementById("container")
 
 // =================================================
 export async function getDb(uid, room) {
@@ -53,6 +52,8 @@ export async function sendDb(uid, name, content) {
 
 // =================================================
 export async function updateDb(uid, content, room) {
+  const container = document.getElementById("container")
+
   const obj = {
     uid: uid,
     content: content,
@@ -69,8 +70,8 @@ export async function updateDb(uid, content, room) {
   
   const send = await fetch(url + "update_db", option)
   const data = await send.json()
-  container.style.opacity = "1"
   console.log(data)
+  container.style.opacity = "1"
 }
 
 // =================================================
