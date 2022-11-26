@@ -21,6 +21,7 @@ export async function getDb(uid, room) {
   const send = await fetch(url + "get_db", option)
   const data = await send.json()
   container.innerHTML = data["room" + room]
+  container.style.opacity = "1"
   cm.refreshEvent()
   refreshFly()
 }
@@ -52,8 +53,6 @@ export async function sendDb(uid, name, content) {
 
 // =================================================
 export async function updateDb(uid, content, room) {
-  const container = document.getElementById("container")
-
   const obj = {
     uid: uid,
     content: content,
@@ -71,7 +70,6 @@ export async function updateDb(uid, content, room) {
   const send = await fetch(url + "update_db", option)
   const data = await send.json()
   console.log(data)
-  container.style.opacity = "0.5"
 }
 
 // =================================================
