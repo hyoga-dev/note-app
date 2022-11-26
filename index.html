@@ -324,6 +324,10 @@
       function logOut() {
         signOut(auth).then(() => {
           
+          save.style.display = "none"
+          load.style.display = "none"
+          loadHr.style.display = "none"
+
           localStorage.removeItem("username")
           localStorage.removeItem("uid")
           localStorage.removeItem("photo-url")
