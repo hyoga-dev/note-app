@@ -20,6 +20,7 @@ export async function getDb(uid, room) {
 
   const send = await fetch(url + "get_db", option)
   const data = await send.json()
+  if (data["room" + room] == undefined) return container.innerHTML = ""
   container.innerHTML = data["room" + room]
   container.style.opacity = "1"
   container.style.filter = "blur(0)"
