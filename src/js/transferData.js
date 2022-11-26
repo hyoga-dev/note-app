@@ -71,7 +71,7 @@ export async function updateDb(uid, content, room) {
   const send = await fetch(url + "update_db", option)
   const data = await send.json()
   console.log(data)
-  container.style.opacity = "1"
+  container.style.opacity = "0.5"
 }
 
 // =================================================

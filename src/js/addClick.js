@@ -43,7 +43,7 @@ export default function addClick() {
   load.forEach( (item, index) => {
     const room = index + 1
     item.addEventListener("mousedown", () => {
-      container.style.opacity = "0.5"
+      // container.style.opacity = "0.5"
       getDb(localStorage.getItem("uid"), room)
     })
   })
