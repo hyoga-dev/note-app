@@ -22,6 +22,7 @@ export async function getDb(uid, room) {
   const data = await send.json()
   container.innerHTML = data["room" + room]
   container.style.opacity = "1"
+  container.style.filter = "blur(0)"
   cm.refreshEvent()
   refreshFly()
 }
