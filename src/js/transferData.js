@@ -1,7 +1,7 @@
 const url = "https://note-app-server-production.up.railway.app/"
 import fly from "./fly/fly-card.js"
 import Menu from "./menu.js"
-
+const container = document.getElementById("container")
 
 // =================================================
 export async function getDb(uid, room) {
