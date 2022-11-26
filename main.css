@@ -25,6 +25,7 @@
 }
 
 body {
+  background-color: var(--back-color);
   box-sizing: border-box;
   margin: 0;
   font-family: arial;
