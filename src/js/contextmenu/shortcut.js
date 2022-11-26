@@ -14,14 +14,15 @@ export default function shortCut(e) {
   }
   
   if (ctrl) {
-    if (keys == "s" || keys == "S") {
-      e.preventDefault();
-      if (localStorage.getItem("uid") != null) {
-        updateDb(localStorage.getItem("uid"), container.innerHTML)
-        alert("saved")
-      }
+    // if (keys == "s" || keys == "S") {
+    //   e.preventDefault();
+    //   if (localStorage.getItem("uid") != null) {
+    //     updateDb(localStorage.getItem("uid"), container.innerHTML)
+    //     alert("saved")
+    //   }
 
-    } if (keys == "a" || keys == "A") {
+    // }
+     if (keys == "a" || keys == "A") {
       e.preventDefault();
       const box = qsa(".box")
       box.forEach(item => {

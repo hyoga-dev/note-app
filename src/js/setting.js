@@ -58,7 +58,7 @@ function darkMode() {
       pPicture.setAttribute("src", "/src/asset/profile-dark.svg")
     }
 
-    hr.style.color = '#7e6340'
+    // hr.style.color = '#7e6340'
     root.style.setProperty("--dark-text", "#ddd")
     root.style.setProperty("--mid-text", "#ccc")
     root.style.setProperty("--back-color", "#33373a")
@@ -81,7 +81,7 @@ function darkMode() {
       pPicture.setAttribute("src", "/src/asset/profile-pic.svg")
     }
 
-    hr.style.color = '#e1e7ee'
+    // hr.style.color = '#e1e7ee'
     root.style.setProperty("--dark-text", "#4e6d89")
     root.style.setProperty("--mid-text", "#6c889e")
     root.style.setProperty("--back-color", "#f7f7f7")

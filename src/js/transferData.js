@@ -4,10 +4,11 @@ import Menu from "./menu.js"
 
 
 // =================================================
-export async function getDb(uid) {
+export async function getDb(uid, room) {
   const cm = new Menu("context-menu", ".box")
   const obj = {
-    uid: uid
+    uid: uid,
+    room: room
   }
 
   const option = {
@@ -20,13 +21,14 @@ export async function getDb(uid) {
 
   const send = await fetch(url + "get_db", option)
   const data = await send.json()
-  container.innerHTML = data.content
+  container.innerHTML = data["room" + room]
   cm.refreshEvent()
   refreshFly()
 }
 
 // =================================================
 export async function sendDb(uid, name, content) {
+
   const obj = {
     uid: uid,
     name: name,
@@ -45,15 +47,16 @@ export async function sendDb(uid, name, content) {
   const data = await send.json()
 
   if (data.msg == "user exist") {
-    getDb(uid)
+    getDb(uid, 0)
   }
 }
 
 // =================================================
-export async function updateDb(uid, content) {
+export async function updateDb(uid, content, room) {
   const obj = {
     uid: uid,
-    content: content
+    content: content,
+    room: room
   }
 
   const option = {
@@ -66,6 +69,7 @@ export async function updateDb(uid, content) {
 
   const send = await fetch(url + "update_db", option)
   const data = await send.json()
+  console.log(data)
 }
 
 // =================================================

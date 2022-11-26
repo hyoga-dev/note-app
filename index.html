@@ -192,6 +192,7 @@
           <li>Copy more than one</li>
           <li>Add authentication</li>
           <li>Save to cloud</li>
+          <li>Add room</li>
           <li>Fix some bug</li>
         </ul>
       </div>
@@ -215,11 +216,21 @@
       <div class="document-menu" id="d-select-all">Select all <span>Ctrl + A</span></div>
       <div class="document-menu" id="d-paste">Paste <span>Ctrl + Shift + V</span></div>
       <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
+      <div class="document-menu" id="save">Save <div>
+        <p>room 1</p>
+        <p>room 2</p>
+        <p>room 3</p>
+        <p>room 4</p>
+      </div></div>
+      <div class="document-menu" id="load">Load <div>
+        <p>room 1</p>
+        <p>room 2</p>
+        <p>room 3</p>
+        <p>room 4</p>
+      </div> </div>
+      <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
       <div class="document-menu" id="context-undo">Undo <span>Ctrl + Z</span></div>
       <div class="document-menu" id="context-redo">Redo <span>Ctrl + Y</span></div>
-      <div style="border-bottom: .5px solid #d4d4d4;margin: 8px 8px;"></div>
-      <div class="document-menu" id="save">Save <span>Ctrl + S</span></div>
-      <div class="document-menu" id="load">Load </div>
       <div class="document-menu" id="unlock-all">Unlock-all <span>Ctrl + Shift + L</span></div>
     </div>
 
@@ -301,10 +312,6 @@
         authDomain: "crested-century-358414.firebaseapp.com",
         projectId: "crested-century-358414",
         storageBucket: "crested-century-358414.appspot.com",
-        messagingSenderId: "877727470884",
-        appId: "1:877727470884:web:e4a72436ace1abdfbccfb1",
-        measurementId: "G-V7ST810NKZ",
-        databaseURL: "https://crested-century-358414-default-rtdb.firebaseio.com"
       };
 
       const provider = new GoogleAuthProvider();
@@ -326,7 +333,6 @@
           pName.innerHTML = user.displayName
           pName.style.cursor = "default"
           pPicture.setAttribute("src", user.photoURL)
-          
         })
       }
 

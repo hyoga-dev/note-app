@@ -5,6 +5,7 @@
 @import "/src/css/context-menu.css";
 @import "/src/css/color.css";
 @import "/src/css/link.css";
+@import "/src/css/save-load.css";
 
 @font-face {
   font-family: sera-reguler;
@@ -113,19 +114,9 @@ div[data-clear="true"] {
 } */
 
 #expand {
-  /* transform: scale(140%); */
   color: var(--dark-text);
-  /* z-index: 888; */
-  /* position: fixed;
-  top: 34px;
-  right: 34px; */
 }
 
-/* #expand-container {
-  cursor: pointer;
-  transform: scale(140%);
-  z-index: 888;
-  position: fixed;
-  top: 40px;
-  right: 60px;
-} */
+#load:hover > div {
+  display: block;
+}

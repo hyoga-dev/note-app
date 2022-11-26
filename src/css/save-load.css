@@ -1,0 +1,56 @@
+
+/* save */
+#save:hover > div {
+  display: block;
+}
+
+#save div{
+  display: none;
+  position: absolute;
+  top: 68px;
+  left: 182px;
+  width: 60px;
+  border: 1px solid var(--box-border);
+  background-color: var(--back-color);
+}
+
+#save p{
+  padding: 4px 8px;  
+  margin: 0;
+  color: var(--dark-text);
+}
+
+#save p:hover {
+  background-color: var(--dark-text);
+  color: var(--back-color);
+}
+
+
+
+
+/* load */
+#load div{
+  display: none;
+  position: absolute;
+  top: 90px;
+  left: 182px;
+  width: 60px;
+  /* padding: 4px 8px;  *
+  /* height: 20px; */
+  border: 1px solid var(--box-border);
+  background-color: var(--back-color);
+}
+
+#load p{
+  padding: 4px 8px;  
+  margin: 0;
+  color: var(--dark-text);
+}
+
+#load p:hover {
+  background-color: var(--dark-text);
+  color: var(--back-color);
+}
+
+
+

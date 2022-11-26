@@ -21,15 +21,12 @@ export default function addContext () {
         item.setAttribute('data-lock', false)
       })
       localStorage.setItem("container", container.innerHTML)
-    } if (e.target.id == "save") {
-      if (localStorage.getItem("uid") != null) {
-        updateDb(localStorage.getItem("uid"), container.innerHTML)
-        alert("saved")
-      }
-    } if (e.target.id == "load") {
-      if (localStorage.getItem("uid") != null) {
-        getDb(localStorage.getItem("uid"))
-      }
+    } 
+    if (e.target.id == "save") {
+      e.preventDefault()
+    } 
+    if (e.target.id == "load") {
+      e.preventDefault()
     }
 
     this.menu.style.display = 'none';

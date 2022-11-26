@@ -1,8 +1,9 @@
 // import signIn from "./auth/signIn.js"
 // import logOut from "./auth/signOut.js"
 import openFullscreen from "./fullscreen.js"
+import { getDb, sendDb, updateDb } from "./transferData.js"
 import { redo, undo } from "./undoRedo.js"
-import { addEditor, getId, qs } from "./utility.js"
+import { addEditor, getId, qs, qsa } from "./utility.js"
 
 export default function addClick() {
   const bold = getId("bold")
@@ -26,11 +27,25 @@ export default function addClick() {
     qs(".fa-p").classList.toggle("dark-color") 
   })
 
-  // const profileName = getId('profile-name')
-  // profileName.addEventListener('click', signIn)
-  
-  // const signOut = getId('log-out')
-  // signOut.addEventListener('click', logOut)
+  const save = qsa("#save > div p")
+  save.forEach( (item, index) => {
+    const room = index + 1
+    item.addEventListener("mousedown", () => {
+      alert("saved")
+      updateDb(localStorage.getItem("uid"), container.innerHTML, room)
+    })
+  })
+
+  const load = qsa("#load > div p")
+  load.forEach( (item, index) => {
+    const room = index + 1
+    item.addEventListener("mousedown", () => {
+      getDb(localStorage.getItem("uid"), room)
+    })
+  })
+
+  // const saveItem = save.getElementsByTagName('p')
+
 
   const expandContainer = getId("expand-container")
   const expand = getId("expand")
